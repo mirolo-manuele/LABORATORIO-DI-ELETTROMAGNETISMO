@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amsthm} 
+\usepackage{physics}
+\usepackage{ragged2e}
+\usepackage{quoting}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\title{Appunti laboratorio di elettromagnetismo}
+\author{ Mirolo Manuele / Alessio Brusini}
+\date{a.a. 2025/26}
+\begin{document}
+\maketitle
+\justifying
+\tableofcontents
+\newpage
+\section{Lezione 22/09/2025}
+\subsection{Richiami di elettromagnetismo}
+\begin{itemize}
+    \item La carica elettrica è quantizzata, ovvero esiste una carica elementare $1 e = 1.6 \cdot 10^{-19} C$
+    \item Legge di Coulomb, che descrive la forza repulsiva/attrattiva tra due cariche puntiformi:
+    \[
+    \vec{F}_{1,2} = \frac{Q_1 Q_2}{4\pi\epsilon_0 r^2}
+    \]
+    dove $\epsilon_0 = 8.85 \cdot 10^{-12} \frac{C^2}{N \cdot m^2}$ è la costante dielettrica del vuoto.
+    
+    Possiamo notare che il campo elettrico è conservativo, per cui esiste un \textit{potenziale elettrico} $V$: 
+
+    \begin{equation*}
+        V=\frac{Q}{4 \pi \epsilon_0 r} \quad \vec{F} = - \vec{\nabla} V 
+    \end{equation*}
+
+    \item Definiamo \textbf{corrente elettrica} attraverso una superfice delimitante 2 regioni di spazio, la cui unità di misura è l'Ampere (A), tramite:
+    \[
+    I = \frac{dQ}{dt}
+    \]
+
+    Vale la legge sperimentale detta \textit{1° legge di Ohm}:
+    \[
+    V = R I
+    \]
+    dove $R$ è la resistenza del conduttore, che dipende dalla sua natura e dalla sua geometria, da cui la \textit{2° legge di Ohm}:
+    \[
+    R= \int_{0}^{l} \frac{d\rho(l')}{\Sigma(l')} dl'
+    \]
+    dove $\rho$ è la resistività del materiale e $\Sigma$ è la sezione del conduttore.
+    
+    La sua unità di misura è l'Ohm ($\Omega$):
+    \[
+    1 \Omega = 1 \frac{V}{A}
+    \]
+
+    \item La resistività dipende dalla temperatura secondo la legge:
+    \[
+    \rho(T) = \rho_{20} [1 + \alpha (T - 20^\circ bC)]
+    \]
+
+    \item Definiamo \textbf{potenza elettrica}, effettuando un lavoro L per spostare una carica fra due punti, come:
+    \[
+    W = \frac{dL}{dt} = V I = I^2 R = \frac{V^2}{R}
+    \]
+
+    \item In un atomo unico il potenziale atomico tende a 0 all'avvicinarsi del nucleo, mentre in un solido la funzione potenziale è periodica a causa della sovrapposizione dei potenziali atomici.
+    \item Definiamo \textbf{circuito elettrico} un campo elettrostatico $\vec{F}$ conservativo, il lavoro lungo un percorso chiuso è nullo, introduciamo allora un potenziale U, con dU differenziale esatto.
+    
+    Se la forza elettrica è originata da una distribuzione di carica \textbf{Q}, definiamo il \textbf{campo elettrico} $\mathbf{\vec{E}(\vec{r})}$ in ogni punto dello spazio. Tale \textbf{Q} permette di spostare una carica di prova \textbf{q} in $\vec{r}$ con una forza $\vec{F_e}(\vec{r}) = q \vec{E}(\vec{r})$
+
+    Si definisce una \textit{funzione differenza di potenziale} $\Delta U = q \Delta $ e $\vec{E}= -\vec{\nabla} V$
+
+    \item In un sistema fisico isolato (es. \textit{maglia conduttrice}), la carica totale si conserva, ovvero $\Delta V_{tot} = 0$, da cui la \textbf{legge di Kirchhoff}:
+    \begin{quote}
+        La somma delle tensioni ai capi di una maglia è nulla.
+    \end{quote}
+\end{itemize}
+\end{document}
