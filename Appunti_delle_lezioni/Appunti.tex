@@ -124,13 +124,41 @@ Una d.d.p. può non essere in grado di mantenere una corrente costante, in quant
 \[
 R \propto \frac{l}{\Sigma}
 \]
-dove $\Sigma$ è l'area della sezione del retto del conduttore
+dove $\Sigma$ è l'area della sezione retta del conduttore.
+
+Tramite prove sperimentali si introduce la \textbf{legge di Ohm} (nell'ipotesi di materiale omogeneo e di sezione costante):
+\[
+R= \rho \frac{l}{\Sigma}
+\]
+dove $\rho (\theta)$ è la resistività del materiale, che dipende molto da $T$; inoltre $L \propto T$ e $\Sigma \propto T^2$, ma tali effetti si compensano. Da cui:
+\[
+\rho(\theta) \simeq \rho_{\theta^*}(1 + \alpha (\theta - \theta^*))
+\]
+dove $\theta^*$ è la temperatura di riferimento, che cambia per ingegneri e fisici (solitamente in rete è $\theta=20^{\circ}$).
+
+Da ciò deriva il fatto che $R \propto T$.
+
+\item Per l'intensità invece avremo 
+\[
+I = \frac{V}{R} \rightarrow V = R I
+\]
+Tutte le leggi sono \textit{fenomenologiche}, non derivano da principi primi.
 \end{itemize}
+La formula più realistica che rappresenta la resistenza di un tratto di circuito è la seguente:
+\[
+R = \int_{l_1}^{l_2} \frac{\rho(l')}{\Sigma(l')} dl'
+\]
+ovvero un integrale curvilineo\\
 
-
-
-
-
+\begin{center}
+\begin{circuitikz}
+    % Circuito base: pila + resistore
+    \draw(0,0) to[battery, l=$V$] (0,2)
+          to[short] (2,2)
+          to[R, l=$R_1$] (2,0)
+          to[R, l=$R_2$] (0,0);
+\end{circuitikz}
+\end{center}
 
 
 
