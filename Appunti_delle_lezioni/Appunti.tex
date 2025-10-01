@@ -157,8 +157,136 @@ ovvero un integrale curvilineo\\
           to[short] (2,2)
           to[R, l=$R_1$] (2,0)
           to[R, l=$R_2$] (0,0);
+    
+          \draw (2,0) node[circ, label=below:$B$] {};
+            \draw (0,2) node[circ, label=above:$A$] {};
+            \draw (0,0) node[circ, label=below:$C$] {};
 \end{circuitikz}
 \end{center}
+Siccome supponiamo che il circuito sia un sistema isolato, valgono
+\[
+V_{tot} = V_{AB} + V_{BC} \quad I=VR_{eq} \rightarrow R_{eq} = R_1 + R_2
+\]
+
+\section{Lezione 29/09/2025}
+\subsection{Resistenze in serie e parallelo}
+Vediamo un altro tipo di circuito, che rappresenta un \textbf{partitore di correnti}
+\begin{center}
+\begin{circuitikz}
+  \draw
+  (0,0) to[battery, l=$V$] (0,4)
+  to[short] (2,4)
+  to[R=$R_1$] (2,0)
+  (2,4) to[short] (4,4)
+  (4,4) to[R=$R_2$] (4,0)
+  -- (0,0);
+\end{circuitikz}
+\end{center}
+
+
+deve valore la legge di Kirchhoff (sistena isolato) e quella di Ohm:
+\[
+I=I_1+I_2 
+\]
+Poichè supponiamo che non ci siano altre resistenze (sistema ideale), la differenza di potenziale ai capi delle due resistenze deve essere la stessa (dalla legge di Ohm):
+\[
+\frac{V}{R_{eq}} = \frac{V}{R_1} + \frac{V}{R_2} \rightarrow \frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{R_1 + R_2}{R_1R_2}
+\]
+
+Supponiamo di avere un solo alimentatore e dover far funzionare tre dispositivi, utilizziamo un \textbf{partitore di tensione}
+\begin{center}
+\begin{circuitikz}[american]
+
+  \draw
+    (0,0) node[left] {$A$} to[battery1,l=$V$] (0,-6) node[left] {$D$};
+  \draw
+    (0,0) -- (2,0)
+      to[R=$R_1$, *-*] (2,-2) node[right] {$B$}
+      to[R=$R_2$, *-*] (2,-4) node[right] {$C$}
+      to[R=$R_3$, *-*] (2,-6) -- (0,-6);
+\end{circuitikz}
+\end{center}
+ovvero un oggetto che permette di dividere la tensione in più parti, stabili nel tempo.
+
+
+Chiamiamo \textit{corrente continua}, quella che rimane costante per un perio abbastanza lungo di tempo. 
+\pagebreak
+\subsection{Strumenti per misurare corrente e tensione}
+Uno strumento per misurare delle variabili fisiche dovrebbe sempre dare una risposta \textit{lineare}.
+Indichiamo con:
+\begin{itemize}
+\item $\vec{E}$ il campo elettrico,
+\item $\vec{B}$ il campo magnetico,
+\item $\vec{F_L}$ la forza di Lorentz:
+\end{itemize} 
+\[
+\vec{F_L} = q \vec{E} + q \vec{v} \times \vec{B}
+\]
+La forza di Lorentz subita da una carica in un campo elettromagnetico è la somma della forza elettrica e della forza magnetica, l'una moltiplicata per la carica e l'altra per la velocità della carica.
+
+Sono tutte quantità relativisticamente invarianti dunque la formula vale sia per la fisica classica che per quella relativistica.
+
+Consideriamo ora il caso di una calamita con i poli avvicinati e presente uno spazio cilindrico tra di loro. Se inseriamo li un segmento cilindrico di ferro dolce (materiale che reagisce velocemente al campo magnetico in cui si trova), allora posso trovare dei segmentini di linee di campo (che ricordiamo essere
+ortogonali alla superfice equipotenziale della calamita) 
+
+\begin{center}
+\begin{tikzpicture}
+    
+% Cilindro (vista 3D semplificata)
+\shade[ball color=gray!40, opacity=0.8] (0,0) ellipse (1 and 0.3); % parte superiore
+\draw (0,0) ellipse (1 and 0.3); % bordo superiore
+
+\draw (-1,0) -- (-1,-3); % lato sinistro
+\draw (1,0) -- (1,-3);   % lato destro
+
+\draw (-1,-3) arc[start angle=180, end angle=360, x radius=1, y radius=0.3]; % base visibile
+\draw[dashed] (1,-3) arc[start angle=0, end angle=180, x radius=1, y radius=0.3]; % base nascosta
+
+% Etichetta
+\node at (0,-3.7) {Cilindro di ferro dolce};
+
+\end{tikzpicture}
+\end{center}
+
+Se supponiamo di avvolgere tale cilindro con una spira e facciamo passare corrente elettrica, chiamati a e b i lati corto e lungo della spira e 
+osservando il più classico degli \textit{elettroni di conduzione} con velocità $v$, il tratto di spira a sarà ortogonale al campo magnetico 
+\[
+e^- v \times B = e^- v B 
+\]
+L'elettrone viene "spinto fuori dalla spira"
+
+Contrariamente nel tratto b, l'elettrone non viene deviato, in quanto la velocità è parallela a $B$. Tornato nel tratto A, se I rimane costante avremo nuovamente $\vec{F_L}$, sempre diretta verso l'esterno.
+
+Questa coppia di forze genera un \textit{momento torcente} pari a: $\tau = e^- v B b $
+
+Il flusso invece è dato dalla \textit{densità dei portatori di carica} $\lambda$, dunque scrivendo la corrente come $ v A \lambda e =I = \frac{dq}{dt}$, da cui
+\[
+\tau = B I b = B n a b I \quad I = \lambda a e v 
+\]
+
+Bilanciamo questo momento con una forza elastica grazie a delle molle elicoidali controrotanti (in modo da bilanciare le imperfezioni), ricordando che (nell'approsimazione di $\theta < 4^\circ$):
+\[
+\tau_{el} \approx k \theta = \tau_{mag} = B I b \rightarrow \theta = \frac{B n a b}{k} I
+\]
+Dobbiamo dunque risaltare il nostro segnale, per questo la molla ha più spire (non più di 10 per evitare deformazioni), in tal modo inoltre, l'approsimazione angolare vale fino a $\theta < 40^\circ$ (max $\theta = 3600^\circ$).
+
+Nel caso della realtà abbiamo il cosidetto \textit{effetto Joule}, ovvero il riscaldamento del conduttore, quindi posso usare solo piccole correnti 
+Lo strumento appena descritto è detto \textbf{Amperometro}, costruendo un circuito con una resistenza e un amperometro in parallelo, possiamo misurare la corrente che passa nel circuito.
+avremmo
+\[
+I= I_A + I_S= \frac{V}{R_A}+ \frac{V}{R_S}
+\]
+costruiamo la resistenza in modo che $R_A << R_S$ (per esempio $\frac{R_A}{R_S}=\frac{1}{10}$), tali $R_S$ sono dette \textbf{resistenze di shunt}. La precisione, dunque, diminuisce in modo direttamente proporzianale all'aumento del numero di resistenze 
+
+
+
+
+
+
+
+
+
+
 
 
 
