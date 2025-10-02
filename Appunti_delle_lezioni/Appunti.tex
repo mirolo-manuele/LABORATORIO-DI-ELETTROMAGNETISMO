@@ -261,9 +261,9 @@ Questa coppia di forze genera un \textit{momento torcente} pari a: $\tau = e^- v
 
 Il flusso invece è dato dalla \textit{densità dei portatori di carica} $\lambda$, dunque scrivendo la corrente come $ v \lambda e =I = \frac{dq}{dt}$, da cui
 \[
-\tau = B I b = B n a b I \quad I = \lambda a e v 
+\tau = n B I a b
 \]
-
+dove $n$ è il numero di spire attorno al magnete. 
 Bilanciamo questo momento con una forza elastica grazie a delle molle elicoidali controrotanti (in modo da bilanciare le imperfezioni), ricordando che (nell'approsimazione di $\theta < 4^\circ$):
 \[
 \tau_{el} \approx k \theta = \tau_{mag} = B I b \rightarrow \theta = \frac{B n a b}{k} I
@@ -277,6 +277,171 @@ avremmo
 I= I_A + I_S= \frac{V}{R_A}+ \frac{V}{R_S}
 \]
 costruiamo la resistenza in modo che $R_A << R_S$ (per esempio $\frac{R_A}{R_S}=\frac{1}{10}$), tali $R_S$ sono dette \textbf{resistenze di shunt}. La precisione, dunque, diminuisce in modo direttamente proporzianale all'aumento del numero di resistenze 
+
+\section{Lezione 02/10/2025}
+Chiediamoci quale sia la $\Delta V$ ai capi di una resistenza e consideriamo la resistenza Ohmica $V_{AB}= IR$
+
+\begin{center}
+\begin{circuitikz}
+  \draw
+  (0,0) to[battery, l=$V$] (0,4)
+  to[short] (2,4)
+  to[R=$R_1$] (2,0)
+  (2,4) to[short] (4,4)
+  to[R=$R_2$] (4,2) 
+  to[ammeter, name=am, l=$A$] (4,0)
+  -- (0,0);
+\end{circuitikz}
+\end{center}
+Per farlo utilizziamo un amperometro, ma in tal modo lo perturbiamo, avremo $R<R^*$, per rendere la situazione accettabile aggiungiamo una resisteza prima dell'amperometro, tale che
+$R_2>>R$, potendo trascurare la corrente che passa nell'amperometro.
+
+Dunque misuro la d.d.p. teorica rispetto a quella reale (con lo strumento di misura):
+\[
+V_{AB}=IR \quad V^*_{AB} = I \frac{R R_A}{R + R_A} 
+\]
+\[
+\frac{V_{AB}- V^*_{AB}}{V_{AB}}= \text{errore dovuto all'amperometro}
+\]
+Ponendo $R_A$ come somma di $R_2$ e quella dovuta all'amperometro.
+
+Posso anche utilizzare un voltimetro, che lavora fra due materiali conduttori di resistenza trascurabile; uno strumento è il voltimetro a fogli conduttori, che in base all'angolo di inclinazione delle mie mie piastre mi indichi la $\Delta V$.
+
+\subsection{Come misurare una resistenza}
+Nell'ipotesi che tale resistenza sia ohmica, dunque $R=\frac{V}{I}$ (caso ideale, non reale), ottenendo così una scala iperbolica (essendo $V$ costane e $I$ variabile). 
+A causa della degradazione della batteria dello strumento erogatore della forza elettromotrice, ottengo un errore di sottostima su $R$.
+
+Un altro modo per misurare la resistenza è utilizzare un generatore regolabile, mettere in parallelo la resistenza con un voltimetro e in serie ai due un amperometro.
+\begin{center}
+\begin{circuitikz}[european]
+    % Generatore di tensione variabile
+    \draw (0,0) to[V, l=$V_{gen}$] (0,2);
+    \draw (0,2) -- (2,2);
+    % Amperometro
+    
+    
+    % Resistenza
+    \draw (2,2) to[R, l=$R$, v=$V_R$] (2,0);
+    
+    % Collegamento di ritorno
+    \draw (2,0) -- (0,0);
+    
+    % Voltmetro in parallelo alla resistenza
+    \draw (2,2) to[voltmeter, l=$V$] (4,2);
+    \draw (4,2) -- (4,0);
+    \draw (4,0) -- (2,0);
+    
+    \draw (0,0) to[ammeter] (2,0);
+    % Punti di connessione
+    \filldraw (0,0) circle (1pt);
+    \filldraw (0,2) circle (1pt);
+    \filldraw (2,2) circle (1pt);
+    \filldraw (2,0) circle (1pt);
+    \filldraw (4,2) circle (1pt);
+    \filldraw (4,0) circle (1pt);
+\end{circuitikz}
+\end{center}
+Posso disegnare un grafico \textit{V su I}, successivamente cerco di ricavare la legge fisica, ciò che mi aspetto è un andamento lineare, dove $\frac{1}{m}=R$
+Inoltre, a causa dell'effeto Joule si comincia a perdere la linearità, sostituita da un andamento logaritmico
+
+\subsection{La qualità di una pila}
+La bontà di una pila è data dal fatto che anch' essa ha una resistenza interna, tanto più è bassa, migliore è la pila.
+Quando la pila inizia a consumarsi, la resistenza interna della pila aumenta a causa di fenomeni di ossidazione o sbalzi termici. 
+
+Per misurare lo stato della pila creo un circuito con essa e:
+\begin{itemize}
+\item un amperometro in serie alla pila (prima)
+\item una resistenza incognita, devo creare la più grande resistenza con quelle a disposizione (le metto in serie) ($R_x = \sum_{i=1}^{n} R_i$)
+\item un voltimetro in parallelo alla pila
+\end{itemize} 
+\begin{center}
+\begin{tikzpicture}
+  \draw
+  (0,0) to[battery, l=Pila, name=pila] (0,3)
+        to[ammeter, l=$A$] (3,3)
+        to[R, l=$R_x$] (3,0)
+        to[short] (0,0);
+  
+  % Voltmetro in parallelo alla pila
+  \draw (0,3) to[short] (-2,3)
+        to[voltmeter, l=$V$] (-2,0)
+        to[short] (0,0);
+\end{tikzpicture}
+\end{center}
+Creo un grafico $V$ su $I$, aumentando la resistenza, ottengo un andamento iperbolico sul primo quadrante (grazie al cazzo). 
+Nel momento in cui incontro un andamente lineare ("inversamete lineare") ho un comportamento ohmico, che facendo il fit lineare (sul sottoinsieme di dati ideale) posso ottenere il valore della resistenza interna della pila. 
+
+Estrapolando a $I=0$ ottengo il valore della $\Delta V$ della pila. Con una pila nuova dovrei ottenere una linea orizzontale ad un certo valore di $V$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
