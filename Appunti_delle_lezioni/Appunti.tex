@@ -3,8 +3,12 @@
 \usepackage{physics}
 \usepackage{ragged2e}
 \usepackage{quoting}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{circuitikz}
 \usepackage{amsthm}
+\usepackage{tabularx}
+\usetikzlibrary{shapes,decorations,shadows}
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \title{Appunti laboratorio di elettromagnetismo}
 \author{ Mirolo Manuele / Alessio Brusini}
@@ -296,7 +300,7 @@ Chiediamoci quale sia la $\Delta V$ ai capi di una resistenza e consideriamo la 
 Per farlo utilizziamo un amperometro, ma in tal modo lo perturbiamo, avremo $R<R^*$, per rendere la situazione accettabile aggiungiamo una resisteza prima dell'amperometro, tale che
 $R_2>>R$, potendo trascurare la corrente che passa nell'amperometro.
 
-Dunque misuro la d.d.p. teorica rispetto a quella reale (con lo strumento di misura):
+Dunque misuro la d.d.p.\ teorica rispetto a quella reale (con lo strumento di misura):
 \[
 V_{AB}=IR \quad V^*_{AB} = I \frac{R R_A}{R + R_A} 
 \]
@@ -373,13 +377,183 @@ Nel momento in cui incontro un andamente lineare ("inversamete lineare") ho un c
 
 Estrapolando a $I=0$ ottengo il valore della $\Delta V$ della pila. Con una pila nuova dovrei ottenere una linea orizzontale ad un certo valore di $V$.
 
+\section{Lezione 09/10/2025}
+\subsection{Misura della resistenza}
+Una tecnica molto utilizzata è la \textit{misura di zero}, che sono le più precise che si possono fare, in questo caso chiameremno 
+\textbf{misura a ponte di Wheatstone}
+\begin{center}
+\begin{circuitikz}
+\draw
+(0,0) to[battery, l=$V$] (0,4)
+to[short] (2,4)
+to[R=$R_1$] (2,2)
+to[R=$R_2$] (2,0)
+to[short] (0,0)
+
+(2,4) to[short] (4,4)
+to[R=$R^*$] (4,2)
+to[R=$R_3$] (4,0)
+to[short] (2,0)
+
+(2,2) to[ammeter, name=am, l=$G$] (4,2);
+
+\node[above] at (2,4) {$A$};
+\node[left] at (2,2) {$B$};
+\node[right] at (4,2) {$C$ };
+\node[below] at (2,0) {$D$};
+\end{circuitikz}
+\end{center}
+Le resistenze erano ottenute mettendo nelle loro posizioni dei \textit{reostati}, per ottenere $R^*$ si ottiene "giocando" con le resistenze fino ad azzerrare l'amperometro,
+infatti:
+\begin{itemize}
+  \item se fra B e C non passa corrente vuol dire $\Delta V_{BC}=0$
+  \item quindi fra A-B e A-C avremo la stessa $\Delta V$, $ \Delta V_{AB}= \Delta V_{AC}$, ma avremmo anche $\Delta V_{BD} = \Delta V_{CD}$ (Kirchhoff)
+  \item se la $R^*$ obbedisce alla legge di Ohm (trascurando l'effetto Joule), avremmo
+  \[
+  \Delta V_{AB}=IR \quad\Delta V_{AC}=I^*R^* \quad \Delta V_{BD}=I_2R_2 \quad \Delta V_{CD}=I_3R_3
+  \]
+  ottenendo un sistema 
+  \begin{equation}
+    \begin{cases}
+      I_1R_1=I^*R^*\\
+      I_2R_2=I_3R_3\\
+    \end{cases}
+  \end{equation}
+  \item se considdero la corrente $I_A = 0$ allora avrò che le correnti sul stesso ramo della maglia sono uguali ($I_1=I_2 \quad I_*=I_3$).
+  \item facendo il rapporto membro a membro di (1) ottengo: \[R^*=R^3 \frac{R_1}{R_2}\]
+\end{itemize}
+\pagebreak
+\subsection{Condensatori}
+Lo assumiamo come un accomulatore di cariche elettriche che inserieamo nel circuito.
+
+Supponiamo di avere un \textbf{segnale elettrico} ovvero una variazione di $\Delta V$ nel tempo $t$, se
+\begin{enumerate}
+  \item la carica associata al segnale viene portata al condensatore (grazie ad uno \textit{spinotto}), esso si carica in modo logaritmico;
+  \item  si ferma il caricamento;
+  \item  si fa partire un altro cirucito, che fa scaricare il più linearmente possibile il condensatore (anche se l'andamento sarà comunque logaritmico).
+  \item se carico il condensatore con un diverso segnale allora avrò una retta con la stessa pendenza ma che incontra lo zero della carica del condensatore in un punto diverso.
+  \item iterando il procedimento posso contare il numero di volte in cui un \textit{clock} ha segnato lo scaricamento parziale del condensatore
+  
+  Il numero di segnali è direttamente proporzionale al $t$ necessario per scaricare il condensatore
+  \item se inoltre il $t$ di scarica è associato al segnale (a sua volta associata al tempo di carica), allora posso creare una relazione tra la carica e il tempo di carica ($\frac{C}{s}=A$)
+\end{enumerate}
+Su questo procedimento si basa il funzionamento dell'amperometro
+
+\subsection{$1^\circ$ Esperienza di laboratorio}
+Utilizzeremo un circuito composto da 
+\begin{itemize}
+  \item una resistenza
+  \item una lampadina a filamento, composta da:
+   \begin{itemize} 
+    \item un bulbo di vetro (da cui si può aspirare aria per sostituirla con qualche milli Bar di un gas nobile) 
+    \item due filamenti collegati al circuito e ad un altro filamentino (acciaio tungstenato), tramite l'effetto Joule viene prodotta illuminazione, 
+   \end{itemize}
+   \item in parallelo alla lampadina un voltmetro
+  \item un amperometro
+\end{itemize}
+\begin{center}
+\begin{circuitikz}[european]
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[battery] (0,3);
+    
+    % Resistenza in alto
+    \draw (0,3) to[R, l=$R$] (3,3);
+    
+    % Lampadina a destra
+    \draw (3,3) to[lamp, l=$L$] (3,0);
+    
+    % Amperometro in basso
+    \draw (0,0) to[ammeter] (3,0);
+    
+    \draw (3,2) to[short] (4.5,2) 
+    % Voltmetro in parallelo alla lampadina
+    to[voltmeter, *-*] (4.5,1)
+    to[short] (3,1);
+\end{circuitikz}
+\end{center}
+L'obbiettivo è quello di costruire una curva voltamperrometrica ($I$ vs $V$), se la lampadina rispetta la legge di Ohm allora mi aspetto un andamento lineare.
+
+L'andamento reale è più esponenziale  (sotto la linea retta ideale) ($I \propto V^2$), questo accade perchè il sistema fisico non è isolate (non tutta la f.e.m. crea la corrente), 
+infatti nel metallo della lampadina si crea attrito (emissione nell'infrarosso), l'elettrone di conduzione si muove in modo erratico (a causa degli scontri con gli elettroni degli atomi del metallo).
+Si formano, incoerentemente dei fotoni che creano delle differenze nel campo elettrico. Difatti, gli elttroni dell'atomo possono eccitarsi e cambiare orbitale. L'atomo eccitato ritorna allo stato fondamentale
+dopo circa $10^{-8}s$, l'energia liberata forma i fotoni con frequenze nel visibile:
+\[ E_{\gamma}= h \nu \]
+
+Se uno degli $e^-$ di conduzione riesce ad eccitare gli elettroni di un atomo della mia resistenza interna alla lampadina, allora dopo riesco a produrre una luminescenza (transiente, tranzione di fase). 
+Abbiamo individuato un \textit{fenomeno a soglia} (che si verifica solo quando un determinato parametro supera un valore critico preciso, in questo caso l'energia)
+
+Supponiamo che a $V^*$ inizia tale fenomeno, da qui in poi la conduzione nel circuito cambia (inizia il comportamento logaritmico), infatti l'energia che io fornisco sotto forma di f.e.m. verrà assorbita e poi dissipata sotto forma 
+
+La differenza fra la curva e la retta ideale continua ad aumentare fino al bruciare del filamento (il metallo bolle), ovvero un po' di metallo diventa gas dentro se stesso, 
+il filamento si gonfia (aumenta la resistenza, sia perchè è più caldo, sia perchè è diminutia l'area della sezione retta in alcuni punti).
+
+Al bruciare del filamento $I=0$, ma la zona subito prima precedenta da questa decaduta è di transione di fase (scioglimento e rottura). In realtà anche nella prima transizione di fase (inizio emissione fotoni), ci sono delle 
+piccole oscillazioni che però non sono visibili. 
+
+\textbf{N.B.}: durante le transioni di fase ci sono delle fluttuazioni negli osservabili, nel nostro caso ciò è dovuto allo scambio energetico, che modifica la resistenza (osservabile) del filamento.
+In generale i fenomeni di transizione sono associati oscillazioni nelle osservabili. 
+Sapendo che $R=\frac{1}{m}=\frac{\Delta V}{\Delta I}$, questi $\Delta$ sono dati dalle spezzate che collegano i nostri punti.
+Questa resistenza, detta \textit{resistenza dinamica}, fluttua molto nel momento delle tranzioni di fase 
 
 
 
 
 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = $V$,
+    ylabel = {$I$},
+    xmin = 0,
+    xmax = 10,
+    ymin = -0.1,
+    ymax = 10,
+    grid=both,
+    width=10cm,
+    height=8cm,
+    legend pos=north west
+]
+\addplot [
+    domain=0:10,
+    samples=100,
+    color=black,
+    thick
+] {x};
+\addplot [
+    domain=0:10,
+    samples=100,
+    color=black,
+    thick
+] {ln(x+1)-0.1};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+% Nucleo
+\shade[inner color=yellow, outer color=red] (0,0) circle (0.4cm);
+
+% Esplosione
+\foreach \r in {1,1.5,2,2.5}
+  \draw[orange, opacity=0.6] (0,0) circle (\r cm);
+
+% Raggi principali
+\foreach \a in {0,45,90,135,180,225,270,315}
+  \draw[red!80!orange, line width=2pt] 
+    (\a:0.3) -- (\a:3);
+
+\node[white] at (0,-1.5) {black! \textbf{ESPLOSIONE DI SUPERNOVA}};
+\end{tikzpicture}
+\label{fig:esplosione}[esplosione di supernova]
+\end{center}
 
 
+
+
+
+La polarizzazzione risulta ininfluente per il nostro sistema fisico 
 
 
 
