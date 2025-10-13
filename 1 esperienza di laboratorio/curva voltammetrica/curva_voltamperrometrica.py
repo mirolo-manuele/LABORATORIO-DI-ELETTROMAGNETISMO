@@ -3,11 +3,11 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("dati.xlsx")
+df = pd.read_excel("prova1.xlsx") #legge il file excel
+df = df.dropna(subset=["V", "I"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
-V = array('d', df["V"].to_numpy(dtype=float))
-I = array('d', df["I"].to_numpy(dtype=float))
-
+V = array('d', df["V"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
+I = array('d', df["I"].to_numpy(dtype=float)) #to_numpy converte la colonna in un array NumPy di tipo float.
 
 eV = array('d', df["eV"].to_numpy(dtype=float))
 eI = array('d', df["eI"].to_numpy(dtype=float))
