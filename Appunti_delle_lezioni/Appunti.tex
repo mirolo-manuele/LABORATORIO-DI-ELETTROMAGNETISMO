@@ -10,8 +10,10 @@
 \usepackage{circuitikz}
 \usepackage{amsthm}
 \usepackage{tabularx}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
 \usetikzlibrary{shapes,decorations,shadows}
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
 \usetikzlibrary{shapes,arrows,positioning}
 \title{Appunti laboratorio di elettromagnetismo}
 \author{ Mirolo Manuele / Alessio Brusini}
@@ -160,7 +162,7 @@ ovvero un integrale curvilineo\\
 \begin{center}
 \begin{circuitikz}
     % Circuito base: pila + resistore
-    \draw(0,0) to[battery, l=$V$] (0,2)
+    \draw(0,0) to[battery1, l=$V$] (0,2)
           to[short] (2,2)
           to[R, l=$R_1$] (2,0)
           to[R, l=$R_2$] (0,0);
@@ -181,7 +183,7 @@ Vediamo un altro tipo di circuito, che rappresenta un \textbf{partitore di corre
 \begin{center}
 \begin{circuitikz}
   \draw
-  (0,0) to[battery, l=$V$] (0,4)
+  (0,0) to[battery1, l=$V$] (0,4)
   to[short] (2,4)
   to[R=$R_1$] (2,0)
   (2,4) to[short] (4,4)
@@ -291,12 +293,12 @@ Chiediamoci quale sia la $\Delta V$ ai capi di una resistenza e consideriamo la 
 \begin{center}
 \begin{circuitikz}
   \draw
-  (0,0) to[battery, l=$V$] (0,4)
+  (0,0) to[battery1, l=$V$] (0,4)
   to[short] (2,4)
   to[R=$R_1$] (2,0)
   (2,4) to[short] (4,4)
   to[R=$R_2$] (4,2) 
-  to[ammeter, name=am, l=$A$] (4,0)
+  to[rmeter, t=A] (4,0)
   -- (0,0);
 \end{circuitikz}
 \end{center}
@@ -320,9 +322,9 @@ A causa della degradazione della batteria dello strumento erogatore della forza 
 
 Un altro modo per misurare la resistenza è utilizzare un generatore regolabile, mettere in parallelo la resistenza con un voltimetro e in serie ai due un amperometro.
 \begin{center}
-\begin{circuitikz}[european]
+\begin{circuitikz}[american]
     % Generatore di tensione variabile
-    \draw (0,0) to[V, l=$V_{gen}$] (0,2);
+    \draw (0,0) to[battery1] (0,2);
     \draw (0,2) -- (2,2);
     % Amperometro
     
@@ -334,18 +336,12 @@ Un altro modo per misurare la resistenza è utilizzare un generatore regolabile,
     \draw (2,0) -- (0,0);
     
     % Voltmetro in parallelo alla resistenza
-    \draw (2,2) to[voltmeter, l=$V$] (4,2);
+    \draw (2,2) to[rmeter, t=V] (4,2);
     \draw (4,2) -- (4,0);
     \draw (4,0) -- (2,0);
     
-    \draw (0,0) to[ammeter] (2,0);
-    % Punti di connessione
-    \filldraw (0,0) circle (1pt);
-    \filldraw (0,2) circle (1pt);
-    \filldraw (2,2) circle (1pt);
-    \filldraw (2,0) circle (1pt);
-    \filldraw (4,2) circle (1pt);
-    \filldraw (4,0) circle (1pt);
+    \draw (0,0) to[rmeter, t=A] (2,0);
+
 \end{circuitikz}
 \end{center}
 Posso disegnare un grafico \textit{V su I}, successivamente cerco di ricavare la legge fisica, ciò che mi aspetto è un andamento lineare, dove $\frac{1}{m}=R$
@@ -364,14 +360,14 @@ Per misurare lo stato della pila creo un circuito con essa e:
 \begin{center}
 \begin{tikzpicture}
   \draw
-  (0,0) to[battery, l=Pila, name=pila] (0,3)
-        to[ammeter, l=$A$] (3,3)
+  (0,0) to[battery1, l=Pila, name=pila] (0,3)
+        to[rmeter, t=A] (3,3)
         to[R, l=$R_x$] (3,0)
         to[short] (0,0);
   
   % Voltmetro in parallelo alla pila
   \draw (0,3) to[short] (-2,3)
-        to[voltmeter, l=$V$] (-2,0)
+        to[rmeter, t=V] (-2,0)
         to[short] (0,0);
 \end{tikzpicture}
 \end{center}
@@ -387,7 +383,7 @@ Una tecnica molto utilizzata è la \textit{misura di zero}, che sono le più pre
 \begin{center}
 \begin{circuitikz}
 \draw
-(0,0) to[battery, l=$V$] (0,4)
+(0,0) to[battery1, l=$V$] (0,4)
 to[short] (2,4)
 to[R=$R_1$] (2,2)
 to[R=$R_2$] (2,0)
@@ -398,7 +394,7 @@ to[R=$R^*$] (4,2)
 to[R=$R_3$] (4,0)
 to[short] (2,0)
 
-(2,2) to[ammeter, name=am, l=$G$] (4,2);
+(2,2) to[rmeter, t=A] (4,2);
 
 \node[above] at (2,4) {$A$};
 \node[left] at (2,2) {$B$};
@@ -455,9 +451,9 @@ Utilizzeremo un circuito composto da
   \item un amperometro
 \end{itemize}
 \begin{center}
-\begin{circuitikz}[european]
+\begin{circuitikz}[american]
     % Generatore di corrente continua variabile a sinistra
-    \draw (0,0) to[battery] (0,3);
+    \draw (0,0) to[battery1] (0,3);
     
     % Resistenza in alto
     \draw (0,3) to[R, l=$R$] (3,3);
@@ -466,11 +462,11 @@ Utilizzeremo un circuito composto da
     \draw (3,3) to[lamp, l=$L$] (3,0);
     
     % Amperometro in basso
-    \draw (0,0) to[ammeter] (3,0);
+    \draw (0,0) to[rmeter, t=A] (3,0);
     
     \draw (3,2) to[short] (4.5,2) 
     % Voltmetro in parallelo alla lampadina
-    to[voltmeter, *-*] (4.5,1)
+    to[rmeter, t=V] (4.5,1)
     to[short] (3,1);
 \end{circuitikz}
 \end{center}
@@ -569,28 +565,34 @@ La polarizzazzione risulta ininfluente per il nostro sistema fisico
   \item se i risultati sono in linea con le aspettative si può commentare questo fatto, aggiungendo dati numerici che verificano quest'ipotesi
 \end{itemize}
 \subsection{Semiconduttori}
-La disposizione degli elettroni negli atomi di un conduttore presenta abbassamenti di potenziale all'avvicinarsi al nucleo dell'atomo contiguo. La maggior parte degli elettroni si trova dunque 
-al di sopra di una certa soglia di energia. Alcuni elettroni si trovano 2/3 $eV$ al di là di questa soglia, dunque andando ad eccitare questi nuclei (es. scaldando gli elettroni) il materiale può diventare un conduttore, superando le buche di potenziale, 
+La disposizione degli elettroni negli atomi di un conduttore presenta abbassamenti di potenziale all'avvicinarsi al nucleo dell'atomo contiguo. Dunque, la maggior parte degli elettroni si trova  
+al di sopra di una certa soglia di energia. Alcuni elettroni si trovano 2/3 $eV$ al di là di questa soglia,  andando ad eccitare questi nuclei (es. scaldando gli elettroni) il materiale può diventare un conduttore, superando le buche di potenziale, 
 questi materiali sono detti \textit{semiconduttori}. Essendo la barriera energetica di pochi $eV$, allora una bassa differenza di temperatura produce una grande quantità di elettroni disponibili per la conduzione elettrica. 
 
-Alcuni tipi di materiali sono il silicio (Si) e il Germanio (Ge). Essi sono atomi \textit{tetravalenti}, dunque formano strutture nei cristalli tetraedici (ognuno è legato con altri 4 atomi). 
+Alcuni materiali di questo tipo sono il silicio (Si) e il Germanio (Ge). Essi sono atomi \textit{tetravalenti}, dunque formano strutture nei cristalli tetraedici (ognuno è legato con altri 4 atomi). 
 
 All'interno di questi materiali si possono già trovare degli elettroni liberi, circa $\frac{1e}{10^6 \text{atomi}}$, che aiutano la conduzione. 
 
-Quanto un elettrone di conduzione si slega dalla sua nicchia, allora olre alla carica negativa si crea anche una \textit{lacuna}, che è l'equivalente di una carica positiva che ha modulo opposto a quello dellla carica negativa.
-la lacuna viene occupata da un elettrone vicino, che a sua volta lascia una lacuna, creando una corrente. Si individuano 2 tipi di conduzione:
+Quanto un elettrone di conduzione si slega dalla sua nicchia, allora oltre alla carica negativa si crea anche una \textit{lacuna}, che è l'equivalente di una carica positiva che ha modulo opposto a quello dellla carica negativa.
+la lacuna viene occupata da un elettrone vicino, che a sua volta lascia una lacuna, creando una corrente.
+
+Si individuano così 2 tipi di conduzione:
 \begin{itemize}
   \item conduzione per elettroni liberi (fluttuazioni termiche)
   \item conduzione per lacune (passaggio in \textit{banda di conduzione})
 \end{itemize}
 La differenza energetica fra i campi elettrici dei materiali è peculiare per ognuno di essi, avvicinando i due si creano della possibilità di "travaso" degli elettroni.
-Si usa, per favorire ciò, il \textbf{drogaggio}, ovvero l'inserimento di atomi di un altro materiale con un diverso numero di valenza (tri/pentavalenti), così da creare una lacuna o un elettrone libero.
-Si utilizzano gli elementi del XIV gruppo per il 
+Si usa, per favorire ciò, il \textbf{drogaggio}, ovvero l'inserimento di atomi di un altro materiale con un diverso numero di valenza (tri/pentavalenti), così da creare una lacuna o un elettrone libero. 
+\begin{itemize}
+    \item L'assorbimento di questi materiali avviene per \textit{diffusione}, creando un surplus di elettroni liberi o lacune
+    \item  Prima dell'inizio della diffusione i materiali sono intrisicamente neutri, solo successivamente si accumulano cariche
+    \item  La regione di contatto fra i materiali è detta \textbf{giunzione}
+    \item  La condizione d'equilibrio si raggiunge quando la quantità di cariche si stabilizza (ma lo scambio continua sempre ad esserci)
+    \item Lo spazio sulla giunzione è detto \textbf{zona di svuotamento}, in cui non ci sono più cariche libere di muoversi (al meno di motivi termici), di cui valuteremo lo spessore.
+    \item L'oggetto che si ottiene con questo processo si chiama \textbf{diodo}
+\end{itemize}
 
-L'assorbimento di questi materiali avviene per \textit{diffusione}, creando un surplus di elettroni liberi o lacune. Prima dell'inizio della diffusione i materiali sono intrisicamente neutri,
-solo successivamente si accumulano cariche. La regione di contatto fra i materiali è detta \textbf{giunzione}. La condizione d'equilibrio si raggiunge quando la quantità di cariche si stabilizza (ma lo scambio continua sempre ad esserci).
-Lo spazio sulla giunzione è detto \textbf{zona di svuotamento}, in cui non ci sono più cariche libere di muoversi (al meno di motivi termici), di cui valuteremo lo spessore. Abbiamo così creato un \textbf{diodo}
-Ciò avviene in una decina di secondi.
+Tutto ciò avviene in una decina di secondi.
 
 
 \begin{center}
@@ -633,17 +635,25 @@ Ciò avviene in una decina di secondi.
 \draw[arrow, red, dashed] (2, 2.2) -- (2, 0.7);
 
 % Etichette
-\node[above right] at (0.5, 4.5) {Atomi droganti};
-\node[right] at (3, 1.5) {Atomi diffusi};
+\node[above right] at (-0.5, 5.0) {Atomi droganti};
+\node[right] at (3.5, 1.5) {Atomi diffusi};
 
 
 \end{tikzpicture}
 \end{center}
 
-Inserendo il diodo in un circuito (con generatore la cui corrente passa in discordia alla carica nel diodo) creiamo la \textbf{polarizzazione inversa}, perchè ciò aumenta la quantità di cariche da una parte e dall'altra, diminuendo la zona di svuotamento. In questo caso passa meno corrente, a causa di movimenti termici
+Inserendo il diodo in un circuito possiamo creare 
+\begin{itemize}
+\item una \textbf{polarizzazione inversa} con generatore la cui corrente passa in discordia alla carica nel diodo, tale processo:
+\begin{itemize}
+    \item  aumenta la quantità di cariche da una parte e dall'altra
+    \item diminuisce la zona di svuotamento
+    \item vi è minor passaggio di corrente, e quella che passa lo fa a causa di movimenti termici
+\end{itemize}
+\item una \textbf{polarizzazione diretta} se la corrente del generatore va nella stessa direzione della carica nel diodo, in questo caso la zona di svuotamento aumenta
+\end{itemize} 
 
-Contrariamente, se la corrente del generatore va nella stessa direzione della carica nel diodo, allora si ha la \textbf{polarizzazione diretta}, la zona di svuotamento aumennta
-
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 \begin{tikzpicture}[
     atom/.style={circle, draw, minimum size=0.5cm},
@@ -691,185 +701,97 @@ Contrariamente, se la corrente del generatore va nella stessa direzione della ca
 \draw[<->, thick, orange] (-0.8, -0.8) -- (0.8, -0.8);
 \node[orange, below] at (0, -0.8) {Zona di svuotamento};
 
-% LEGENDA
-\begin{scope}[xshift=0cm, yshift=-2cm]
-    \node[atom] (si) at (-3, 0) {Si};
-    \node[right] at (si) {Atomo di Silicio};
-    
-    \node[acceptor, below=0.3cm of si] (b) {B};
-    \node[right] at (b) {Accettore (Boro)};
-    
-    \node[donor, below=0.3cm of b] (p) {P};
-    \node[right] at (p) {Donore (Fosforo)};
-    
-    \node[hole, below=0.3cm of p] (h) {+};
-    \node[right] at (h) {Lacuna (+)}; 
-    
-    \node[electron, below=0.3cm of h] (e) {-};
-    \node[right] at (e) {Elettrone (-)};
-\end{scope}
-
 \end{tikzpicture}
 \end{center}
-
-
-\begin{tikzpicture}[
-    atom/.style={circle, draw, minimum size=0.4cm},
-    acceptor/.style={circle, draw, blue, fill=blue!20, minimum size=0.4cm},
-    donor/.style={circle, draw, red, fill=red!20, minimum size=0.4cm},
-    electron/.style={circle, draw, red, fill=red!10, minimum size=0.25cm},
-    hole/.style={circle, draw, blue, fill=blue!10, minimum size=0.25cm},
-    diode/.style={draw, minimum width=0.8cm, minimum height=1.2cm}
-]
-
-% ==============================================
-% POLARIZZAZIONE DIRETTA
-% ==============================================
-\node[align=center, font=\large\bfseries] at (0, 7) {Polarizzazione Diretta};
-
-% CIRCUITO - POLARIZZAZIONE DIRETTA
-\begin{scope}[xshift=-3cm, yshift=4.5cm]
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{circuitikz}[american]
+    \node[align=center, font=\large\bfseries] at (3, 4) {Polarizzazzione inversa};
     % Batteria
-    \draw[thick] (0,0) to[battery] (0,2);
-    \node[left] at (0,1) {$V_F$};
-    
-    % Resistore
-    \draw[thick] (0,2) -- (1,2) to[resistor] (1,0) -- (0,0);
-    
-    % Diodo
-    \draw[thick] (1,2) -- (2.5,2);
-    \draw[thick] (2.5,2) -- (2.5,1.7);
-    \draw[thick] (2.5,1.3) -- (2.5,0.3) -- (2.2,0);
-    \draw[thick] (2.8,0) -- (3.5,0);
-    \fill[black] (2.5,1.3) -- (2.5,1.7) -- (2.8,1.5) -- cycle;
-    
-    % Corrente
-    \draw[->, thick, red] (0.5,1.8) -- (1.5,1.8);
-    \node[red, above] at (1,1.8) {$I_F$};
-\end{scope}
+    \draw (0,0) to[battery1, l=$V$] (0,2);
 
-% GIUNZIONE P-N - POLARIZZAZIONE DIRETTA
-\begin{scope}[xshift=2cm, yshift=4cm]
-    % Regione P
-    \foreach \x in {-2,-1.5,-1} {
-        \foreach \y in {0,0.5,1,1.5} {
-            \node[atom] at (\x, \y) {};
-            \node[hole] at (\x+0.2, \y+0.2) {+};
-        }
+    % Collegamenti verso il rettangolo
+    \draw (0,2) -- (0,3.5);
+    \draw (0,3.5) -- (3,3.5);
+    \draw (3,3.5) -- (3,3.0);
+    \draw (0,0) -- (0,-1.5);
+    \draw (0,-1.5) -- (3,-1.5);
+    \draw (3,-1.5) -- (3,-1.0);
+
+
+    \begin{scope}[shift={(4,-3)}, rotate=90]
+    % Rettangolo (conduttore)
+    \draw[thick] (2,0) rectangle (6,2);
+
+    % Cariche positive a sinistra
+    \foreach \y in {0.4, 1, 1.6} {
+        \node at (2.4,\y) {\large $+$};
+        \node at (2.8,\y) {\large $+$};
     }
-    
-    % Regione N
-    \foreach \x in {0.5,1,1.5} {
-        \foreach \y in {0,0.5,1,1.5} {
-            \node[atom] at (\x, \y) {};
-            \node[electron] at (\x-0.2, \y+0.2) {-};
-        }
+
+    % Cariche negative a destra
+    \foreach \y in {0.4, 1, 1.6} {
+        \node at (5.2,\y) {\large $-$};
+        \node at (5.6,\y) {\large $-$};
     }
-    
-    % Giunzione
-    \draw[ultra thick] (-0.5, -0.3) -- (-0.5, 1.8);
-    
-    % Movimento portatori
-    \draw[->, thick, blue] (-1.2, 0.8) -- (-0.7, 0.8);
-    \draw[->, thick, blue] (-1.2, 1.3) -- (-0.7, 1.3);
-    \draw[->, thick, red] (0.7, 0.8) -- (0.2, 0.8);
-    \draw[->, thick, red] (0.7, 1.3) -- (0.2, 1.3);
-    
-    % Etichette
-    \node[above] at (-1.5, 1.8) {P};
-    \node[above] at (1, 1.8) {N};
-    \node[blue, left] at (-1.2, 0.8) {Lacune};
-    \node[red, right] at (0.7, 0.8) {Elettroni};
-    
-    % Barriera ridotta
-    \draw[<->, orange, thick] (-0.3, -0.5) -- (0.3, -0.5);
-    \node[orange, below] at (0, -0.5) {Barriera ridotta};
-\end{scope}
 
-% ==============================================
-% POLARIZZAZIONE INVERSA
-% ==============================================
-\node[align=center, font=\large\bfseries] at (0, 0) {Polarizzazione Inversa};
-
-% CIRCUITO - POLARIZZAZIONE INVERSA
-\begin{scope}[xshift=-3cm, yshift=-2.5cm]
+    % Frecce del campo elettrico
+    \foreach \y in {0.4, 1, 1.6} {
+        \draw[->, blue, thick] (3.2,\y) -- (4.8,\y);
+    }
+    \end{scope}
+\end{circuitikz}
+\end{center}
+\begin{center}
+\begin{circuitikz}[american]
+    \node[align=center, font=\large\bfseries] at (3, 4) {Polarizzazzione diretta};
     % Batteria
-    \draw[thick] (0,0) to[battery] (0,2);
-    \node[left] at (0,1) {$V_R$};
-    
-    % Resistore
-    \draw[thick] (0,2) -- (1,2) to[resistor] (1,0) -- (0,0);
-    
-    % Diodo (invertito)
-    \draw[thick] (1,2) -- (2.2,2);
-    \draw[thick] (2.5,2) -- (3.5,2);
-    \draw[thick] (2.5,1.7) -- (2.5,0.3) -- (2.8,0);
-    \draw[thick] (2.2,0) -- (1,0);
-    \fill[black] (2.5,1.3) -- (2.5,1.7) -- (2.2,1.5) -- cycle;
-    
-    % Corrente (quasi zero)
-    \draw[->, thick, red, dashed] (0.5,1.8) -- (1.5,1.8);
-    \node[red, above] at (1,1.8) {$I_R \approx 0$};
-\end{scope}
+    \draw (0,0) to[battery1, invert, l=$V$] (0,2);
 
-% GIUNZIONE P-N - POLARIZZAZIONE INVERSA
-\begin{scope}[xshift=2cm, yshift=-3cm]
-    % Regione P
-    \foreach \x in {-2,-1.5,-1} {
-        \foreach \y in {0,0.5,1,1.5} {
-            \node[atom] at (\x, \y) {};
-            \node[hole] at (\x+0.2, \y+0.2) {+};
-        }
+    % Collegamenti verso il rettangolo
+    \draw (0,2) -- (0,3.5);
+    \draw (0,3.5) -- (3,3.5);
+    \draw (3,3.5) -- (3,3.0);
+    \draw (0,0) -- (0,-1.5);
+    \draw (0,-1.5) -- (3,-1.5);
+    \draw (3,-1.5) -- (3,-1.0);
+
+
+    \begin{scope}[shift={(4,-3)}, rotate=90]
+    % Rettangolo (conduttore)
+    \draw[thick] (2,0) rectangle (6,2);
+
+    % Cariche positive a sinistra
+    \foreach \y in {0.4, 1, 1.6} {
+        \node at (2.4,\y) {\large $-$};
+        \node at (2.8,\y) {\large $-$};
     }
-    
-    % Regione N
-    \foreach \x in {0.5,1,1.5} {
-        \foreach \y in {0,0.5,1,1.5} {
-            \node[atom] at (\x, \y) {};
-            \node[electron] at (\x-0.2, \y+0.2) {-};
-        }
+
+    % Cariche negative a destra
+    \foreach \y in {0.4, 1, 1.6} {
+        \node at (5.2,\y) {\large $+$};
+        \node at (5.6,\y) {\large $+$};
     }
-    
-    % Giunzione
-    \draw[ultra thick] (-0.5, -0.3) -- (-0.5, 1.8);
-    
-    % Movimento portatori (verso l'esterno)
-    \draw[->, thick, blue] (-0.7, 0.8) -- (-1.2, 0.8);
-    \draw[->, thick, blue] (-0.7, 1.3) -- (-1.2, 1.3);
-    \draw[->, thick, red] (0.2, 0.8) -- (0.7, 0.8);
-    \draw[->, thick, red] (0.2, 1.3) -- (0.7, 1.3);
-    
-    % Etichette
-    \node[above] at (-1.5, 1.8) {P};
-    \node[above] at (1, 1.8) {N};
-    \node[blue, left] at (-1.2, 0.8) {Lacune};
-    \node[red, right] at (0.7, 0.8) {Elettroni};
-    
-    % Zona di svuotamento allargata
-    \draw[<->, orange, thick] (-0.8, -0.5) -- (0.8, -0.5);
-    \node[orange, below] at (0, -0.5) {Zona di svuotamento allargata};
-\end{scope}
 
-% LEGENDA
-\begin{scope}[xshift=0cm, yshift=-5.5cm]
-    \node[hole] (h) at (-2, 0) {+};
-    \node[right] at (h) {Lacuna (portatore positivo)};
-    
-    \node[electron, below=0.2cm of h] (e) {-};
-    \node[right] at (e) {Elettrone (portatore negativo)};
-    
-    \node[draw, minimum width=0.8cm, minimum height=0.3cm, below=0.2cm of e] (d) {};
-    \fill[black] (d.west) ++(0.1,0) rectangle ++(0.2,0.3);
-    \node[right] at (d) {Diodo (simbolo)};
-\end{scope}
+    % Frecce del campo elettrico
+    \foreach \y in {0.4, 1, 1.6} {
+        \draw[<-, blue, thick] (3.2,\y) -- (4.8,\y);
+    }
+    \end{scope}
+\end{circuitikz}
+\end{center}
+\end{minipage}
 
-\end{tikzpicture}
 
+\pagebreak
 Creando un circuito di questo tipo
 \begin{center}
-\begin{circuitikz}[european]
+\begin{circuitikz}[american]
+    
     % Generatore di corrente continua variabile a sinistra
-    \draw (0,0) to[battery] (0,3);
+    \draw (0,0) to[battery1, invert, l=$V$] (0,3);
     
     % Resistenza in alto
     \draw (0,3) to[R, l=$R$] (3,3);
@@ -878,41 +800,40 @@ Creando un circuito di questo tipo
     \draw (3,3) to[diode, ] (3,0);
     
     % Amperometro in basso
-    \draw (0,0) to[ammeter] (3,0);
+    \draw (0,0) to[rmeter, t=A] (3,0);
     
     \draw (3,2) to[short] (4.5,2) 
     % Voltmetro in parallelo alla lampadina
-    to[voltmeter, *-*] (4.5,1)
+    to[rmeter, t=V] (4.5,1)
     to[short] (3,1);
 \end{circuitikz}
 \end{center}
-mi aspetto che la corrente tende ansotiticamente ad un certo $I_0$ per correnti negative, per correnti positive invece la corrente cresce esponenzialmente (le curve sono tipiche per un certo valore di temperatura).
+mi aspetto che la corrente tenda ansotiticamente ad un certo $I_0$ per correnti negative, per correnti positive invece la corrente cresce esponenzialmente (le curve sono tipiche per un certo valore di temperatura).
 La formula che mi descrive questo andamento è (per un diodo idelae)
 \[
 \displaystyle I(V)= I_0 e^{(\frac{qV}{\eta kT})} - 1
 \]
-dove $\eta$ è un parametro adimensionale che dipende dal materiale (per il silicio vale 2).
+dove $\eta$ è un parametro adimensionale che dipende dal materiale.
 
-Al crescere della temperatura la curva "aumenta la sua pendenza", mentre $I_0$ diminuisce (più grande in modulo). Ho l'andamento opposto se diminuisco la temperatura, la resistenza interna 
+Al crescere della temperatura la curva "aumenta la sua pendenza", mentre $I_0$ diminuisce (più grande in modulo). Ho l'andamento opposto se diminuisco la temperatura, in tal caso, infatti, la resistenza interna 
 del diodo aumenta. 
 
-Anche $I_0$ dipende dalla temperatura
+\begin{itemize}
+\item $I_0$ dipende dalla temperatura:
 \[
 \displaystyle I_0 \propto KT^\alpha e^{-\frac{qV_G}{kT}}
 \]
 con $\alpha \in (1,2]$ e $K$ costante
 i due segni all'argomento dell'espnenziale si "cancellano"
 
-Una volta inserite le barre d'errore posso eseguire un fit dell'esponente 
 
-Poichè l'oggetto ha un comportamento Ohmico, stiamo facendo una misura di una resistenza Ohmica in polarizzazzione inversa, ma riusciremo a prendere bene le curva di polarizzazzione diretta
+\item Anche se stiamo applicando una polarizzazione inversa (tensione negativa), poiché il comportamento è Ohmico, la curva caratteristica sarà completa e simmetrica. Potremo quindi ricostruire l'intero comportamento, inclusa la parte di polarizzazione diretta, semplicemente per simmetria.
+\item Mettendo il diodo in un bagno per mantenere la temperatura costante, posso rilevare sul grafico i punti di intersezione fra certi valori $I^*$ e $V^*$. Con questi valori posso fare un altro grafico 
+$V$ vs $T$, da cui osservo che, al decrescere della temperatura la tensione aumenta, ed è ciò che si osserva in un diodo reale, tale oggetto dunque riesce a mettere in correlazione lineare
+la $T$ con una variabile da me controllabile ($V$). Quindi è sufficente un sistema, che, fissata una corrente, mi fornisca la tensione del circuito per sapere la temperatura del diodo.
 
-Mettendo il diodo in un bagno per mantenere la temperatura costante, posso rilevare sul grafico i punti di intersezione fra $I^*$ e $V^*$, faccio un altro grafico 
-$V$ vs $T$, quello che osservo al decrescere della temperatura la tensione aumenta, ed è cò che si osserva in un diodo reale, tale oggetto dunque riesce a mettere in correlazione lineare
-la $T$ con una variabile da me controllabile ($V$). E' sufficente che ci sia un sistema che fissata una corrente mi fornisce la tensione del circuito per sapere la temperatura del diodo.
-
-Prendendo 3 valori di corrente, se il diodo è ideale, mi aspetto che aumentando $I$ ottengo $V$ che aumenta linearmente, questo vale finchè non raggiungo temperature tali da cambiare la natura del materiale del diodo
-
+\item Prendendo 3 valori di corrente, se il diodo è ideale, mi aspetto che aumentando $I$  $V$ aumenti linearmente, questo vale finchè non raggiungo temperature tali da cambiare la natura del materiale del diodo
+\end{itemize}
 \subsection{Come fare il fit esponenziale}
 Poichè sappiamo fare un fit lineare possiamo linearizzare la nostra equazione, prendendo valori di $V$ tale che l'argomento dell'esponente sia maggiore di 1 posso usare
  \[
