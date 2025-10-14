@@ -3,8 +3,8 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("prova1.xlsx") 
-df = df.dropna(subset=["V", "I"])
+df = pd.read_excel("prova1.xlsx", sheet_name="Sheet1") 
+df = df.dropna(subset=["V", "Rd"])
 
 V = array('d', df["V"].to_numpy(dtype=float)) 
 Rd = array('d', df["Rd"].to_numpy(dtype=float)) 

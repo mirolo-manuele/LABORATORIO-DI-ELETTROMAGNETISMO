@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 df = pd.read_excel("prova1.xlsx") 
-df = df.dropna(subset=["V", "I"])
+df = df.dropna(subset=["V", "Tfd"])
 
 V = array('d', df["V"].to_numpy(dtype=float)) 
 Tfd = array('d', df["Tfd"].to_numpy(dtype=float)) 

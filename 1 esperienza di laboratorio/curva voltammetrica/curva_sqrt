@@ -4,9 +4,9 @@ import numpy as np
 import pandas as pd
 
 df = pd.read_excel("prova1.xlsx", sheet_name="Sheet1") #legge il file excel
-df = df.dropna(subset=["V", "I"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
+df = df.dropna(subset=["Vsqrt", "I"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
-V = array('d', df["V"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
+Vsqrt = array('d', df["Vsqrt"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
 I = array('d', df["I"].to_numpy(dtype=float)) #to_numpy converte la colonna in un array NumPy di tipo float.
 
 eV = array('d', df["eV"].to_numpy(dtype=float))
@@ -14,9 +14,9 @@ eI = array('d', df["eI"].to_numpy(dtype=float))
 
 c = ROOT.TCanvas("c", "Curva voltammetrica", 800, 600)
 
-g=ROOT.TGraphErrors(len(V), V, I, eV, eI)
+g=ROOT.TGraphErrors(len(Vsqrt), Vsqrt, I, eV, eI)
 
-g.SetTitle("Curva voltammetrica;V[mV];I[mA]") 
+g.SetTitle("Curva voltammetrica;sqrt(V)[mV];I[mA]") 
 g.SetMarkerStyle(21) 
 g.SetMarkerColor(ROOT.kBlue) 
 g.SetMarkerSize(0.5) 
@@ -27,5 +27,5 @@ g.Draw("APL")
 c.Modified() 
 c.Update()
 c.Draw()
-c.SaveAs("curva voltammetrica.png") 
+c.SaveAs("curva voltammetrica sqrt.png") 
 input("Premi Invio per chiudere...") 
