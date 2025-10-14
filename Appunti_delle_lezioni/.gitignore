@@ -1,10 +1,11 @@
-*.aux
+Appunti.aux
 Appunti.log
 Appunti.fls
 Appunti.fdb_latexmk
 Appunti.toc
 Appunti.synctex.gz
 Appunti.out
+
 Statistica.aux
 Statistica.log
 Statistica.fls
