@@ -9,12 +9,13 @@ df = df.dropna(subset=["Vsqrt", "I"]) #controlla solo le colonne V e I. Se una d
 Vsqrt = array('d', df["Vsqrt"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
 I = array('d', df["I"].to_numpy(dtype=float)) #to_numpy converte la colonna in un array NumPy di tipo float.
 
-eV = array('d', df["eV"].to_numpy(dtype=float))
-eI = array('d', df["eI"].to_numpy(dtype=float))
+v_soglia = 30
+v_min=100
+
 
 c = ROOT.TCanvas("c", "Curva voltammetrica", 800, 600)
 
-g=ROOT.TGraphErrors(len(Vsqrt), Vsqrt, I, eV, eI)
+g=ROOT.TGraphErrors(len(Vsqrt), Vsqrt, I,)
 
 g.SetTitle("Curva voltammetrica;sqrt(V)[mV];I[mA]") 
 g.SetMarkerStyle(21) 
@@ -24,6 +25,31 @@ g.SetLineColor(ROOT.kRed)
 g.SetLineWidth(1) 
 
 g.Draw("APL")
+
+indici_fit = [i for i in range(len(Vsqrt)) if Vsqrt[i] >= v_soglia and Vsqrt[i]<= v_min]
+
+x_fit = array('d', [Vsqrt[i] for i in indici_fit])
+y_fit = array('d', [I[i] for i in indici_fit])
+
+g_fit = ROOT.TGraphErrors(len(x_fit), x_fit, y_fit,) 
+
+ROOT.gStyle.SetOptFit(11)#stampa solo parametri fit ed errori
+
+fit_func = ROOT.TF1("fit_func", "pol1",min(x_fit), max(x_fit))
+
+# Rinomina dei parametri, mettere prima di fit_result (che fa il fit)
+fit_func.SetParName(0, "q") 
+fit_func.SetParName(1, "m")   
+
+fit_result = g_fit.Fit(fit_func, "S+", "",min(x_fit), max(x_fit))
+
+  
+g_fit.Draw("Q")#mi serve per far comparire la tabella delle statistiche del fit, Q quiet
+fit_func.SetLineColor(ROOT.kBlack)
+fit_func.SetLineWidth(2)
+fit_func.Draw("SAME")
+
+
 c.Modified() 
 c.Update()
 c.Draw()
