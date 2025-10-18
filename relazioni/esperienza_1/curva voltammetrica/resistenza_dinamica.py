@@ -3,7 +3,7 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("prova1.xlsx", sheet_name="Sheet1") 
+df = pd.read_excel("prova1.xlsx", sheet_name="Sheet2") 
 df = df.dropna(subset=["V", "Rd"])
 
 V = array('d', df["V"].to_numpy(dtype=float)) 
@@ -26,5 +26,5 @@ g.Draw("APL")
 c.Modified() 
 c.Update()
 c.Draw()
-c.SaveAs("resistenza_dinamica.png") 
+c.SaveAs("resistenza_dinamica_zoom.png") 
 input("Premi Invio per chiudere...") 
