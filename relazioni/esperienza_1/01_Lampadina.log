@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.14)  20 OCT 2025 09:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.14)  20 OCT 2025 15:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -745,7 +745,17 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip74
-) (./01_Lampadina.aux)
+) (./01_Lampadina.aux
+
+LaTeX Warning: Label `fig:I_V_' multiply defined.
+
+
+LaTeX Warning: Label `fig:I_V_' multiply defined.
+
+
+LaTeX Warning: Label `fig:I_V_' multiply defined.
+
+)
 \openout1 = `01_Lampadina.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -922,34 +932,86 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 161--163
  [][] 
  []
 
+<curva_voltammetrica/curva_voltamperometrica.png, id=93, 800.9925pt x 573.14125pt>
+File: curva_voltammetrica/curva_voltamperometrica.png Graphic file (type png)
+<use curva_voltammetrica/curva_voltamperometrica.png>
+Package pdftex.def Info: curva_voltammetrica/curva_voltamperometrica.png  used on input line 169.
+(pdftex.def)             Requested size: 256.07481pt x 183.23404pt.
 
+Overfull \hbox (5.0pt too wide) in paragraph at lines 169--171
+ [][] 
+ []
+
+<curva_voltammetrica/curva_voltammetrica_sqrt.png, id=94, 800.9925pt x 573.14125pt>
+File: curva_voltammetrica/curva_voltammetrica_sqrt.png Graphic file (type png)
+<use curva_voltammetrica/curva_voltammetrica_sqrt.png>
+Package pdftex.def Info: curva_voltammetrica/curva_voltammetrica_sqrt.png  used on input line 180.
+(pdftex.def)             Requested size: 256.07481pt x 183.23404pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 180--182
+ [][] 
+ []
+
+
+
+<curva_voltammetrica/resistenza_dinamica_zoom.png, id=95, 800.9925pt x 573.14125pt>
+File: curva_voltammetrica/resistenza_dinamica_zoom.png Graphic file (type png)
+<use curva_voltammetrica/resistenza_dinamica_zoom.png>
+Package pdftex.def Info: curva_voltammetrica/resistenza_dinamica_zoom.png  used on input line 188.
+(pdftex.def)             Requested size: 256.07481pt x 183.23404pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 188--190
+ [][] 
+ []
+
+<curva_voltammetrica/resistenza_dinamica.png, id=96, 800.9925pt x 573.14125pt>
+File: curva_voltammetrica/resistenza_dinamica.png Graphic file (type png)
+<use curva_voltammetrica/resistenza_dinamica.png>
+Package pdftex.def Info: curva_voltammetrica/resistenza_dinamica.png  used on input line 195.
+(pdftex.def)             Requested size: 256.07481pt x 183.23404pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 195--197
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
 [4
 
+ <./curva_voltammetrica/fotodiodo.png> <./curva_voltammetrica/curva_voltamperometrica.png> <./curva_voltammetrica/curva_voltammetrica_sqrt.png> <./curva_voltammetrica/resistenza_dinamica_zoom.png>]
 
- <./curva_voltammetrica/fotodiodo.png>] (./01_Lampadina.aux)
+
+
+[5
+
+ <./curva_voltammetrica/resistenza_dinamica.png>] (./01_Lampadina.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `01_Lampadina.out' has not changed.
 (rerunfilecheck)             Checksum: 556F36E3C2B0B7227F920D9C302E4B50;642.
  ) 
 Here is how much of TeX's memory you used:
- 53675 strings out of 473190
- 1297958 string characters out of 5715800
+ 53709 strings out of 473190
+ 1299538 string characters out of 5715800
  1937397 words of memory out of 5000000
- 76342 multiletter control sequences out of 15000+600000
+ 76371 multiletter control sequences out of 15000+600000
  570744 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,10n,106p,522b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on 01_Lampadina.pdf (4 pages, 139527 bytes).
+ 103i,10n,106p,631b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on 01_Lampadina.pdf (5 pages, 217339 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 18 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
