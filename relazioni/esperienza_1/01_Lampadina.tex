@@ -13,7 +13,6 @@
 \usepackage{sectsty}
 \usepackage{ragged2e}
 \usepackage{circuitikz}
-
 \usepackage{booktabs}
 \usepackage{enumitem}
 \usepackage{tikz}
@@ -42,7 +41,7 @@
 
 \begin{document}
 \justifying
-	\title{\textbf{Misura del calore specifico solidi e calore latente di fusione del ghiaccio}}
+	\title{\textbf{Misura della curva volt-amperometrica di una lampadina a filo di tungsteno}}
 	\author{Brusini Alessio \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele}
 	\date{14 Ottobre 2025}
 	\maketitle
@@ -109,556 +108,57 @@ resistenza e il fotodiodo dal circuito, non più necessari nella misura.
 \section{Dati}
 \begin{table}[H]
     \begin{minipage}{0.5\textwidth}
-
-\centering
-\caption*{}
-\label{tab:temp2}
-\begin{tabular}{|r|r|}
-\hline
-Tensione(V) & Corrente (A) \\ \hline
-0 & 17.2 \\ \hline
-30 & 17.2 \\ \hline
-60 & 17.2 \\ \hline
-90 & 17.2 \\ \hline
-120 & 17.1 \\ \hline
-150 & 17.1 \\ \hline
-180 & 17.1 \\ \hline
-210 & 17.2 \\ \hline
-240 & 17.1 \\ \hline
-270 & 17.1 \\ \hline
-300 & 17.2 \\ \hline
-330 & 17.2 \\ \hline
-360 & 17.2 \\ \hline
-390 & 36.9 \\ \hline
-420 & 36.8 \\ \hline
-450 & 36.7 \\ \hline
-480 & 36.6 \\ \hline
-510 & 36.5 \\ \hline
-540 & 36.4 \\ \hline
-570 & 36.4 \\ \hline
-600 & 36.3 \\ \hline
-630 & 36.1 \\ \hline
-660 & 36.1 \\ \hline
-690 & 36.0 \\ \hline
-720 & 35.9 \\ \hline
-750 & 35.9 \\ \hline
-780 & 35.8 \\ \hline
-810 & 35.8 \\ \hline
-840 & 35.7 \\ \hline
-870 & 35.7 \\ \hline
-900 & 35.7 \\ \hline
-930 & 35.7 \\ \hline
-960 & 35.6 \\ \hline
-990 & 35.6 \\ \hline
-1020 & 35.5 \\ \hline
-    \end{tabular}
+        \centering
+        \caption*{}
+        \label{tab:temp2}
+        \begin{tabular}{|r|r|}
+            \hline
+            Tensione(V) & Corrente (A) \\ \hline
+            0 & 17.2 \\ \hline
+            30 & 17.2 \\ \hline
+            60 & 17.2 \\ \hline
+            90 & 17.2 \\ \hline
+            120 & 17.1 \\ \hline
+            150 & 17.1 \\ \hline
+            180 & 17.1 \\ \hline
+            210 & 17.2 \\ \hline
+            240 & 17.1 \\ \hline
+            270 & 17.1 \\ \hline
+            300 & 17.2 \\ \hline
+            330 & 17.2 \\ \hline
+            360 & 17.2 \\ \hline
+            390 & 36.9 \\ \hline
+            420 & 36.8 \\ \hline
+            450 & 36.7 \\ \hline
+            480 & 36.6 \\ \hline
+            510 & 36.5 \\ \hline
+            540 & 36.4 \\ \hline
+            570 & 36.4 \\ \hline
+            600 & 36.3 \\ \hline
+            630 & 36.1 \\ \hline
+            660 & 36.1 \\ \hline
+            690 & 36.0 \\ \hline
+            720 & 35.9 \\ \hline
+            750 & 35.9 \\ \hline
+            780 & 35.8 \\ \hline
+            810 & 35.8 \\ \hline
+            840 & 35.7 \\ \hline
+            870 & 35.7 \\ \hline
+            900 & 35.7 \\ \hline
+            930 & 35.7 \\ \hline
+            960 & 35.6 \\ \hline
+            990 & 35.6 \\ \hline
+            1020 & 35.5 \\ \hline
+        \end{tabular}
     \end{minipage}
-\hfill
-\begin{minipage}{0.5\textwidth}
-
-
-\centering
-\caption*{Massa equivalente - Seconda prova}
-\label{tab:temp3}
-
-\begin{tabular}{|r|r|}
-\hline
-Tempo (s) & Temperatura (°C) \\ 
-\hline
-0 & 19.6 \\ \hline 
-30 & 19.7 \\ \hline 
-60 & 19.7 \\ \hline 
-90 & 19.7 \\ \hline 
-120 & 19.6 \\ \hline 
-150 & 19.6 \\ \hline 
-180 & 19.7 \\ \hline 
-210 & 19.6 \\ \hline 
-240 & 19.7 \\ \hline 
-270 & 19.7 \\ \hline 
-300 & 36.6 \\ \hline 
-330 & 36.3 \\ \hline 
-360 & 36.1 \\ \hline 
-390 & 35.8 \\ \hline 
-420 & 36.0 \\ \hline 
-450 & 35.8 \\ \hline 
-480 & 35.8 \\ \hline 
-510 & 35.7 \\ \hline 
-540 & 35.6 \\ \hline 
-570 & 35.5 \\ \hline 
-600 & 35.4 \\ \hline 
-630 & 35.4 \\ \hline 
-660 & 35.2 \\ \hline 
-690 & 35.3 \\ \hline 
-720 & 35.2 \\ \hline 
-750 & 35.2 \\ \hline 
-780 & 35.2 \\ \hline 
-810 & 35.1 \\ \hline 
-840 & 35.1 \\ \hline 
-\end{tabular}
-\end{minipage}
 \end{table}
-\pagebreak
-\subsection{Calore specifico del metallo}
-\begin{table}[H]
-    \begin{minipage}{0.5\textwidth}
-\centering
-\caption*{metallo - Prima prova}
-\begin{tabular}{|c|c|}
-\hline
-{Tempo (s)} & {Temperatura (°C)} \\ 
-\hline
-0         & 19.9 \\ \hline 
-30        & 19.9 \\ \hline 
-60        & 19.9 \\ \hline 
-90        & 19.9 \\ \hline 
-120       & 19.9 \\ \hline 
-150       & 19.8 \\ \hline 
-180       & 19.9 \\ \hline 
-210       & 19.9 \\ \hline 
-240       & 19.9 \\ \hline 
-270       & 19.9 \\ \hline 
-300       & 19.9 \\ \hline 
-330       & 19.9 \\ \hline 
-360       & 20.1 \\ \hline 
-385       & 24.1 \\ \hline 
-400       & 24.1 \\ \hline 
-415       & 24.2 \\ \hline 
-445       & 24.4 \\ \hline 
-475       & 24.3 \\ \hline 
-505       & 24.3 \\ \hline 
-535       & 24.4 \\ \hline 
-565       & 24.3 \\ \hline 
-595       & 24.3 \\ \hline 
-625       & 24.3 \\ \hline 
-655       & 24.2 \\ \hline 
-685       & 24.2 \\ \hline 
-715       & 24.2 \\ \hline 
-745       & 24.2 \\ \hline 
-775       & 24.2 \\ \hline 
-805       & 24.1 \\ \hline 
-\end{tabular}
-\label{tab:temperatura}
-\end{minipage}
-\hfill
-\begin{minipage}{0.5\textwidth}
-\centering
-\caption*{metallo - Seconda prova}
-\begin{tabular}{|c|c|}
-\hline
-Tempo (s)& Temperatura (°C) \\ 
-\hline
-0         & 20.6 \\ \hline 
-30        & 20.7 \\ \hline 
-60        & 20.7 \\ \hline 
-90        & 20.7 \\ \hline 
-120       & 20.7 \\ \hline 
-150       & 20.8 \\ \hline 
-180       & 20.9 \\ \hline 
-210       & 20.9 \\ \hline 
-240       & 20.9 \\ \hline 
-270       & 20.9 \\ \hline 
-300       & 20.8 \\ \hline 
-330       & 24.2 \\ \hline 
-350       & 24.6 \\ \hline 
-360       & 24.8 \\ \hline 
-370       & 25.2 \\ \hline 
-400       & 25.3 \\ \hline 
-430       & 25.3 \\ \hline 
-460       & 25.2 \\ \hline 
-490       & 25.2 \\ \hline 
-520       & 25.2 \\ \hline 
-550       & 25.2 \\ \hline 
-580       & 25.2 \\ \hline 
-610       & 25.2 \\ \hline 
-640       & 25.2 \\ \hline 
-670       & 25.2 \\ \hline 
-700       & 25.2 \\ \hline 
-730       & 25.2 \\ \hline 
-760       & 25.2 \\ \hline 
-790       & 25.1 \\ \hline 
-820       & 25.1 \\ \hline 
-850       & 25.1 \\ \hline 
-880       & 25.1 \\ \hline 
-910       & 25.1 \\ \hline 
-940       & 25.1 \\ \hline 
-970       & 25.1 \\ \hline 
-\end{tabular}
-\label{tab:temperatura2}
-\end{minipage}
-\end{table}
-\pagebreak
-\subsection{Calore latente di fusione del ghiaccio}
-\begin{table}[H]
-\footnotesize 
-\begin{minipage}{.45\textwidth}
-\footnotesize
-\centering
-\centering
-\caption*{Ghiacccio - Prima prova} 
-\label{tab:temp5}
-\begin{tabular}{|r|r|}
-\hline
-Tempo (s) & Temperatura (°C) \\
-\hline
-0 & 19.3 \\ \hline
-30 & 19.3 \\ \hline
-60 & 19.3 \\ \hline
-90 & 19.3 \\ \hline
-120 & 19.3 \\ \hline
-150 & 19.3 \\ \hline
-180 & 19.3 \\ \hline
-210 & 19.3 \\ \hline
-240 & 19.3 \\ \hline
-270 & 19.4 \\ \hline
-300 & 19.4 \\ \hline
-330 & 19.4 \\ \hline
-360 & 19.4 \\ \hline
-390 & 19.4 \\ \hline
-420 & 19.4 \\ \hline
-450 & 15.3 \\ \hline
-455 & 14.0 \\ \hline
-485 & 12.9 \\ \hline
-515 & 12.2 \\ \hline
-545 & 10.2 \\ \hline
-575 & 10.6 \\ \hline
-605 & 11.2 \\ \hline
-635 & 10.6 \\ \hline
-665 & 10.2 \\ \hline
-695 & 9.6 \\ \hline
-725 & 9.0 \\ \hline
-730 & 8.5 \\ \hline
-735 & 8.4 \\ \hline
-740 & 8.7 \\ \hline
-745 & 8.7 \\ \hline
-750 & 8.7 \\ \hline
-755 & 8.6 \\ \hline
-760 & 8.5 \\ \hline
-765 & 8.5 \\ \hline
-770 & 8.4 \\ \hline
-775 & 8.5 \\ \hline
-780 & 8.5 \\ \hline
-790 & 8.4 \\ \hline
-820 & 8.5 \\ \hline
-830 & 8.5 \\ \hline
-860 & 8.5 \\ \hline
-870 & 8.5 \\ \hline
-900 & 8.5 \\ \hline
-930 & 8.5 \\ \hline
-960 & 8.7 \\ \hline
-1030 & 8.7 \\ \hline
-1060 & 8.8 \\ \hline
-1090 & 8.8 \\ \hline
-1120 & 8.8 \\ \hline
-1150 & 8.8 \\ \hline
-1180 & 8.9 \\ \hline
-1210 & 8.9 \\ \hline
-1240 & 9.0 \\ \hline
-1270 & 9.1 \\ \hline
-1300 & 9.1 \\ \hline
-1330 & 9.1 \\ \hline
-\end{tabular}
-\end{minipage}
 
-\label{tab:temp}
-\hfill
-\begin{minipage}{.45\textwidth}
-        \vspace{-20.8cm}
-        \centering
-    \caption*{Ghiaccio - Seconda prova}
-\begin{tabular}{|r|r|}
-\hline
-Tempo (s) & Temperatura (°C) \\
-\hline
-0 & 19.7 \\ \hline
-30 & 19.8 \\ \hline
-60 & 19.8 \\ \hline
-90 & 19.8 \\ \hline
-120 & 19.8 \\ \hline
-150 & 19.9 \\ \hline
-180 & 19.9 \\ \hline
-210 & 19.9 \\ \hline
-240 & 19.9 \\ \hline
-270 & 19.9 \\ \hline
-300 & 19.9 \\ \hline
-305 & 18.3 \\ \hline
-310 & 16.9 \\ \hline
-315 & 14 \\ \hline
-320 & 11.5 \\ \hline
-325 & 11 \\ \hline
-330 & 10.2 \\ \hline
-335 & 10.1 \\ \hline
-340 & 9.9 \\ \hline
-345 & 9.7 \\ \hline
-350 & 10.3 \\ \hline
-355 & 7.0 \\ \hline
-360 & 8.0 \\ \hline
-365 & 7.3 \\ \hline
-370 & 9.1 \\ \hline
-375 & 9.3 \\ \hline
-380 & 9.2 \\ \hline
-410 & 8.3 \\ \hline
-440 & 8.7 \\ \hline
-470 & 8.5 \\ \hline
-500 & 8.6 \\ \hline
-530 & 8.7 \\ \hline
-560 & 8.8 \\ \hline
-590 & 8.9 \\ \hline
-620 & 8.9 \\ \hline
-650 & 8.9 \\ \hline
-680 & 9.0 \\ \hline
-710 & 9.0 \\ \hline
-740 & 9.0 \\ \hline
-770 & 9.2 \\ \hline
-800 & 9.2 \\ \hline
-830 & 9.3 \\ \hline
-860 & 9.3 \\ \hline
-890 & 9.3 \\ \hline
-920 & 9.4 \\ \hline
-950 & 9.4 \\ \hline
-980 & 9.5 \\ \hline
-1010 & 9.5 \\ \hline
-1040 & 9.6 \\ \hline
-1070 & 9.7 \\ \hline
-1100 & 9.7 \\ \hline
-1130 & 9.8 \\ \hline
-1160 & 9.8 \\ \hline
-1190 & 9.8 \\ \hline
-1220 & 9.9 \\ \hline
-1250 & 9.9 \\ \hline
-1280 & 10 \\ \hline
-1310 & 10 \\ \hline
-1340 & 10.1 \\ \hline
-\end{tabular}
-\end{minipage}
-\end{table}
 \twocolumn
-\section{Analisi dati}
-\subsection{Massa equivalente in acqua}
-L'errore su questa quantità viene calcolato utilizzando la legge di propagazione degli errori massimi:
-\begin{multline*}
-    \Delta m^* = \Delta m_1 + \Delta m_2 \left| \frac{T_2 - T^*}{T^* - T_1} \right| \\
-    + \Delta T_2 \frac{m_2}{|T^* - T_1|} + \Delta T_1 \frac{|T_2 - T^*|}{(T^* - T_1)^2} m_2 \\
-    + \Delta T^* \frac{|T_2 - T_1|}{(T^* - T_1)^2} m_2\
-\end{multline*}
-    dall'analisi svolta si evince che i primi 2 termini sono trascurabili:
-    \begin{table}[H]
-        \centering
-   \begin{scriptsize}
-				\noindent
-		\begin{tabular}{|c|c|}
-		\hline
-		 termine & $\Delta$ (g)  \\ \hline
-		1  & 0.01 \\ \hline
-        2  & 0.01 \\ \hline
-        3  & 0.20\\ \hline
-        4  & 0.20 \\ \hline
-        5  & 4.70 \\ \hline
-		\end{tabular}
-        \caption*{Massa equivalente in acqua - Seconda prova}
-    \end{scriptsize}
-	\end{table}
-I risultati sono compatibili fra loro, perciò come dato finale si è presa la misura più precisa:
-  \begin{table}[H]
-    \centering
-		\begin{tabular}{|c|c|}
-		\hline
-		$m^*$ & $\Delta$ (g)  \\ \hline
-		17.0 & 5.6 \\ \hline
-        19.2 & 4.3 \\ \hline
-		\end{tabular}
-	\end{table}
-    \begin{center}
-        
-        \boxed{m^* = 19.2 \pm 4.3 \; g}
-    \end{center}
-\subsection{Calore specifico del metallo}
-Si utilizza nuovamente la legge di propagazione degli errori massimi:
-\begin{multline*}
-\Delta m^* = \Delta m_1 + \Delta m_2 \left| \frac{T_2 - T^*}{T^* - T_1} \right| \\
-+ \Delta T_2 \frac{m_2}{|T^* - T_1|} 
-+ \Delta T_1 \frac{|T_2 - T^*|}{(T^* - T_1)^2} m_2 \\
-+ \Delta T^* \frac{|T_2 - T_1|}{(T^* - T_1)^2} m_2
-\end{multline*}
-4\textsuperscript{o} e 5\textsuperscript{o} termine risultano trascurabili:
-    \begin{table}[H]
-        \centering
-		\begin{tabular}{|c|c|}
-		\hline
-		 termine & errore (g)  \\ \hline
-		1  & 0.1170 \\ \hline
-        2  & 0.0229 \\ \hline
-        3  & 0.0203\\ \hline
-        4  & 0.0007 \\ \hline
-        5  & 0.0005 \\ \hline
-		\end{tabular}
-        \caption*{Calore specifico del metallo - Seconda prova}
-	\end{table}
-Anche in questo caso sono state svolte due misurazioni, come in precenza si ha la compatabilità dei risultati:
-  \begin{table}[H]
-    \centering
-		\begin{tabular}{|c|c|}
-		\hline
-        $c_x$ (\si{\joule\per\gram\per\kelvin}) & $\Delta c_x$ (\si{\joule\per\gram\per\kelvin}) \\ \hline
-		0.56 & 0.13 \\ \hline
-        0.56 & 0.16 \\ \hline
-		\end{tabular}
-	\end{table}
 
-    \begin{center}
-        
-        \boxed{c_x = 0.56 \pm 0.13 \; \si{\joule\per\gram\per\kelvin}} 
-    \end{center}
-\subsection{Calore latente di fusione del ghiaccio}
-Ancora una volta si è fatto uso della legge di propagazione degli errori massimi:
-\begin{multline*}
-\Delta \lambda_f = c_a \Bigg[
-\frac{T_1 - T^*}{m_g} (\Delta m_1 + \Delta m^*) \\
-+ \frac{(m_1 + m^*)(T_1 - T^*)}{m_g^2} \Delta m_g 
-+ \frac{m_1 + m^*}{m_g} \Delta T_1 \\
-+ \Delta T_f 
-+ \frac{m_1 + m^* + m_g}{m_g} \Delta T^* 
-\Bigg]
-\end{multline*}
-  \begin{table}[H]
-    \centering
-		\begin{tabular}{|c|c|}
-		\hline 
-        $\lambda_f$ (J/(g$\cdot$K)) & $\Delta \lambda_f$ (J/(g$\cdot$K))  \\ \hline
-		327 & 45 \\ \hline
-        321 & 57 \\ \hline
-		\end{tabular}
-	\end{table}
-
-    \begin{center}
-        
-        \boxed{\lambda_f = 327 \pm 45 \; \si{\joule\per\gram\per\kelvin}} 
-    \end{center}
-\subsection{Temperatura d'equilibrio e Chi Squared}
-\begin{nota}
-Si informa il lettore che per l'analisi dei dati è stato utilizzato il software ROOT.
-\end{nota}
-La temperatura d'equilibrio è stata ricavata graficamente, si compie una regressione lineare con parte dei dati raccolti dal momento in cui si è raggiunto l'equilibrio termico del sistema calorimetro-sostanza. Questo 
-ci permette di andare a calcolare la temperatura d'equilibrio $T^*$, nonostante gli scambi termici con l'ambiente esterno.
-
-Volendo trovare la miglior retta che descrive il nostro set di misure e i consegueti risultati $(x_i,y_i \pm \sigma_i)$
-utilizziamo la ovvia parametrizzazzione: $f_i=mx+q$, si sono dovuti quindi stimare i parametri m e q, per farlo si è utilizzato il metodo dei \textit{minimi quadrati}.
-Tale principio afferma che la miglior stia dei parametri è quella che minimizza il cosidetto \textit{Chi quadrato}:
-\[
-\chi^2=\sum_{i=1}^{n}w_i(y_i-f(x_i))^2
-\]
-dove $w_i$ è peso, nel nostro caso esso diventa $\frac{1}{\sigma_i^2}$. Si devono quindi risolvere le equazioni:
-$\frac{\partial X^2}{\partial m}=0$ e $\frac{\partial X^2}{\partial q}=0$, mentre gli errori si trovano a partire dalla legge di propagazione della varianza:
-\begin{equation*}
-\sigma_{{m}}^2 = \sum_{i=1}^N \left( \frac{\partial m}{\partial y_i} \right)^2 \sigma^2
-\quad
-\sigma_{q}^2 = \sum_{i=1}^N \left( \frac{\partial q}{\partial y_i} \right)^2 \sigma^2
-\end{equation*}
-Infine, il valore del chi quadrato per grado di libertà $\frac{\chi^2}{\text{ndf}}$, dove $\text{ndf}$ indica i gradi di libertà, nel caso del fit lineare $n - 2$ (dove $n$ è il numero di misure). Esso è un indicatore della qualità del fit.\\
-Idealmente, un valore vicino a 1 indica che le incertezze sono ben stimate e il modello descrive correttamente i dati. Valori molto maggiori di 1 suggeriscono una scarsa compatibilità (oppure errori sottostimati), mentre valori molto minori di 1 possono indicare una sovrastima delle incertezze.
-La \textit{probabilità del $\chi^2$}  indica quanto è plausibile ottenere il valore di $\chi^2$ osservato se il modello fosse corretto. Serve a valutare la bontà del fit: un p-value alto ($>0.05$) suggerisce che il modello descrive bene i dati, mentre uno basso indica incompatibilità.
-
-
-Infine si è passati ad una trattazzione deterministica andando a valutare l'errore su ogni temperatura d'equilibrio ricavata graficamente come:
-\[
-\Delta T^*= \Delta m x + \Delta q
-\]
-Si sono ottenuti i seguenti risultati:
-\begin{table}[H]
-\begin{scriptsize}
-\noindent
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c}
-\hline
-Prova &  $\sigma_m$ &  $\sigma_q$ & $\chi^2$ & $\chi^2$/ndf & $\Delta m$ & $\Delta q$ & $\Delta y$ \\
-\hline
-acqua 1   & 0.0001 & 0.13 & 9.2 & 1.0 & 0.0003 & 0.6 & 0.68 \\ \hline
-acqua 2   & 0.0001 & 0.14 & 10.4 & 1.7 & 0.0005 & 0.4 & 0.57 \\ \hline
-solido 1   & 0.0002 & 0.13 & 8.6  & 1.7 & 0.0005  & 0.4 & 0.59 \\ \hline
-solido 2   & 0.0002  & 0.08 & 26.7 & 3.6 & 0.0007  & 0.2 & 0.5 \\ \hline
-ghiaccio 1  & 0.0002  & 0.20 & 10.4 & 1.7 & 0.0005  & 0.5 & 0.75 \\ \hline
-ghiaccio 2 & 0.00004  & 0.04 & 19.0 & 1.5 & 0.0001  & 0.12 & 0.16 \\ 
-\hline
-\end{tabular}}
-\end{scriptsize}
-\end{table}
-
-\subsection{Tempo caratteristco}
-La misura di $\tau$ diviene più semplice grazie all'analisi sopra descritta. Si utilizzano, infatti, i parametri ottenuti dal fit della retta (indicati nei grafici come $p_0$ (q) e $p_1$ (m)) sono gli stessi che si trovano in:
-\[
-T(t)=T_0 + \frac{T_0-T_A}{\tau}t
-\]
-e assumendo che il raggiugimento dell'equilibrio termico ambiente-calorimetro sia lineare si ha che:
-\begin{equation*}
-\tau=\frac{1}{m} \quad \Delta \tau= \frac{\Delta m}{m}\tau
-\end{equation*}
-da cui si ottengono i seguenti:
-\begin{table}[h]
-\centering
-\caption*{Valori di $\tau$ e relativi errori}
-\begin{tabular}{|c|c|}
-\hline
-$\tau$ [s] &  $\Delta \tau$ [s] \\
-\hline
-870 & 340 \\ \hline
-560 & 37 \\ \hline
-930 & 470 \\ \hline
-2400 & 400 \\ \hline
-730 & 180 \\ \hline
-1400 & 100 \\ \hline
-580 & 150 \\
-\hline
-\end{tabular}
-\end{table}
-\pagebreak
 \section{Grafici}
-\section{Conclusione}
-
-\end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_voltammetrica/fotodiodo.png} % o .png, .pdf, ecc.
+  \label{fig:esempio}
+\end{figure}
 \end{document}

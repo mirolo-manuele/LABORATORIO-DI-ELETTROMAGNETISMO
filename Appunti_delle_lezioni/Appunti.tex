@@ -844,4 +844,59 @@ Poichè sappiamo fare un fit lineare possiamo linearizzare la nostra equazione, 
   \item ottengo il valore di $\log(I_0)$ 
   \item conoscendo $q$ $ k$ e $T$ posso ottenere $\eta$ (circa 2 per il silicio, 1 per il germanio)
  \end{itemize}
+
+\section{Lezione 20/10/2025}
+\subsection{Diodo}
+Nel caso si dia energia agli atomi presenti nella fascia di separazione del diodo, si possono osservare fenomeni di conduzione elettrica. 
+Quando il diodo è polarizzato in avanti, gli elettroni possono attraversare la giunzione p-n, mentre in polarizzazione inversa, la giunzione si comporta come un isolante.\\
+Prendiamo il caso di fornire un fotone di energia:
+\[
+E = h \nu \quad \nu = \frac{c}{\lambda}
+\]
+se l'energia del fotone è maggiore della banda proibita (massima energia che l'eletrone ha per essere legato all'atomo), allora l'elettrone può essere eccitato nella banda di conduzione. 
+Nel caso il diodo sia polarizzato da una tensione inversa, l'elettrone eccitato può attraversare la giunzione p-n, creando una corrente di \textit{fotocorrente}.
+Dunque un diodo è in grado di trasformare l'energia luminosa in forza elettromotrice; un diodo è in certe situazioni un \textit{generatore di corrente}. 
+\\
+Nel caso di polazizzazione diretta (diminuzione della zona di svuotamento), la funzione d'onda dell'elettrone ha una probabilità maggiore di sovrapporsi con la funzione d'onda della lacuna, emettendo un fotone (LED).
+Nel caso la creazione di un fotone avvenga nelle zone più interne del diodo, ho una certa probabilità che il fotone venga riassorbito prima di uscire dal diodo. La luce viene emessa in un cono di angolo solido, dipendentemente dal materiale e dalla geometria del diodo.
+\\
+La curva volt-amperometrica di un diodo LED è simile a quella di un diodo normale, ma con una soglia di tensione più alta (circa 2V per il rosso, 3V per il blu, mentre per quello normale è circa 0.7V). L'energia del fotone emesso è proporzionale alla tensione di soglia:
+\[
+E= q V
+\]
+allora logicamente, al variare del colore della luce emessa varia la tensione di soglia del diodo. Questo mi permette di calcolare la costante di Plank:
+\[
+E_i=q V_i = \frac{h c}{\lambda_i} \rightarrow h = \frac{q V_i \lambda_i}{c}
+\]
+
+\subsection{verifica dell'effetto fotoelettrico}
+Creo un circuito con due LED che si guardano in una scatola isolata, entrambi collegati ad un circuito di misura volt-amperometrica. Così in base a quale accendo posso creare un LED emettitore e un fotodiodo ricevitore. La differenza di potenziale misurata sul fotodiodo dipende dalla frequenza della luce emessa dal LED emettitore e dalla tensione ai capi del LED. 
+
+Se allora il fotodiodo lo alimento con una tensione negativa (polarizzazione inversa) posso misurare la corrente di fotocorrente che dipende dalla frequenza della luce incidente.
+
+\subsection{Misura della costante di Faraday}
+La costante di Farady $F$ è la carica di una mole di elettroni: $F=N_A e$, i quegli annni però Avogadro non aveva ancora misurato la sua famosa costante. 
+\[
+F = e \cdot NA = 9.64853321233100184 \times 104 \; C/mol.
+\]
+
+Per misurate questa costante si usa:
+\begin{itemize}
+    \item bacinella di acqua distillata con discolto del solfato di rame ($CuSO_4$) \\
+    Quando lo disciolgo in acqua allora di dissocia in ioni $Cu^{2+}$ e $SO_4^{2-}$, che vengono circondati da molecole d'acqua (solvatazione).
+    Se aggiungo ad un oggetto in maniera isotropa degli elementi che si possono sovrapporre, allora mi riconduco ad un una sfera (per esempio i miei ioni circondati da molecole d'acqua). 
+    Questo mi porta a studiare il mio sistema come se fosse delle sfere che si muovo in un fluido puro (acqua), allora entra in gioco la forza di Stokes: $F= 6 \pi \eta r v$.
+    \item inseriamo due elettrodi di rame collegati ad un generatore di tensione continua ed un amperometro in serie. 
+    Quando accendiamo il generatore sull'elettrodo negativo (catodo) si avvicinano gli ioni $Cu^{2+}$ che catturando 2 elettroni poi si legano all'elettrodo stesso; processo simile avviene all'anodo con lo ione $SO_4^{2-}$ che cedendo i due elettroni forma di nuovo il sale che si stacca dall'elettrodo e si dissolve nell'acqua. 
+    \item misurando allora gli elettrodi prima e dopo l'esperimento posso misurare la massa di rame di rame depositata sul catodo $\Delta m$, trovando dunque:
+    \[
+    \frac{\Delta m}{MM_{Cu}} N_A 2 e = Q = \sum_{i=1}^{n} I(t_i) \Delta t 
+    \]
+    dove prendo degli intervalli di tempo abbastanza piccoli da considerare la corrente in quell'intervallo costante, l'errore maggiore è quello sulla massa. 
+    \item da queste considerazioni ottengo dunque:
+    \[F= \frac{MM_{Cu}}{2 m} \sum_{i=1}^{n} I(t_i) \Delta t \]
+    se misuro circa gli stessi intervalli di tempo posso far uscire il mio $\Delta t$. 
+    \item a causa delle variazioni di temperatura della concentrazioni devo fare una soluzione \textit{sovrasatura};
+\end{itemize}
+
 \end{document}
