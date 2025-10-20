@@ -159,6 +159,48 @@ resistenza e il fotodiodo dal circuito, non più necessari nella misura.
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/fotodiodo.png} % o .png, .pdf, ecc.
-  \label{fig:esempio}
+  \label{fig:I/V_fotodiodo}
 \end{figure}
+Nel grafico possiamo osservare a quel differenza di potenziale ai capi della mia lampadina (V) si verifica il primo fenomeno soglia, ovvero l'emissione di fotoni. Da quel punto in poi la mia lampadina non avrà più una caratteristica ohmnica. Questo è dovuto al fatto che la mia forza elettromotrice oltre alla semplice accelerazione degli elettroni, provoca anche l'agitazione termica del filamento di tungsteno, che inizia a riscaldarsi e quindi a emettere luce visibile; andandi a dissipare energia. \\
+Essendo questo fenomeno non lineare, la mia resistenza interna della lampadina non sarà più costante. 
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_voltammetrica/curva_voltamperometrica.png} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+Nella curva posso notare tre principali regioni:
+\begin{itemize}
+    \item La prima regione in cui la corrente sembra avere una tendenza del tipo $I \propto V^{1/2}$;
+    \item La seconda regione ($V > 14V$), in cui la mia corrente sembra stabilizzarsi all'aumentare della tensione, avendo anche una piccola discesa nella parte finale;
+\end{itemize}
+Andiamo ora ad indare il grafico rispetto al valore sotto radice quadrata della tensione:
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_voltammetrica/curva_voltammetrica_sqrt.png} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+Posso qui notare meglio la presenza delle due zone prima descritte. In particolare da dipendenza quadratica dell'intensità di corrente rispetto alla tensione nel range $400-13000mV$.\\ 
+Nella regione iniziale si osserva un andamento che può essere ricondotto ad un esponenziale. 
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_voltammetrica/resistenza_dinamica_zoom.png} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+La prima parte del grafico è quasi nulla, mostrando come la resistenza a bassi voltaggi rimanga quasi costante, mentre all'aumentare del voltaggio entrino in gioco fenomeni che rendono la resistenza variabile. 
+Quello che mi interessa è il fatto che la resistenza dinamica comunque tenda ad aumentare, come ci si aspetta per un filamento che si riscalda.
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_voltammetrica/resistenza_dinamica.png} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+Guardando ora l'andamento generale della resistenza dinamica, si nota come questa oscilli molto; questo è dovuto al fatto che abbiamo usato un amperometro con fondoscala di $10 A$, andando ad accumulare molto errore nelle misure. Infatti per una variazione misurata di $0.1 A$ avevamo un errore sullo strumento altrettanto gradnde.\\
+in generale comunque possiamo osservare come la resistenza tenda ad aumentare all'aumentare della tensione, fino a raggiungere un massimo di circa $60 \: \Omega$. 
+Da quel punto in poi osserviamo delle violente oscillazioni, dovute probabilmente all'inizio della fusione del filamento di tungsteno. 
+
+
+
+
+
 \end{document}
