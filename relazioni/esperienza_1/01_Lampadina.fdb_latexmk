@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760968572.00468 "/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_1/01_Lampadina.tex" "01_Lampadina.pdf" "01_Lampadina" 1760968573.10957 0
-  "/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_1/01_Lampadina.tex" 1760968571.83926 8108 dc44b9eff0891263ac8af2cb6d696d02 ""
+["pdflatex"] 1760969842.36756 "/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_1/01_Lampadina.tex" "01_Lampadina.pdf" "01_Lampadina" 1760969843.50156 0
+  "/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_1/01_Lampadina.tex" 1760969842.20449 8206 45b2ebfb0f5f749763d5c934cfe3fae5 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -235,10 +235,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1744615906 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1744615851 3345739 8af9b4ca0365e8322b3f223347aeeeee ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "01_Lampadina.aux" 1760968573.02811 1556 45a2dba4b8ea2b20cc429d7e3939577c "pdflatex"
-  "01_Lampadina.out" 1760968573.02891 642 556f36e3c2b0b7227f920d9c302e4b50 "pdflatex"
-  "01_Lampadina.tex" 1760968571.83926 8108 dc44b9eff0891263ac8af2cb6d696d02 ""
-  "01_Lampadina.toc" 1760968573.02911 429 25b203ede989d4ab10745c46f7c2e08c "pdflatex"
+  "01_Lampadina.aux" 1760969843.41874 1556 ad8c61e9652b91592238a171716b763f "pdflatex"
+  "01_Lampadina.out" 1760969843.41953 642 556f36e3c2b0b7227f920d9c302e4b50 "pdflatex"
+  "01_Lampadina.tex" 1760969842.20449 8206 45b2ebfb0f5f749763d5c934cfe3fae5 ""
+  "01_Lampadina.toc" 1760969843.41971 429 25b203ede989d4ab10745c46f7c2e08c "pdflatex"
   "curva_voltammetrica/curva_voltammetrica_sqrt.png" 1760943504.4123 12781 e18953db29ec81fc9b1748aa98ac3b1a ""
   "curva_voltammetrica/curva_voltamperometrica.png" 1760943504.4125 10766 1138ce29de0f5a1b99672b97e8575a3b ""
   "curva_voltammetrica/fotodiodo.png" 1760467258.31955 9188 794845822685c85cd3b826f240f90524 ""

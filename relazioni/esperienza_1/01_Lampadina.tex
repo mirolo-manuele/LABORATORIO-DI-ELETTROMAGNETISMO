@@ -89,10 +89,13 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     % Amperometro in basso
     \draw (0,0) to[rmeter, t=A] (3,0);
     
-    \draw (3,2) to[short] (4.5,2) 
+    \draw (3,2) to[short] (2,2) 
     % Voltmetro in parallelo alla lampadina
-    to[rmeter, t=V] (4.5,1)
+    to[rmeter, t=V] (2,1)
     to[short] (3,1);
+
+    % Fotodiodo in parallelo alla lampadina
+    \draw (5,0) to [empty diode, a_=$Photodiode$] (5,3);
 \end{circuitikz}
 \end{center}
 
