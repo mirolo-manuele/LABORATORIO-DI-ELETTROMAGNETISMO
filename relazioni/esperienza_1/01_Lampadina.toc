@@ -5,3 +5,4 @@
 \contentsline {section}{\numberline {2}Procedimento di misura}{3}{section.2}%
 \contentsline {section}{\numberline {3}Dati}{3}{section.3}%
 \contentsline {section}{\numberline {4}Grafici}{4}{section.4}%
+\contentsline {section}{\numberline {5}Conclusione}{5}{section.5}%
