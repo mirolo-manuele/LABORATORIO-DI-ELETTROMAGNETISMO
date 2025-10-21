@@ -64,11 +64,8 @@
 \twocolumn
 
 \section{Apparato sperimentale}
-\vspace{-1cm}
 \subsection{Misura per bassi voltaggi}
-\vspace{-1cm}
 Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
-\vspace{-1cm}
 \begin{itemize}
     \item Generatore di corrente continua
     \item Resistenza 
@@ -77,7 +74,6 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     \item Fotodiodo
     \item Lampadina con tensione di funzionamento 6V
 \end{itemize}
-\vspace{-3cm}
 \begin{center}
 \begin{circuitikz}[american]
     
@@ -102,7 +98,36 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     \draw (5,0) to [empty diode, a_=$Photodiode$] (5,3);
 \end{circuitikz}
 \end{center}
-\vspace{-2cm}
+\subsection{Seconda misura}
+Per ottenere la misura con gli altri voltaggi si costruisce un circuito composto da:
+\begin{itemize}
+    \item Generatore di corrente continua
+    \item Voltmetro
+    \item Amperometro
+    \item Lampadina con tensione di funzionamento 6V
+\end{itemize}
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[battery1, invert, l=$V$] (0,3);
+
+    % Filo conduttore in alto
+    \draw (0,3) to (3,3);
+    
+    % Lampadina a destra
+    \draw (3,3) to[lamp, l=$L$] (3,0);
+    
+    % Amperometro in basso
+    \draw (0,0) to[rmeter, t=A] (3,0);
+    
+    \draw (3,2) to[short] (2,2) 
+    % Voltmetro in parallelo alla lampadina
+    to[rmeter, t=V] (2,1)
+    to[short] (3,1);
+
+\end{circuitikz}
+\end{center}
 \section{Procedimento di misura}
 La misura si svolge in due fasi: nella prima si prendono misure più fitte
 per poter apprezzare le oscillazioni di corrente. A questo scopo è necessario
@@ -112,55 +137,26 @@ flebile luminescenza della lampadina, non visibile univocamente a occhio nudo.\\
 Nella seconda fase si prendono dati meno fitti, perciò si rimuovono la 
 resistenza e il fotodiodo dal circuito, non più necessari nella misura.
 
-\section{Dati}
-\begin{table}[H]+3
-    \begin{minipage}{0.5\textwidth}
-        \centering
-        \caption*{}
-        \label{tab:temp2}
-        \begin{tabular}{|r|r|}
-            \hline
-            Tensione(V) & Corrente (A) \\ \hline
-            0 & 17.2 \\ \hline
-            30 & 17.2 \\ \hline
-            60 & 17.2 \\ \hline
-            90 & 17.2 \\ \hline
-            120 & 17.1 \\ \hline
-            150 & 17.1 \\ \hline
-            180 & 17.1 \\ \hline
-            210 & 17.2 \\ \hline
-            240 & 17.1 \\ \hline
-            270 & 17.1 \\ \hline
-            300 & 17.2 \\ \hline
-            330 & 17.2 \\ \hline
-            360 & 17.2 \\ \hline
-            390 & 36.9 \\ \hline
-            420 & 36.8 \\ \hline
-            450 & 36.7 \\ \hline
-            480 & 36.6 \\ \hline
-            510 & 36.5 \\ \hline
-            540 & 36.4 \\ \hline
-            570 & 36.4 \\ \hline
-            600 & 36.3 \\ \hline
-            630 & 36.1 \\ \hline
-            660 & 36.1 \\ \hline
-            690 & 36.0 \\ \hline
-            720 & 35.9 \\ \hline
-            750 & 35.9 \\ \hline
-            780 & 35.8 \\ \hline
-            810 & 35.8 \\ \hline
-            840 & 35.7 \\ \hline
-            870 & 35.7 \\ \hline
-            900 & 35.7 \\ \hline
-            930 & 35.7 \\ \hline
-            960 & 35.6 \\ \hline
-            990 & 35.6 \\ \hline
-            1020 & 35.5 \\ \hline
-        \end{tabular}
-    \end{minipage}
-\end{table}
+%\section{Dati}
+%\begin{table}[H]+3
+%    \begin{minipage}{0.5\textwidth}
+%        \centering
+%        \caption*{}
+%        \label{tab:temp2}
+%        \begin{tabular}{|r|r|}
+%            \hline
+%            Tensione(V) & Corrente (A) \\ \hline
+%            0 & 17.2 \\ \hline
+%            30 & 17.2 \\ \hline
+%            60 & 17.2 \\ \hline
+%            90 & 17.2 \\ \hline
+%            120 & 17.1 \\ \hline
+%            150 & 17.1 \\ \hline
+%        \end{tabular}
+%    \end{minipage}
+%\end{table}
 
-\twocolumn
+%\twocolumn
 
 \section{Grafici}
 \begin{figure}[H] % [h] = here, posizione approssimativa
@@ -178,7 +174,7 @@ Essendo questo fenomeno non lineare, la resistenza interna della lampadina non s
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/curva_voltamperometrica.png} % o .png, .pdf, ecc.
   \label{fig:I_V_}
 \end{figure}
-Nella curva posso notare tre principali regioni:
+Nella curva posso notare due principali regioni:
 \begin{itemize}
     \item La prima regione in cui la corrente sembra avere una tendenza del tipo $I \propto V^{1/2}$;
     \item La seconda regione ($V > 14V$), in cui la mia corrente sembra stabilizzarsi all'aumentare della tensione, avendo anche una piccola discesa nella parte finale;
@@ -193,7 +189,7 @@ Andiamo ora a presentare il grafico rispetto al valore sotto radice quadrata del
 \noindent Costruendo un grafico in cui si riportano la radice quadrata della tensione in ascissa e l'intensità di corrente in ordinata, si possono osservare meglio le due zone precedentemente descritte.
 %Andiamo ora a presentare il grafico rispetto al valore sotto radice quadrata della tensione:
 In particolare si nota la dipendenza quadratica dell'intensità di corrente rispetto alla tensione nel range $400-13000mV$.\\ 
-Nella regione iniziale si osserva un andamento che può essere ricondotto ad un'esponenziale.
+%Nella regione iniziale si osserva un andamento che può essere ricondotto ad un'esponenziale.
 %Questa cosa dell'esponenziale ha senso dirla?
 
 
@@ -225,5 +221,4 @@ Non potendo dare una stima quantitativa per stabilire la riuscita
   abbia proprio andamento $I \propto \sqrt{V}$ che ci si aspettava in virtù del fatto
    che la lampadina sottoposta a valori simili di differenza di potenziale non si comporta in modo ohmico
 
-ciao, prova 
 \end{document}
