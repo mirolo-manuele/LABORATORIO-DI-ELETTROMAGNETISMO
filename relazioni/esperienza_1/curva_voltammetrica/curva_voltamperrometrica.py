@@ -3,7 +3,7 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("prova1.xlsx") #legge il file excel
+df = pd.read_excel("prova1.xlsx", sheet_name="Sheet3") #legge il file excel
 df = df.dropna(subset=["V", "I"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
 V = array('d', df["V"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
@@ -24,8 +24,9 @@ g.SetLineColor(ROOT.kRed)
 g.SetLineWidth(1) 
 
 g.Draw("APL")
+
 c.Modified() 
 c.Update()
 c.Draw()
-c.SaveAs("curva voltammetrica.png") 
+c.SaveAs("curva voltamperometrica.png") 
 input("Premi Invio per chiudere...") 
