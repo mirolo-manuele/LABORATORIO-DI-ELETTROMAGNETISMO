@@ -29,10 +29,10 @@ g.SetLineColor(ROOT.kRed) #colore della linea
 g.SetLineWidth(1) #larghezza della linea
 
 g.Draw("APL") #disegna 
-#ho diverse opizioni (unisco le lettere per fare più cose insieme):
+#ho diverse opzioni (unisco le lettere per fare più cose insieme):
 #"A" solo gli assi
 #"P" solo i punti
-#"L" solo la linea
+#"L" solo la linea che congiungono i punti
 
 indici_fit = [i for i in range(len(x)) if x[i] >= v_soglia] #creo un array con gli indici dei punti con x >= v_soglia
 #metto nella lista i (primo i) (potevo mettere per esempio i^2)
