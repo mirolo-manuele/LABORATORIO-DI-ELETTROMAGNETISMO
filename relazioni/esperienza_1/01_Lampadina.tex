@@ -1,5 +1,5 @@
 \documentclass[10pt,twocolumn]{article}
-\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
@@ -64,8 +64,11 @@
 \twocolumn
 
 \section{Apparato sperimentale}
+\vspace{-1cm}
 \subsection{Misura per bassi voltaggi}
+\vspace{-1cm}
 Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
+\vspace{-1cm}
 \begin{itemize}
     \item Generatore di corrente continua
     \item Resistenza 
@@ -74,6 +77,7 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     \item Fotodiodo
     \item Lampadina con tensione di funzionamento 6V
 \end{itemize}
+\vspace{-3cm}
 \begin{center}
 \begin{circuitikz}[american]
     
@@ -98,7 +102,7 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     \draw (5,0) to [empty diode, a_=$Photodiode$] (5,3);
 \end{circuitikz}
 \end{center}
-
+\vspace{-2cm}
 \section{Procedimento di misura}
 La misura si svolge in due fasi: nella prima si prendono misure più fitte
 per poter apprezzare le oscillazioni di corrente. A questo scopo è necessario
@@ -109,7 +113,7 @@ Nella seconda fase si prendono dati meno fitti, perciò si rimuovono la
 resistenza e il fotodiodo dal circuito, non più necessari nella misura.
 
 \section{Dati}
-\begin{table}[H]
+\begin{table}[H]+3
     \begin{minipage}{0.5\textwidth}
         \centering
         \caption*{}
@@ -164,8 +168,10 @@ resistenza e il fotodiodo dal circuito, non più necessari nella misura.
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/fotodiodo.png} % o .png, .pdf, ecc.
   \label{fig:I/V_fotodiodo}
 \end{figure}
-Nel grafico possiamo osservare a quel differenza di potenziale ai capi della mia lampadina (V) si verifica il primo fenomeno soglia, ovvero l'emissione di fotoni. Da quel punto in poi la mia lampadina non avrà più una caratteristica ohmnica. Questo è dovuto al fatto che la mia forza elettromotrice oltre alla semplice accelerazione degli elettroni, provoca anche l'agitazione termica del filamento di tungsteno, che inizia a riscaldarsi e quindi a emettere luce visibile; andandi a dissipare energia. \\
-Essendo questo fenomeno non lineare, la mia resistenza interna della lampadina non sarà più costante. 
+Nel grafico si può osservare qual è la differenza di potenziale (V) che va applicata alla lampadina per osservare il primo fenomeno soglia, ovvero l'emissione di fotoni dovuta all'eccitazione degli atomi del tungsteno.
+%Nel grafico possiamo osservare a quale differenza di potenziale ai capi della mia lampadina (V) si verifica il primo fenomeno soglia, ovvero l'emissione di fotoni. 
+Da quel punto in poi la lampadina non avrà più un comportamento ohmnico. Questo è dovuto al fatto che la forza elettromotrice, oltre alla semplice accelerazione degli elettroni, provoca anche l'agitazione termica del filamento di tungsteno, che inizia a riscaldarsi e quindi a emettere luce visibile, dissipando così energia sotto forma di calore. \\
+Essendo questo fenomeno non lineare, la resistenza interna della lampadina non sarà più costante, a partire da quel punto. 
 
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
@@ -178,30 +184,44 @@ Nella curva posso notare tre principali regioni:
     \item La seconda regione ($V > 14V$), in cui la mia corrente sembra stabilizzarsi all'aumentare della tensione, avendo anche una piccola discesa nella parte finale;
 \end{itemize}
 Andiamo ora a presentare il grafico rispetto al valore sotto radice quadrata della tensione:
+\vspace{1.5cm}
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/curva_voltammetrica_sqrt.png} % o .png, .pdf, ecc.
   \label{fig:I_V_}
 \end{figure}
-\noindent Posso qui notare meglio la presenza delle due zone prima descritte. In particolare da dipendenza quadratica dell'intensità di corrente rispetto alla tensione nel range $400-13000mV$.\\ 
-Nella regione iniziale si osserva un andamento che può essere ricondotto ad un esponenziale. 
+\noindent Costruendo un grafico in cui si riportano la radice quadrata della tensione in ascissa e l'intensità di corrente in ordinata, si possono osservare meglio le due zone precedentemente descritte.
+%Andiamo ora a presentare il grafico rispetto al valore sotto radice quadrata della tensione:
+In particolare si nota la dipendenza quadratica dell'intensità di corrente rispetto alla tensione nel range $400-13000mV$.\\ 
+Nella regione iniziale si osserva un andamento che può essere ricondotto ad un'esponenziale.
+%Questa cosa dell'esponenziale ha senso dirla?
+
 
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/resistenza_dinamica_zoom.png} % o .png, .pdf, ecc.
   \label{fig:I_V_}
 \end{figure}
-\noindent La prima parte del grafico è quasi nulla, mostrando come la resistenza a bassi voltaggi rimanga quasi costante, mentre all'aumentare del voltaggio entrino in gioco fenomeni che rendono la resistenza variabile. 
-Quello che mi interessa è il fatto che la resistenza dinamica comunque tenda ad aumentare, come ci si aspetta per un filamento che si riscalda.
+ In questo grafico è rappresentata la resistenza dinamica (calcolata come $\Delta V/\Delta I$) in funzione del voltaggio. La prima parte del grafico è quasi nulla, mostrando come la resistenza a bassi voltaggi rimanga quasi costante, mentre all'aumentare del voltaggio entrano in gioco fenomeni che rendono la resistenza variabile. 
+Come ci si aspetta da un filamento che si riscalda, la resistenza dinamica tende ad aumentare.
+%Quello che mi interessa è il fatto che la resistenza dinamica comunque tenda ad aumentare, come ci si aspetta per un filamento che si riscalda.
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{curva_voltammetrica/resistenza_dinamica.png} % o .png, .pdf, ecc.
   \label{fig:I_V_}
 \end{figure}
-\noindent Guardando ora l'andamento generale della resistenza dinamica, si nota come questa oscilli molto; questo è dovuto al fatto che abbiamo usato un amperometro con fondoscala di $10 A$, andando ad accumulare molto errore nelle misure. Infatti per una variazione misurata di $0.1 A$ avevamo un errore sullo strumento altrettanto grande.\\
-in generale comunque possiamo osservare come la resistenza tenda ad aumentare all'aumentare della tensione, fino a raggiungere un massimo di circa $60 \: \Omega$. 
-Da quel punto in poi osserviamo delle violente oscillazioni, dovute probabilmente all'inizio della fusione del filamento di tungsteno. 
+\noindent Guardando l'andamento generale della resistenza dinamica, si nota come questa oscilli molto; ciò è dovuto al fatto che è stato usato un amperometro con fondoscala di $10 A$, andando ad accumulare molto errore nelle misure.
+Infatti per una variazione misurata di $0.1 A$ si presenta un errore sullo strumento altrettanto grande.\\
+In generale si riesce ad osservare come la resistenza tenda ad aumentare all'aumentare della tensione, fino a raggiungere un massimo di circa $60 \: \Omega$. 
+Da quel punto in poi si osservano delle violente oscillazioni, dovute probabilmente all'inizio della fusione del filamento di tungsteno. 
 
 \section{Conclusione}
-	Non potendo dare una stima quantitativa per stabilire la riuscita dell'esperimento è possibile darne una stima qualitativa: osservando il terzo grafico, come già analizzato in precedenza, è possibile notare che l'andamento lineare dei valori di corrente misurata in funzione della radice quadrata della tensione stanno proprio ad indicare come la corrente, per la maggior parte dei dati raccolti, in particolare per il range  $400-13000mV$, abbia proprio andamento $I \propto \sqrt{V}$ che ci si aspettava in virtù del fatto che la lampadina sottoposta a valori simili di differenza di potenziale non si comporta in modo ohmico
+Non potendo dare una stima quantitativa per stabilire la riuscita
+ dell'esperimento è possibile darne una stima qualitativa: osservando 
+ il terzo grafico, come già analizzato in precedenza,
+  è possibile notare che l'andamento lineare dei valori di corrente misurata in 
+  funzione della radice quadrata della tensione stanno ad indicare come la corrente, 
+  per la maggior parte dei dati raccolti, in particolare per il range  $400-13000mV$, 
+  abbia proprio andamento $I \propto \sqrt{V}$ che ci si aspettava in virtù del fatto
+   che la lampadina sottoposta a valori simili di differenza di potenziale non si comporta in modo ohmico
 \end{document}
