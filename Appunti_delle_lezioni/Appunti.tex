@@ -1027,6 +1027,67 @@ Per misurate questa costante si usa:
 \end{tikzpicture}
 \end{center}
 
+\section{Lezione 23/10/2025}
+\subsection{Misura della costante di Farady in laboratorio (parte 2)}
+La legge di Stokes vale nel caso in cui oggetti di grandi dimensioni si muovono in un fluido, 
+ma nel nostro caso il solvente acqua è occupato a solvatare ioni, dunque dobbiamo considerare il caso 
+in cui il composto è molto lontano dalla saturazione per misurare la dimensione dell'atomo.
+
+Scioglieremo in $900 ml$ di acqua circa $30 g$ di rame (solubilità massima di $CuSO_4 \simeq 300 \: \frac{g}{L}$)
+
+La corrente ionica che passa nel fluido utilizziamo una geometria semplice, due elettrodi planari e paralleli fra loro,
+immersi di un area $\Sigma$ nella soluzione elettrolitica, separatati da una distanza $d$. 
+In questo modo definisco uno spazio ($d$) entro la quale passa la mia corrente, essa la posso definire come un flussso ($j$) di
+corrente che posso considerare perpendicolare agli elettrodi poichè 
+la forza più preponderante è quella elettrica, dunque il tempo necessario per attraversare $d$
+\[
+j=2ev[C_s]2=4e[C_s]v \quad I= \vec{j} \Sigma \cdot \hat{n}= 4e[C_s]\Sigma v
+\]
+dove $C_s$ mi rappresenta il numero di molecole di soluto che ho disciolto nella soluzione rispetto al volume. \\
+Tutto il ragionamento è fatto per trovare la velocità media $v_{infty}$ degli ioni che si muovono verso l'elettrodo.
+\[
+v_{infty}=\frac{I}{4e[C_s]\Sigma} 
+\]
+Lo ione tende ad una velocità di deriva all'interno della soluzione, che è proporzionale al campo elettrico applicato e agli attriti viscosi. 
+La velocità di deriva viene raggiunta in un tempo $< 1ms $ nel caso del nostro caso. Dunque consideramo $v =$ const, la sommatoria delle forze
+è nulla:
+\[
+\frac{2eV}{d} - 6 \pi \eta R v_{\infty} =0
+\]
+essendo v la velocità di deriva, da qui posso ricavare il raggio della molecola composta da acqua e ione.
+\[
+R= \frac{8 e^2 V c_{s} \Sigma}{6 \pi \eta I d} \quad R= \text{raggio molecola}
+\]
+questo modello funziona solo se la resistenza della cella ha un comportamento Ohmnico, dunque ha una resistenza costante. 
+Altrimenti se non fosse così troverei che in base al voltaggio che trovo la mia molecola ha raggi diversi. \\
+Dobbiamo allora misurare la \textbf{Resistenza della cella}, così da capire in che intervallo la cella è Ohmnica. 
+
+\subsection{Diodi (parte 2)}
+Posso usare un diodo come rilevatore di particelle, perchè la giunzione pn è suscettivile all'energia che arriva sulla sua superficie.
+Nel diodo in polarizzazione inversa, se ho una grande differenza di potenziale ai capi del diodo vedo il fenomeno del \textit{brakedown}, 
+dunque un grande passaggio di corrente tra un attimo e l'altro. \\
+Posso usare questo fenomeno per aumentare la zona di svuotamento fino al limite, così da avere degli atomi che volentieri cedono elettroni (essendo molto "stetchati"). Da questo effetto posso costruire un \textbf{rilevatore di raggi cosmici}. 
+Per esempio per rilevare particelle cosmiche come i \textit{muoni}, infatti questi attravversando il mio diodo svuotato questo urterà con le nubi elettroniche andando a volte a donare abbastanza energia per far uscire un elettrone dal suo guscio di valenza. 
+Con questo fenomeno vado a creare sia un elettrone libero che una lacuna libera alla volta.\\
+Essendo che il muone perde circa $10 MeV$, e per scalzare il mio elettrone mi servono circa $25 eV$, allora avrò una corrente significativa. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
