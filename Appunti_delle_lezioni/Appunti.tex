@@ -10,6 +10,8 @@
 \usepackage{circuitikz}
 \usepackage{amsthm}
 \usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta}
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}
 \usetikzlibrary{shapes,decorations,shadows}
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
@@ -1071,20 +1073,160 @@ Per esempio per rilevare particelle cosmiche come i \textit{muoni}, infatti ques
 Con questo fenomeno vado a creare sia un elettrone libero che una lacuna libera alla volta.\\
 Essendo che il muone perde circa $10 MeV$, e per scalzare il mio elettrone mi servono circa $25 eV$, allora avrò una corrente significativa. 
 
+\subsection{Positroni elettronici e cariche quantiche}
+Come possiamo utilizzare l'elettrone come strumento di misura?  Oggi lo spieghiamo
+
+\subsection{Tubo catodico}
+È un cilindro di vetro con il vuoto all'interno, in grado di collimare gli elettroni tutti in un unico fascio (tramite un cannoncino elettronico)
+Che va a colpire uno schermo fluorescente, che si illumina quando viene colpito ( il fenomeno della fluorescenza avviene in circa $10 \text{ns}$)
+
+
+\begin{tikzpicture}[
+    electron/.style={circle, fill=red, minimum size=2pt},
+    gun/.style={fill=gray!30},
+    coil/.style={thick, decorate, decoration={coil, amplitude=3pt, segment length=3pt}},
+    plate/.style={fill=gray!20}
+]
+% Cannone elettronico
+\begin{scope}
+    % Filamento riscaldante
+    \draw[coil] (0,0.3) -- (0,-0.3);
+    
+    % Catodo
+    \draw[gun] (-0.5,-0.5) rectangle (0,0.5);
+    \fill[black] (-0.3,0) circle (2pt);
+    
+    % Anodo
+    \draw[gun] (0.8,-0.8) rectangle (1,0.8);
+    \draw (0.8,-0.4) -- (1,-0.4);
+    \draw (0.8,0.4) -- (1,0.4);
+    
+    % Elettroni
+    \foreach \y in {-0.3,-0.15,0,0.15,0.3} {
+        \node[electron] at (1.2,\y) {};
+    }
+\end{scope}
+
+% Sistema di focalizzazione
+\draw[plate] (2,-1) rectangle (2.3,1);
+\draw (2,-0.8) -- (2.3,-0.8);
+\draw (2,-0.4) -- (2.3,-0.4);
+\draw (2,0) -- (2.3,0);
+\draw (2,0.4) -- (2.3,0.4);
+\draw (2,0.8) -- (2.3,0.8);
+
+% Sistema di deflessione
+\draw[plate] (3.5,-1.2) rectangle (3.8,1.2);
+\draw[plate] (4.2,-1.2) rectangle (4.5,1.2);
+
+% Schermo fluorescente
+\draw[fill=green!20] (7,-2) rectangle (7.2,2);
+\draw[->, thick] (4.5,0) -- (6.9,0);
+
+% Involucro di vetro
+\draw[thick, rounded corners=5pt] 
+    (-1,-2) -- (-1,2) -- (7.2,2) -- (7.2,-2) -- cycle;
+
+% Etichette
+\node[align=center] at (-0.2,1.5) {Cannone\\elettronico};
+\node at (2.15,1.5) {Focalizzazione};
+\node at (3.85,1.5) {Piastre\\di deflessione};
+\node[align=center] at (7.1,1.5) {Schermo\\fluorescente};
+
+% Fasci elettronici (percorsi diversi)
+\draw[red, dashed, ->] (1.2,0.3) to[out=10, in=160] (7,0.8);
+\draw[red, dashed, ->] (1.2,0) to (7,0);
+\draw[red, dashed, ->] (1.2,-0.3) to[out=-10, in=-160] (7,-0.8);
+
+% Campi magnetici (opzionale)
+\draw[blue, ->] (2.5,1.3) -- (3,1.3) node[midway, above] {B};
+\draw[blue, ->] (4,1.3) -- (4.5,1.3) node[midway, above] {E};
+
+\end{tikzpicture}
 
 
 
+\subsubsection{Produzione del cannoncino elettronico}
+Come sorgente di elettroni utilizziamo un filamento incandescente, tali elettroni avranno energia cinetica tale da superare quella di estrazione dal metallo
+
+Inzialmente il cappuccio metallico è neutro, man mano che perde elettroni si carica positivamente, quindi devo collegarlo ad un \textit{serbatoio di elettroni}, la Terra.
+
+\begin{center}
+\begin{tikzpicture}[
+    electron/.style={circle, fill=red, minimum size=2pt},
+    coil/.style={thick, decorate, decoration={coil, amplitude=2pt, segment length=3pt}}
+]
+% Filamento riscaldante (spirale)
+\draw[coil] (0,0.4) -- (0,-0.4);
+\node[above] at (0,0.4) {Filamento};
+
+% Catodo
+\draw[fill=gray!20] (-0.6,-0.6) rectangle (-0.1,0.6);
+\fill[black] (-0.4,0) circle (3pt);
+\node[above] at (-0.35,0.6) {Catodo};
+
+% Anodo acceleratore
+\draw[fill=gray!30] (0.8,-0.8) rectangle (1.1,0.8);
+\draw (0.8,-0.5) -- (1.1,-0.5);
+\draw (0.8,-0.2) -- (1.1,-0.2);
+\draw (0.8,0.1) -- (1.1,0.1);
+\draw (0.8,0.4) -- (1.1,0.4);
+\node[above] at (0.95,0.8) {Anodo};
+
+% Fascio di elettroni
+\foreach \y in {-0.4,-0.2,0,0.2,0.4} {
+    \node[electron] at (1.3,\y) {};
+    \draw[red, dashed, ->] (1.3,\y) -- (2.5,\y);
+}
+
+% Etichetta del fascio
+\node[red, right] at (2.5,0) {Fascio di elettroni};
+
+% Tensioni
+\draw[<->, blue] (-0.35,-1) -- (0.95,-1) 
+    node[midway, below] {$V_a$};
+\draw[->, blue] (-0.35,-0.8) -- (-0.35,-0.7);
+\draw[->, blue] (0.95,-0.8) -- (0.95,-0.7);
+
+\end{tikzpicture}
+\end{center}
+
+Ritorniamo alla vecchia distribuzione delle velocità di Maxwell-Boltzmann, che mi spiega anche la distribuzione 
+degli elettroni emessi
+Al crescere dell'energia il numero degli elettroni diminuisce, la gran parte degli elettroni si troverà ad una certa $E^*$
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6cm,
+    xlabel = {Energia $E$},
+    ylabel = {Numero di elettroni $N(E)$},
+    axis lines = left,
+    grid = major,
+    grid style = {dashed, gray!30},
+    xmin = 0, xmax = 5,
+    ymin = 0, ymax = 1.2,
+    legend pos = north east,
+    samples = 100
+]
+
+% Distribuzione di Maxwell-Boltzmann per T1 (bassa temperatura)
+\addplot[blue, thick, domain=0:5] {2*sqrt(x/pi) * exp(-x)};
 
 
 
+% Linea per l'energia media
+\draw[dashed, black] (0.5,0) -- (0.5,1.2);
+\node[black, above] at (0.4,1.1) {$E^*$};
 
+\end{axis}
+\end{tikzpicture}
+\end{center}
 
-
-
-
-
-
-
+All'uscita degli elettroni vi è una grande differenza di potenziale ($1500V$), se riesce ad uscire da un forellino esso si ritroverà 
+a una certa $E^{**}$ anche dopo l'uscita dal cannoncino.
+In questo modo ho creato un fascio di elettroni con una simile energia
 
 
 
