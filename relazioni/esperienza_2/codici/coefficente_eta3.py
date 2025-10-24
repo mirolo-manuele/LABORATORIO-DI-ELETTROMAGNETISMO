@@ -13,7 +13,7 @@ eV = array('d', [0.0]*len(V))
 eI = array('d', [0.0]*len(I))
 
 v_max=330
-v_min=150
+v_min=21
 
 
 c = ROOT.TCanvas("c", "coefficiente eta", 800, 600)

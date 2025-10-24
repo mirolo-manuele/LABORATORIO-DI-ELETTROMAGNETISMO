@@ -12,8 +12,8 @@ I = array('d', df["lnCorr(mA)"].to_numpy(dtype=float)) #to_numpy converte la col
 eV = array('d', [0.0]*len(V))
 eI = array('d', [0.0]*len(I))
 
-v_max=25
-v_min=12
+v_max=20000
+v_min=24
 
 
 c = ROOT.TCanvas("c", "coefficiente eta", 800, 600)
