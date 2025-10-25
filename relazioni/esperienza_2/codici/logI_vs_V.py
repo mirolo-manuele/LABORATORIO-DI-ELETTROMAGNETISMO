@@ -29,15 +29,15 @@ for i in range(1,7): #la funzione range comprende l'estremo inferiore ma non que
     g.SetLineWidth(1) 
 
     g.Draw("APL") 
-    ey = array('d', [0.00]*len(V))
+
 
     indici_fit = [i for i in range(len(V)) if V[i] >= v_min and V[i]<= v_max] #sceglie l'intervallo in cui fare il fit (tra v_min e v_max)
 
     V_fit = array('d', [V[i] for i in indici_fit])
     lnI_fit = array('d', [lnI[i] for i in indici_fit])
-    ey_fit = array('d', [ey[i] for i in indici_fit]) #creo un array con solo i dati con x >= v_soglia
+    elnI_fit = array('d', [elnI[i] for i in indici_fit]) #creo un array con solo i dati con x >= v_soglia
 
-    g_fit = ROOT.TGraphErrors(len(V_fit), V_fit, lnI_fit, ey_fit) 
+    g_fit = ROOT.TGraphErrors(len(V_fit), V_fit, lnI_fit, eV, elnI) 
 
     ROOT.gStyle.SetOptFit(11) #stampa solo parametri m e q fit ed errori
 
