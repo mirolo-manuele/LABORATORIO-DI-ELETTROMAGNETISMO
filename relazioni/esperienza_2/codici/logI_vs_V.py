@@ -3,62 +3,143 @@ from array import array
 import numpy as np
 import pandas as pd
 
-c = ROOT.TCanvas("c", "Grafico semilogaritmico", 800, 600) #tavolozza
 
-for i in range(1,7): #la funzione range comprende l'estremo inferiore ma non quello superiore
-    s=str(i) #converte l'intero i in una stringa s, in modo da poterlo poi concatenare alla stringa foglio nella prossima riga 
+print("Opzioni:")
+print("1 - Tutti i fit (fogli 1-6)")
+print("2 - Fit singolo")
+scelta = input("Scegli opzione (1 o 2): ")
+
+if scelta == "2":
+    foglio_singolo = input("Inserisci numero foglio (1-6): ")
+    try:
+        foglio_singolo = int(foglio_singolo)
+        if foglio_singolo < 1 or foglio_singolo > 6:
+            print("Numero non valido. Usero' tutti i fogli.")
+            fogli_da_processare = range(1,7)
+        else:
+            fogli_da_processare = [foglio_singolo]
+    except:
+        print("Input non valido. Usero' tutti i fogli.")
+else:
+    fogli_da_processare = range(1,7)
+
+print(f"Processando fogli: {list(fogli_da_processare)}")
+
+c = ROOT.TCanvas("c", "Grafico semilogaritmico", 800, 600)
+c.cd()
+
+all_V = array('d', [])
+all_lnI = array('d', [])
+
+
+tabella = ROOT.TLegend(0.70, 0.84, 1.00, 1.0)
+tabella.SetBorderSize(1)
+tabella.SetFillColor(0)
+tabella.SetTextAlign(12)
+tabella.SetTextSize(0.025)
+
+
+
+
+
+
+# MODIFICA: usa fogli_da_processare invece di range(1,7)
+for j in fogli_da_processare:
+    s=str(j)
     foglio="Temp_"+s
-    df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio) #legge il file excel
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
+    df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
+    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"])
 
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float)) #to_numpy converte la colonna in un array NumPy di tipo float.
+    V = array('d', df["Volt(mV)"].to_numpy(dtype=float))
+    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))
 
-    v_max=700
-    v_min=300
+    v_max=max(V)
+    v_min=min(V)
 
-    g=ROOT.TGraphErrors(len(V), V, lnI, eV, elnI) #len(V) è il numero di punti, V e I sono gli array dei dati, eV e eI sono gli errori associati 
-    g.SetTitle("Grafico semilogaritmico;Tensione(V);ln(I)") 
+    all_V.extend(V)
+    all_lnI.extend(lnI)
+
+# Resto del codice invariato...
+dummy_V = array('d', [min(all_V), max(all_V)])
+dummy_lnI = array('d', [min(all_lnI), max(all_lnI)])
+dummy_graph = ROOT.TGraph(2, dummy_V, dummy_lnI)
+dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (mV);ln(I) (mA)")
+dummy_graph.Draw("AP")
+
+# AGGIUNGI: lista per memorizzare i risultati dei fit
+risultati_fit = []
+
+# MODIFICA: usa fogli_da_processare invece di range(1,7)
+for j in fogli_da_processare:
+    s=str(j)
+    foglio="Temp_"+s
+    df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
+    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"])
+
+    V = array('d', df["Volt(mV)"].to_numpy(dtype=float))
+    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
+
+    eV = array('d', [0.0]*len(V))
+    elnI = array('d', [0.0]*len(lnI))
+
+    v_max=max(V)
+    v_min=min(V)
+    
+    g=ROOT.TGraphErrors(len(V), V, lnI, eV, elnI)
+    g.SetName(f"g_{s}")
     g.SetMarkerStyle(21) 
-    g.SetMarkerColor(ROOT.kBlue) 
+    g.SetMarkerColor(ROOT.kBlue + (j%7)) 
     g.SetMarkerSize(0.5) 
     g.SetLineColor(ROOT.kRed) 
     g.SetLineWidth(1) 
 
-    g.Draw("APL") 
+    g.Draw("PL same")
+    c.Update()
+
+    indici_fit = [i for i in range(len(V)) if V[i] >= v_min and V[i]<= v_max]
+
+    if len(indici_fit) > 0:
+        V_fit = array('d', [V[i] for i in indici_fit])
+        lnI_fit = array('d', [lnI[i] for i in indici_fit])
+        elnI_fit = array('d', [elnI[i] for i in indici_fit])
+        eV_fit = array('d', [0.0]*len(V_fit))
+
+        g_fit = ROOT.TGraphErrors(len(V_fit), V_fit, lnI_fit, eV_fit, elnI_fit)
+        g_fit.SetName(f"g_fit_{s}")
+
+        ROOT.gStyle.SetOptFit(11)#stampa solo parametri fit ed errori
+
+        fit_name = f"fit_{s}"
+        fit_func = ROOT.TF1(fit_name, "pol1", min(V_fit), max(V_fit))
+
+        fit_func.SetParName(0, "q")
+        fit_func.SetParName(1, "m")
+
+        fit_result = g_fit.Fit(fit_func, "S+", "", min(V_fit), max(V_fit))
+
+        fit_func.SetLineColor(ROOT.kBlack + (j%7))
+        fit_func.SetLineWidth(2)
+        fit_func.Draw("SAME")
+    
+
+ # AGGIUNGI: prendi i parametri dal fit e aggiungi alla tabella
+        m = fit_func.GetParameter(1)
+        q = fit_func.GetParameter(0)
+        
+        # Crea il testo con il pallino colorato
+        testo = f"F{j}: y = {m:.3f}x + {q:.2f}"
+        entry = tabella.AddEntry(ROOT.nullptr, testo, "P")
+        entry.SetMarkerColor(j%7)
+        entry.SetMarkerStyle(20)  # 20 = pallino pieno
+        entry.SetMarkerSize(1.2)
+        tabella.Draw()
 
 
-    indici_fit = [i for i in range(len(V)) if V[i] >= v_min and V[i]<= v_max] #sceglie l'intervallo in cui fare il fit (tra v_min e v_max)
-
-    V_fit = array('d', [V[i] for i in indici_fit])
-    lnI_fit = array('d', [lnI[i] for i in indici_fit])
-    elnI_fit = array('d', [elnI[i] for i in indici_fit]) #creo un array con solo i dati con x >= v_soglia
-
-    g_fit = ROOT.TGraphErrors(len(V_fit), V_fit, lnI_fit, eV, elnI) 
-
-    ROOT.gStyle.SetOptFit(11) #stampa solo parametri m e q fit ed errori
-
-    fit_func = ROOT.TF1("fit_func", "pol1", min(V_fit), max(V_fit)) #pol1 significa polinomio di grado 1
-
-    #Rinomina dei parametri, mettere prima di fit_result (che fa il fit)
-    fit_func.SetParName(0, "q")
-    fit_func.SetParName(1, "m")
-
-    # Eseguire il fit e poi calcolare eta usando il parametro di pendenza m
-    fit_result = g_fit.Fit(fit_func, "S+", "", min(V_fit), max(V_fit))
-  
-    g_fit.Draw("Q")#mi serve per far comparire la tabella delle statistiche del fit, Q quiet
-    fit_func.SetLineColor(ROOT.kBlack)
-    fit_func.SetLineWidth(2)
-    fit_func.Draw("SAME") #disegno sullo stesso grafico
-
-
-#print("eta=",eta)
+c.RedrawAxis()
 c.Modified() 
 c.Update()
-c.Draw()
 c.SaveAs("scala_semilogaritmica.png") 
-input("Premi Invio per chiudere...") 
+input("Premi Invio per chiudere...")
