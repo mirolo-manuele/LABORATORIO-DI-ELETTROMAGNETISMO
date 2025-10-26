@@ -146,5 +146,5 @@ for j in fogli_da_processare:
 c.RedrawAxis()
 c.Modified() 
 c.Update()
-c.SaveAs("coefficente_eta.png") 
+c.SaveAs("coefficente_etatot.pdf") 
 input("Premi Invio per chiudere...")

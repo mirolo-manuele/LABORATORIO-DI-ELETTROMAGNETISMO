@@ -2,14 +2,15 @@ import ROOT
 import pandas as pd
 from array import array
 
-df = pd.read_excel("Esperienza_2.xlsx", sheet_name="Sheet1")
+# Carica dati
+df = pd.read_excel("Esperienza_2.xlsx", sheet_name="Sheet2")
 
 mg = ROOT.TMultiGraph()
 colors = [ROOT.kRed, ROOT.kBlue, ROOT.kGreen, ROOT.kMagenta, ROOT.kOrange]
 y_columns = [col for col in df.columns if col.startswith('V')]
 nomilegenda = ["I1=4mA", "I2=5mA", "I3=6mA", "I4=7mA", "I5=8mA"]
 
-fits = []
+fits = []  # memorizza i fit per ridisegnarli dopo
 graphs = []  # tieni traccia dei grafici per la legenda
 
 for i, y_col in enumerate(y_columns):
@@ -27,12 +28,11 @@ for i, y_col in enumerate(y_columns):
     graph.SetLineColor(ROOT.kWhite)
     graph.SetTitle(nomilegenda[i])
 
-    fit = ROOT.TF1(f"fit_{y_col}", "pol1", 0, max(x) + 20)
+    fit = ROOT.TF1(f"fit_{y_col}", "pol1")
     fit.SetLineColor(colors[i % len(colors)])
     fit.SetLineWidth(2)
 
-    graph.Fit(fit, "Q")
-    fit.SetRange(0, max(x) + 20)
+    graph.Fit(fit, "Q")       # Fit silenzioso
 
     mg.Add(graph)
     fits.append(fit)
@@ -44,10 +44,8 @@ for i, y_col in enumerate(y_columns):
 c = ROOT.TCanvas("c1", "Multipli Dataset da Excel", 900, 900)
 mg.Draw("APL")
 mg.SetTitle("V vs T;T[K];Voltaggio(V)")
-mg.GetXaxis().SetLimits(0, max(df['T'].dropna()) + 20)
-mg.GetYaxis().SetRangeUser(0.53, 1.25)
 
-# Ridisegna i fit
+# Ridisegna le rette di fit sopra il multigrafico
 for f in fits:
     f.Draw("same")
 
@@ -56,8 +54,7 @@ legend = ROOT.TLegend(0.75, 0.75, 0.9, 0.9)
 for g, label in zip(graphs, nomilegenda):
     legend.AddEntry(g, label, "p")  # "p" = solo marker (nessuna linea del fit)
 legend.Draw()
-
 c.Update()
-c.SaveAs("V_vs_T.pdf")
+c.SaveAs("V_vs_T_lim.pdf")
 
 input("Premi Invio per chiudere...")
