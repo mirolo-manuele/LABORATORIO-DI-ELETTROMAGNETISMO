@@ -24,7 +24,7 @@ for i, y_col in enumerate(y_columns):
     graph = ROOT.TGraph(len(x), x, y)
     graph.SetMarkerColor(colors[i % len(colors)])
     graph.SetMarkerStyle(20)
-    graph.SetMarkerSize(0.6)
+    graph.SetMarkerSize(0.8)
     graph.SetLineColor(ROOT.kWhite)
     graph.SetTitle(nomilegenda[i])
 
@@ -41,7 +41,7 @@ for i, y_col in enumerate(y_columns):
     print(f"{nomilegenda[i]}: y = {fit.GetParameter(1):.3f}x + {fit.GetParameter(0):.3f}")
 
 # Disegno del multigrafico
-c = ROOT.TCanvas("c1", "Multipli Dataset da Excel", 900, 900)
+c = ROOT.TCanvas("c1", "Multipli Dataset da Excel", 800, 600)
 mg.Draw("APL")
 mg.SetTitle("V vs T;T[K];Voltaggio(V)")
 
