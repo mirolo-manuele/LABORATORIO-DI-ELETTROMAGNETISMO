@@ -9,6 +9,7 @@ print("1 - Tutti i fit")
 print("2 - Fit singolo")
 scelta = input("Scegli opzione (1 o 2): ")
 
+
 if scelta == "2":
     foglio_singolo = input("Inserisci numero foglio (1-6): ")
     try: #try ed except servono per gestire gli errori
@@ -24,7 +25,7 @@ else:
     fogli_da_processare = range(1,7)
 
 
-c = ROOT.TCanvas("c", "Grafico semilogaritmico", 1000, 600)
+c = ROOT.TCanvas("c", "Grafico semilogaritmico", 900, 600)
 c.cd()
 
 all_V = array('d', [])
@@ -41,28 +42,24 @@ tabella.SetTextAlign(12)#codice di allineamento testo
 #Orizzontale: 1=sinistra, 2=centro, 3=destra
 tabella.SetTextSize(0.025)
 
-# AGGIUNGI: lista per memorizzare i risultati dei fit
+# AGGIUNGI: lista per memorizzare i risultati dei fit e del TGraph
 risultati_fit = []
 grafici = []
 
-
-
-
-# MODIFICA: usa fogli_da_processare invece di range(1,7)
 
 #uso fogli da processare per ciclare sui fogli
 #questa parte di codice mi serve per creare la tavolozza su cui disegnare sennò è un casino mi sovrascrive
 for j in fogli_da_processare:
     #nelle prossime righe faccio leggere tutti i dati da tutti i fogli(tolgo i NaN)
-    s=str(j)
+    s=str(j) #converte l'intero i in una stringa s, in modo da poterlo poi concatenare alla stringa foglio nella prossima riga 
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
     df = df.dropna(subset=["Volt(mV)","lnCorr(A)"])
 
-    V = array('d', (df["Volt(mV)"].to_numpy(dtype=float) / 1000))
+    V = array('d', (df["Volt(mV)"].to_numpy(dtype=float) / 1000)) #convert i mV in V
     lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))
 
-    eV = array('d', [0.0]*len(V))
+    eV = array('d', [0.0]*len(V)) #array con floting point (d=doubble) di zeri 
     elnI = array('d', [0.0]*len(lnI))
 
     all_V.extend(V) #array accumulatori che hanno tutti i dati
@@ -95,7 +92,7 @@ for j in fogli_da_processare:
     g=ROOT.TGraphErrors(len(V), V, lnI, eV, elnI)
     g.SetName(f"g_{s}") #do un nome diverso ad ogni grafico
     g.SetMarkerStyle(21) 
-    g.SetMarkerColor(ROOT.kBlue + (j%7)) 
+    g.SetMarkerColor((ROOT.kBlack + (j%7)))
     #ROOT associa ai colori un numero da 0 a 7
     #j%7 mi da il resto della divisione di j per 7, evito input non validi, se j=8 sono fuori range
     g.SetMarkerSize(0.5) 
@@ -129,7 +126,8 @@ for j in fogli_da_processare:
         fit_func.SetParName(1, "m")
 
         fit_result = g_fit.Fit(fit_func, "S+", "", min(V_fit), max(V_fit))
-
+        
+        
         fit_func.SetLineColor(ROOT.kBlack + (j%7)) #cicli 7 colori
         fit_func.SetLineWidth(2)
         fit_func.Draw("SAME") #disegno sullo stesso grafico
@@ -139,13 +137,14 @@ for j in fogli_da_processare:
         m = fit_func.GetParameter(1)
         q = fit_func.GetParameter(0)
         
-        testo = f"F{j}: y = {m:.3f}x + {q:.2f}"
-        entry = tabella.AddEntry(ROOT.nullptr, testo, "P") #crea una nuova voce nella legenda ogni ciclo
+        testo = f"T{j}: y = {m:.3f}x + {q:.2f} "
+        entry = tabella.AddEntry(g, testo, "P") #crea una nuova voce nella legenda ogni ciclo
         #mostra il testo e P (pallino)
         #grazie a ROOT.nullptr non associo la legenda ad alcun grafico ma all'intero canvas
         entry.SetMarkerColor(colore)
         entry.SetMarkerStyle(20)  #P è il mio marker
         entry.SetMarkerSize(1.2)
+        entry.SetTextFont(132) # font che supporta simboli greci
         tabella.Draw()
 
 
