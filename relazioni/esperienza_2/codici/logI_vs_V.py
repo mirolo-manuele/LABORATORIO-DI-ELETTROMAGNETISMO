@@ -25,7 +25,7 @@ else:
 
 print(f"Processando fogli: {list(fogli_da_processare)}")
 
-c = ROOT.TCanvas("c", "Grafico semilogaritmico", 800, 600)
+c = ROOT.TCanvas("c", "Grafico semilogaritmico", 1000, 600)
 c.cd()
 
 all_V = array('d', [])
@@ -38,7 +38,9 @@ tabella.SetFillColor(0)
 tabella.SetTextAlign(12)
 tabella.SetTextSize(0.025)
 
-
+# AGGIUNGI: lista per memorizzare i risultati dei fit
+risultati_fit = []
+grafici = []
 
 
 
@@ -48,10 +50,10 @@ for j in fogli_da_processare:
     s=str(j)
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"])
+    df = df.dropna(subset=["Volt(mV)","lnCorr(A)"])
 
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float))
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
+    V = array('d', (df["Volt(mV)"].to_numpy(dtype=float) / 1000))
+    lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))
@@ -66,21 +68,20 @@ for j in fogli_da_processare:
 dummy_V = array('d', [min(all_V), max(all_V)])
 dummy_lnI = array('d', [min(all_lnI), max(all_lnI)])
 dummy_graph = ROOT.TGraph(2, dummy_V, dummy_lnI)
-dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (mV);ln(I) (mA)")
+dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (V);ln(I) (A)")
 dummy_graph.Draw("AP")
 
-# AGGIUNGI: lista per memorizzare i risultati dei fit
-risultati_fit = []
+
 
 # MODIFICA: usa fogli_da_processare invece di range(1,7)
 for j in fogli_da_processare:
     s=str(j)
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"])
+    df = df.dropna(subset=["Volt(mV)","lnCorr(A)"])
 
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float))
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
+    V = array('d', (df["Volt(mV)"].to_numpy(dtype=float) / 1000))
+    lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))
@@ -96,7 +97,9 @@ for j in fogli_da_processare:
     g.SetLineColor(ROOT.kRed) 
     g.SetLineWidth(1) 
 
-    g.Draw("PL same")
+    grafici.append(g)
+
+    g.Draw("PE same")
     c.Update()
 
     indici_fit = [i for i in range(len(V)) if V[i] >= v_min and V[i]<= v_max]
@@ -131,7 +134,7 @@ for j in fogli_da_processare:
         
         # Crea il testo con il pallino colorato
         testo = f"F{j}: y = {m:.3f}x + {q:.2f}"
-        entry = tabella.AddEntry(ROOT.nullptr, testo, "P")
+        entry = tabella.AddEntry(g, testo, "P")
         entry.SetMarkerColor(j%7)
         entry.SetMarkerStyle(20)  # 20 = pallino pieno
         entry.SetMarkerSize(1.2)
