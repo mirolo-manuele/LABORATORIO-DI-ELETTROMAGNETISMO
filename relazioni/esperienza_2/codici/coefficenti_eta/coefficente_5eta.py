@@ -3,7 +3,7 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("Esperienza_2.xlsx", sheet_name="Temp_1") #legge il file excel
+df = pd.read_excel("/mnt/c/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/codici/Esperienza_2.xlsx", sheet_name="Temp_5") #legge il file excel
 df = df.dropna(subset=["qV/kT", "lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
 V = array('d', df["qV/kT"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
@@ -12,8 +12,8 @@ I = array('d', df["lnCorr(mA)"].to_numpy(dtype=float)) #to_numpy converte la col
 eV = array('d', [0.0]*len(V))
 eI = array('d', [0.0]*len(I))
 
-v_max=25
-v_min=12
+v_max=20000
+v_min=24
 
 
 c = ROOT.TCanvas("c", "coefficiente eta", 800, 600)
@@ -59,5 +59,5 @@ print("eta=",eta)
 c.Modified() 
 c.Update()
 c.Draw()
-c.SaveAs("coefficiente_eta.png") 
+c.SaveAs("coefficiente_eta5.png") 
 input("Premi Invio per chiudere...") 
