@@ -41,7 +41,6 @@ tabella.SetTextAlign(12)#codice di allineamento testo
 #Orizzontale: 1=sinistra, 2=centro, 3=destra
 tabella.SetTextSize(0.025)
 
-<<<<<<< HEAD
 # AGGIUNGI: lista per memorizzare i risultati dei fit
 risultati_fit = []
 grafici = []
@@ -50,11 +49,9 @@ grafici = []
 
 
 # MODIFICA: usa fogli_da_processare invece di range(1,7)
-=======
 
 #uso fogli da processare per ciclare sui fogli
 #questa parte di codice mi serve per creare la tavolozza su cui disegnare sennò è un casino mi sovrascrive
->>>>>>> d0c08cfe84281300e7534472353702e5edea70d1
 for j in fogli_da_processare:
     #nelle prossime righe faccio leggere tutti i dati da tutti i fogli(tolgo i NaN)
     s=str(j)
@@ -75,33 +72,19 @@ for j in fogli_da_processare:
 dummy_V = array('d', [min(all_V), max(all_V)])
 dummy_lnI = array('d', [min(all_lnI), max(all_lnI)])
 dummy_graph = ROOT.TGraph(2, dummy_V, dummy_lnI)
-<<<<<<< HEAD
 dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (V);ln(I) (A)")
 dummy_graph.Draw("AP")
 
 
-=======
-dummy_graph.SetTitle("Grafico semilogaritmico;V(mV);ln(I) ")
-dummy_graph.Draw("AP") #AP non solo A 
-
->>>>>>> d0c08cfe84281300e7534472353702e5edea70d1
 
 for j in fogli_da_processare:
     s=str(j) #converte l'intero i in una stringa s, in modo da poterlo poi concatenare alla stringa foglio nella prossima riga 
     foglio="Temp_"+s
-<<<<<<< HEAD
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
     df = df.dropna(subset=["Volt(mV)","lnCorr(A)"])
 
     V = array('d', (df["Volt(mV)"].to_numpy(dtype=float) / 1000))
     lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))
-=======
-    df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio) #legge il file excel
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
-
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))  #to_numpy converte la colonna in un array NumPy di tipo float.
->>>>>>> d0c08cfe84281300e7534472353702e5edea70d1
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))
@@ -119,18 +102,13 @@ for j in fogli_da_processare:
     g.SetLineColor(ROOT.kRed) 
     g.SetLineWidth(1) 
 
-<<<<<<< HEAD
     grafici.append(g)
 
-    g.Draw("PE same")
-    c.Update()
-=======
-    g.Draw("PL same") #non faccio ridisegnare gli assi!
+    g.Draw("PE same") #non faccio ridisegnare assi
     c.Update() #forzo l'aggiornamento del canvas
 
     indici_fit = [i for i in range(len(V)) if V[i] >= v_min and V[i]<= v_max] #sceglie l'intervallo in cui fare il fit (tra v_min e v_max)
     #in questo caso il cocie indici è inutile perchè li prendo tutti, l'unico modo per scegliere i dati e toglierli da Excel
->>>>>>> d0c08cfe84281300e7534472353702e5edea70d1
 
 
     if len(indici_fit) > 0:
@@ -162,17 +140,11 @@ for j in fogli_da_processare:
         q = fit_func.GetParameter(0)
         
         testo = f"F{j}: y = {m:.3f}x + {q:.2f}"
-<<<<<<< HEAD
-        entry = tabella.AddEntry(g, testo, "P")
-        entry.SetMarkerColor(j%7)
-        entry.SetMarkerStyle(20)  # 20 = pallino pieno
-=======
         entry = tabella.AddEntry(ROOT.nullptr, testo, "P") #crea una nuova voce nella legenda ogni ciclo
         #mostra il testo e P (pallino)
         #grazie a ROOT.nullptr non associo la legenda ad alcun grafico ma all'intero canvas
         entry.SetMarkerColor(colore)
         entry.SetMarkerStyle(20)  #P è il mio marker
->>>>>>> d0c08cfe84281300e7534472353702e5edea70d1
         entry.SetMarkerSize(1.2)
         tabella.Draw()
 
