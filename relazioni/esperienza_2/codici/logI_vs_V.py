@@ -69,7 +69,7 @@ for j in fogli_da_processare:
 dummy_V = array('d', [min(all_V), max(all_V)])
 dummy_lnI = array('d', [min(all_lnI), max(all_lnI)])
 dummy_graph = ROOT.TGraph(2, dummy_V, dummy_lnI)
-dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (V);ln(I) (A)")
+dummy_graph.SetTitle("Grafico semilogaritmico;Tensione (V);ln(I)")
 dummy_graph.Draw("AP")
 
 
@@ -128,8 +128,8 @@ for j in fogli_da_processare:
         fit_result = g_fit.Fit(fit_func, "S+", "", min(V_fit), max(V_fit))
         
         
-        fit_func.SetLineColor(ROOT.kBlack + (j%7)) #cicli 7 colori
-        fit_func.SetLineWidth(2)
+        fit_func.SetLineColor(ROOT.kBlack) #cicli 7 colori
+        fit_func.SetLineWidth(1)
         fit_func.Draw("SAME") #disegno sullo stesso grafico
         #mi salvo il colore, per dopo la legenda
         colore=fit_func.GetLineColor()
@@ -137,7 +137,7 @@ for j in fogli_da_processare:
         m = fit_func.GetParameter(1)
         q = fit_func.GetParameter(0)
         
-        testo = f"T{j}: y = {m:.3f}x + {q:.2f} "
+        testo = f"T{j}: y = {m:.3f}x {q:.2f} "
         entry = tabella.AddEntry(g, testo, "P") #crea una nuova voce nella legenda ogni ciclo
         #mostra il testo e P (pallino)
         #grazie a ROOT.nullptr non associo la legenda ad alcun grafico ma all'intero canvas

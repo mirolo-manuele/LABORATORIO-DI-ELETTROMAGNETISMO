@@ -49,10 +49,10 @@ for j in fogli_da_processare:
     s=str(j)
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
-    df = df.dropna(subset=["qV/kT","lnCorr(mA)"])
+    df = df.dropna(subset=["qV/kT","lnCorr(A)"])
 
     V = array('d', df["qV/kT"].to_numpy(dtype=float))
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
+    lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))
@@ -72,10 +72,10 @@ for j in fogli_da_processare:
     s=str(j) #converte l'intero i in una stringa s, in modo da poterlo poi concatenare alla stringa foglio nella prossima riga 
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio) #legge il file excel
-    df = df.dropna(subset=["qV/kT","lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
+    df = df.dropna(subset=["qV/kT","lnCorr(A)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
     V = array('d', df["qV/kT"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
-    lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))  #to_numpy converte la colonna in un array NumPy di tipo float.
+    lnI = array('d', df["lnCorr(A)"].to_numpy(dtype=float))  #to_numpy converte la colonna in un array NumPy di tipo float.
 
     eV = array('d', [0.0]*len(V))
     elnI = array('d', [0.0]*len(lnI))

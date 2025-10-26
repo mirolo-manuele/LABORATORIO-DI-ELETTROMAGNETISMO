@@ -72,7 +72,7 @@ for j in range(1,7):
     #ROOT associa ai colori un numero da 0 a 7
     #j%7 mi da il resto della divisione di j per 7, evito input non validi, se j=8 sono fuori range
     g.SetMarkerSize(0.5) 
-    g.SetLineColor(ROOT.kBlack) 
+    g.SetLineColor(ROOT.kBlack)
     g.SetLineWidth(1) 
 
     g.Draw("PL SAME") #non faccio ridisegnare gli assi!
