@@ -3,7 +3,7 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("Esperienza_2.xlsx", sheet_name="Temp_3") #legge il file excel
+df = pd.read_excel("/mnt/c/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/codici/Esperienza_2.xlsx", sheet_name="Temp_3") #legge il file excel
 df = df.dropna(subset=["qV/kT", "lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
 V = array('d', df["qV/kT"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 

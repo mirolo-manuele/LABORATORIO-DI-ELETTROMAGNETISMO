@@ -49,9 +49,9 @@ for j in fogli_da_processare:
     s=str(j)
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio)
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"])
+    df = df.dropna(subset=["qV/kT","lnCorr(mA)"])
 
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float))
+    V = array('d', df["qV/kT"].to_numpy(dtype=float))
     lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))
 
     eV = array('d', [0.0]*len(V))
@@ -64,7 +64,7 @@ for j in fogli_da_processare:
 dummy_V = array('d', [min(all_V), max(all_V)])
 dummy_lnI = array('d', [min(all_lnI), max(all_lnI)])
 dummy_graph = ROOT.TGraph(2, dummy_V, dummy_lnI)
-dummy_graph.SetTitle("Grafico semilogaritmico;V(mV);ln(I) ")
+dummy_graph.SetTitle("Grafico semilogaritmico;qV/kT;ln(I) ")
 dummy_graph.Draw("AP") #AP non solo A 
 
 
@@ -72,9 +72,9 @@ for j in fogli_da_processare:
     s=str(j) #converte l'intero i in una stringa s, in modo da poterlo poi concatenare alla stringa foglio nella prossima riga 
     foglio="Temp_"+s
     df = pd.read_excel("Esperienza_2.xlsx", sheet_name=foglio) #legge il file excel
-    df = df.dropna(subset=["Volt(mV)","lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
+    df = df.dropna(subset=["qV/kT","lnCorr(mA)"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
-    V = array('d', df["Volt(mV)"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
+    V = array('d', df["qV/kT"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
     lnI = array('d', df["lnCorr(mA)"].to_numpy(dtype=float))  #to_numpy converte la colonna in un array NumPy di tipo float.
 
     eV = array('d', [0.0]*len(V))
@@ -105,6 +105,9 @@ for j in fogli_da_processare:
         lnI_fit = array('d', [lnI[i] for i in indici_fit])
         elnI_fit = array('d', [elnI[i] for i in indici_fit]) #creo un array con solo i dati con x >= v_soglia
         eV_fit = array('d', [0.0]*len(V_fit))
+        # Legge la cella alla colonna "Temp(K)" e riga 0 (prima riga dati)
+        tempK = df["Temp(K)"].iloc[1]
+        T=str(tempK)
 
         g_fit = ROOT.TGraphErrors(len(V_fit), V_fit, lnI_fit, eV_fit, elnI_fit)
         g_fit.SetName(f"g_fit_{s}") #nomi diversi a ciascun grafico fit
@@ -127,8 +130,10 @@ for j in fogli_da_processare:
          #Rinomina dei parametri, mettere prima di fit_result (che fa il fit)
         m = fit_func.GetParameter(1)
         q = fit_func.GetParameter(0)
-        
-        testo = f"F{j}: y = {m:.3f}x + {q:.2f}"
+        eta = 1.0 / m
+        testo = f"F{j}: #eta = {eta:.3f} T= {T}#circ C" #stringhe formattate
+        #f mi permette di concatenare stringhe con variabili
+        #:.3f mi permette di mostrare 3 cifre dopo la virgola
         entry = tabella.AddEntry(ROOT.nullptr, testo, "P") #crea una nuova voce nella legenda ogni ciclo
         #mostra il testo e P (pallino)
         #grazie a ROOT.nullptr non associo la legenda ad alcun grafico ma all'intero canvas
@@ -141,5 +146,5 @@ for j in fogli_da_processare:
 c.RedrawAxis()
 c.Modified() 
 c.Update()
-c.SaveAs("scala_semilogaritmica.png") 
+c.SaveAs("coefficente_eta.png") 
 input("Premi Invio per chiudere...")
