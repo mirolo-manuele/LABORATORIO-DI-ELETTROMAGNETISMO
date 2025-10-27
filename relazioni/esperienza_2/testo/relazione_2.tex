@@ -89,34 +89,42 @@ essi avranno bisogno in voltaggio maggiore.
   \includegraphics[width=0.5\textwidth]{scala_semilogaritmica.pdf} % o .png, .pdf, ecc.
   \label{fig:I_V_}
 \end{figure}
-Ivi è riportato il grafico della curva caratteristica del diodo in scala semilogaritmica, tramite esso siamo riusciti a ricavare il valore di $\eta$, 
+Ivi è riportato il grafico della curva caratteristica del diodo in scala semilogaritmica,
+su cui è stato fatto il fit lineare. 
+Tramite esso siamo riusciti a ricavare il valore di $\eta$, 
 caratteristico per diverse temperature.
-\begin{table*}
+
+\begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{|c|c|}
 		\hline
-		\textbf{T} & \textbf{$\eta$} \\ \hline
+		\textbf{T} [$^\circ$C] & \textbf{$\eta$} \\ \hline
+    60.5 & 1.702 \\ \hline
+    47.7 & 1.604 \\ \hline
+    25.1 & 1.676 \\ \hline
+    -0.6 & 1.637 \\ \hline
+    -195.5 & 1.791 \\ \hline
 	\end{tabular}
-\end{table*}
-
-
-
-
-\begin{figure}[H] % [h] = here, posizione approssimativa
-  \centering
-  \includegraphics[width=0.5\textwidth]{coefficente_etatot.pdf} % o .png, .pdf, ecc.
-  \label{fig:I}
-\end{figure}
-
+\end{table}
+Si può notare che l'ultimo fit, quello svolto a temperature minore (azoto liquido), presenta un valore di $\eta$  più alto,
 
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{V_vs_T.pdf} % o .png, .pdf, ecc.
   \label{fig:V}
 \end{figure}
-\begin{figure}[H] % [h] = here, posizione approssimativa
+Il grafico sopra riportato mostra l'andamento di V rispetto a T
+per specifici valori di corrente, scelti accurandosi di essere ben sopra del ginocchio della curva caratteristica del diodo
+e al contempo sotto la fine della curva.
+Si nota come, al tendere a 0 della T il valore di V tenda anch'esso ad uno specifico valore (ciò è evidenziato dal primo grafico), che sarà il valore
+di tensione di build-in del diodo. Nel nostro caso, tale valore si trovi nell'intervallo $[1.18V-1.20V]$
+\begin{figure} [H]% [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{V_vs_T_lim.pdf} % o .png, .pdf, ecc.
   \label{fig:V_I_}
 \end{figure}
+
+Quest'ultimo grafico viene riportato per evidenziare la bontà del fit svoltosi per i punti precedenti, 
+nonostante il numero di punti disponibili per farlo non fosse elevato.
+
 \end{document}

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1761552800.04423 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" "relazione_2.pdf" "relazione_2" 1761552802.74347 0
+["pdflatex"] 1761587956.69703 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" "relazione_2.pdf" "relazione_2" 1761587958.66058 0
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1758782895 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1748538834 22504 42a3f95f43de46a13cbf653330dc2dd8 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1745730635 25420 85c9bd0d2c0285994386342aaede91c1 ""
@@ -35,6 +35,7 @@
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247593067 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247593067 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247593067 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247593066 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1743097073 144118 8a0145ee10f36c9987d52d114dccd1b1 ""
@@ -232,11 +233,10 @@
   "I_vs_V.pdf" 1761546611 17479 5d28d7ff46123282fa727da53972e43f ""
   "V_vs_T.pdf" 1761548660 21088 cdcd93cb004afa2c96458132d66f7e14 ""
   "V_vs_T_lim.pdf" 1761548830 17815 d647dc2f5ebf83fb8257d6a725044d97 ""
-  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" 1761552795 4022 7167f75a3748ee1e4a0a4f7f14147a89 ""
-  "coefficente_etatot.pdf" 1761546587 20532 522e29bfba866ae0a973f75538002a1c ""
-  "relazione_2.aux" 1761552802 813 15d7a76755290ba3d08bac1ba1659023 "pdflatex"
-  "relazione_2.out" 1761552802 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "relazione_2.tex" 1761552795 4022 7167f75a3748ee1e4a0a4f7f14147a89 ""
+  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" 1761587956 4820 4f90a2cc54906445986114c71d11f726 ""
+  "relazione_2.aux" 1761587958 726 2f7b9bbfa1820181af18de65b0cd6413 "pdflatex"
+  "relazione_2.out" 1761587958 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "relazione_2.tex" 1761587956 4820 4f90a2cc54906445986114c71d11f726 ""
   "scala_semilogaritmica.pdf" 1761546633 20687 b6dc8a7812366e490f4a109bd1993473 ""
   (generated)
   "relazione_2.aux"
