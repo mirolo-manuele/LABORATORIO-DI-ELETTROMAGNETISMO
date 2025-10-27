@@ -47,15 +47,14 @@
 	\maketitle
 	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
 	\onecolumn
-	\tableofcontents
 \vspace{3cm}
 	\begin{abstract}
 		\centering
 		\large
-    L'esperimento consiste nell'ottenere la curva volt-amperometrica di una 
-    lampadina a filamento, partendo da tensioni basse fino alla fusione del 
-    tungsteno. L'obiettivo è verificare l'andamento non ohmico della resistenza
-    interna della lampadina, 
+    L'esperimento consiste nell'ottenere la curva caratteristica del diodo, linealizzarla in scala semilogaritmica, 
+	fare un fit e, tramite un'analisi dei dati: ricavare il coefficente $\eta$ caratteristico del diodo a diverse temperature
+	e individuare il valore del voltaggio build-in ($V_0$) del diodo
+
        
 	\end{abstract}
 
@@ -63,30 +62,56 @@
 \restoregeometry
 \twocolumn
 
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{I_vs_V.pdf} % o .png, .pdf, ecc.
+  \label{fig:II}
+\end{figure}
+Il primo grafico che viene presentato mostra l'andamento della corrente $I$ in funzione del voltaggio $V$ a diverse 
+temperature. In questo grafico osserviamo che la curva caratteristica del diodo presenta un comportamento esponenziale, 
+che verifica la formula che si trova in letteratura per un diodo ideale:
+\[
+\displaystyle I(V)= I_0 e^{(\frac{qV}{\eta kT})} - 1
+\]
+Si può notare come, al diminuire della temperature:
+
+\begin{itemize}
+  \item la derivata prima aumenti
+  \item l'innalzamento si verifica a valori di di $V$ sempre maggiori
+\end{itemize}
+La seconda considerazione ci fa intuire che il passaggio della corrente sia estremamente condizionato dalla temperature, questo perchè 
+a temperature minori vi sarà una minore eccitazione degli elettroni, conseguentemente, per oltrepassare la barriera di potenziale della giunzione
+essi avranno bisogno in voltaggio maggiore.
+
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{scala_semilogaritmica.pdf} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+Ivi è riportato il grafico della curva caratteristica del diodo in scala semilogaritmica, tramite esso siamo riusciti a ricavare il valore di $\eta$, 
+caratteristico per diverse temperature.
+\begin{table*}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{T} & \textbf{$\eta$} \\ \hline
+	\end{tabular}
+\end{table*}
+
+
+
 
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{coefficente_etatot.pdf} % o .png, .pdf, ecc.
   \label{fig:I}
 \end{figure}
+
+
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
-  \includegraphics[width=0.5\textwidth]{I_vs_V.pdf.pdf} % o .png, .pdf, ecc.
-  \label{fig:II}
-\end{figure}
-\begin{figure}[H] % [h] = here, posizione approssimativa
-  \centering
-  \includegraphics[width=0.5\textwidth]{log_I_vs_V.pdf} % o .png, .pdf, ecc.
-  \label{fig:III}
-\end{figure}
-\begin{figure}[H] % [h] = here, posizione approssimativa
-  \centering
-  \includegraphics[width=0.5\textwidth]{scala_semilogaritmica.pdf} % o .png, .pdf, ecc.
-  \label{fig:I_V_}
-\end{figure}
-\begin{figure}[H] % [h] = here, posizione approssimativa
-  \centering
-  \includegraphics[width=0.5\textwidth]{V_vs_I.pdf} % o .png, .pdf, ecc.
+  \includegraphics[width=0.5\textwidth]{V_vs_T.pdf} % o .png, .pdf, ecc.
   \label{fig:V}
 \end{figure}
 \begin{figure}[H] % [h] = here, posizione approssimativa
