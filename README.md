@@ -7,4 +7,4 @@ I macroagomenti:
 4) preparazione prova + presa dati durante esperimento (aiuto analisi dati)
 
 1_esperienza: Ale-1, Manu-2, Ema-4, Carl-3 
-bb
+2_esperienza: Ale-4, Manu-1, Ema-3, Carl-2

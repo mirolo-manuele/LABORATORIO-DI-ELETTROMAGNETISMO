@@ -90,5 +90,5 @@ for j in range(1,7):
 c.RedrawAxis()
 c.Modified() 
 c.Update()
-c.SaveAs("I_vs_V.png") 
+c.SaveAs("I_vs_V.pdf") 
 input("Premi Invio per chiudere...")

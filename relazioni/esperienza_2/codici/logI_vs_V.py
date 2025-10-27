@@ -151,5 +151,5 @@ for j in fogli_da_processare:
 c.RedrawAxis()
 c.Modified() 
 c.Update()
-c.SaveAs("scala_semilogaritmica.png") 
+c.SaveAs("scala_semilogaritmica.pdf") 
 input("Premi Invio per chiudere...")
