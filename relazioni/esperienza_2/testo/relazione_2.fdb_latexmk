@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1761587956.69703 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" "relazione_2.pdf" "relazione_2" 1761587958.66058 0
+["pdflatex"] 1761590819.37677 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" "relazione_2.pdf" "relazione_2" 1761590821.24408 0
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1758782895 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1748538834 22504 42a3f95f43de46a13cbf653330dc2dd8 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1745730635 25420 85c9bd0d2c0285994386342aaede91c1 ""
@@ -233,10 +233,11 @@
   "I_vs_V.pdf" 1761546611 17479 5d28d7ff46123282fa727da53972e43f ""
   "V_vs_T.pdf" 1761548660 21088 cdcd93cb004afa2c96458132d66f7e14 ""
   "V_vs_T_lim.pdf" 1761548830 17815 d647dc2f5ebf83fb8257d6a725044d97 ""
-  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" 1761587956 4820 4f90a2cc54906445986114c71d11f726 ""
-  "relazione_2.aux" 1761587958 726 2f7b9bbfa1820181af18de65b0cd6413 "pdflatex"
-  "relazione_2.out" 1761587958 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "relazione_2.tex" 1761587956 4820 4f90a2cc54906445986114c71d11f726 ""
+  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_2/testo/relazione_2.tex" 1761590816 5278 ce41ae2d57ce3ee286956550a0a53060 ""
+  "pol_inv.pdf" 1761589832 15256 5ed9ec6e28fd8028556a0e42c1793450 ""
+  "relazione_2.aux" 1761590820 813 b1f72d922ddd560d0aa028261b1dbfad "pdflatex"
+  "relazione_2.out" 1761590820 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "relazione_2.tex" 1761590816 5278 ce41ae2d57ce3ee286956550a0a53060 ""
   "scala_semilogaritmica.pdf" 1761546633 20687 b6dc8a7812366e490f4a109bd1993473 ""
   (generated)
   "relazione_2.aux"
