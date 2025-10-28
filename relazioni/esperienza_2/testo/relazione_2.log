@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.24)  27 OCT 2025 09:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.24)  28 OCT 2025 11:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -918,35 +918,35 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 89--91
  [][] 
  []
 
-<coefficente_etatot.pdf, id=59, 569.12625pt x 407.5225pt>
-File: coefficente_etatot.pdf Graphic file (type pdf)
-<use coefficente_etatot.pdf>
-Package pdftex.def Info: coefficente_etatot.pdf  used on input line 107.
+
+
+<pol_inv.pdf, id=59, 569.12625pt x 407.5225pt>
+File: pol_inv.pdf Graphic file (type pdf)
+<use pol_inv.pdf>
+Package pdftex.def Info: pol_inv.pdf  used on input line 114.
 (pdftex.def)             Requested size: 256.07481pt x 183.37099pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 107--109
+Overfull \hbox (5.0pt too wide) in paragraph at lines 114--116
  [][] 
  []
-
-
 
 <V_vs_T.pdf, id=60, 569.12625pt x 552.0625pt>
 File: V_vs_T.pdf Graphic file (type pdf)
 <use V_vs_T.pdf>
-Package pdftex.def Info: V_vs_T.pdf  used on input line 114.
+Package pdftex.def Info: V_vs_T.pdf  used on input line 124.
 (pdftex.def)             Requested size: 256.07481pt x 248.40898pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 114--116
+Overfull \hbox (5.0pt too wide) in paragraph at lines 124--126
  [][] 
  []
 
 <V_vs_T_lim.pdf, id=61, 569.12625pt x 407.5225pt>
 File: V_vs_T_lim.pdf Graphic file (type pdf)
 <use V_vs_T_lim.pdf>
-Package pdftex.def Info: V_vs_T_lim.pdf  used on input line 119.
+Package pdftex.def Info: V_vs_T_lim.pdf  used on input line 134.
 (pdftex.def)             Requested size: 256.07481pt x 183.37099pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 119--121
+Overfull \hbox (5.0pt too wide) in paragraph at lines 134--136
  [][] 
  []
 
@@ -955,7 +955,13 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 119--121
 [3
 
 
- <./I_vs_V.pdf, page is rotated 90 degrees> <./scala_semilogaritmica.pdf, page is rotated 90 degrees> <./coefficente_etatot.pdf, page is rotated 90 degrees> <./V_vs_T.pdf, page is rotated 90 degrees> <./V_vs_T_lim.pdf, page is rotated 90 degrees>] [4] (relazione_2.aux)
+ <./I_vs_V.pdf, page is rotated 90 degrees> <./scala_semilogaritmica.pdf, page is rotated 90 degrees> <./pol_inv.pdf, page is rotated 90 degrees> <./V_vs_T.pdf, page is rotated 90 degrees>]
+
+
+
+[4
+
+ <./V_vs_T_lim.pdf, page is rotated 90 degrees>] (relazione_2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
@@ -965,16 +971,16 @@ Package rerunfilecheck Info: File `relazione_2.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  53276 strings out of 469959
- 1293090 string characters out of 5469834
- 1925844 words of memory out of 5000000
+ 1293002 string characters out of 5469834
+ 1929844 words of memory out of 5000000
  79484 multiletter control sequences out of 15000+600000
  636413 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,10n,106p,544b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on relazione_2.pdf (4 pages, 210066 bytes).
+ 103i,9n,106p,544b,1059s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on relazione_2.pdf (4 pages, 230877 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
+ 472 PDF objects out of 1000 (max. 8388607)
  11 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,16 +4,15 @@
 
 \usepackage{ragged2e}
 \usepackage{quoting}
-
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
-\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, positioning}
 \usepackage{circuitikz}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{tabularx}
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows.meta}
+\usetikzlibrary{shapes.geometric, arrows.meta, patterns}
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}
 \usetikzlibrary{shapes,decorations,shadows}
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
@@ -1241,26 +1240,166 @@ In questo modo ho creato un fascio di elettroni con una simile energia, di circa
         a collidere con il metallo vanno ad eccitare gli elettroni dei gusci più profondi, 
         questi quando ritornando allo stato fondamentale emettono radiazioni nella banda dei raggi X.
     \end{itemize} 
-All'uscita del cannoncino elettronico riesco ad ottenere un fascio di elettroni omocinetico (di energia $E \simeq 1eV$)
-Per convogliarli tutti in un forellino collimare gli elettroni si usa un elettrodo cilindrico, con una tensione di collimazione negativa, questo crea il minimo di potenziale del campo sul suo asse di simmetria, che è allineato con quello del cilindro.
-\end{itemize}
-C'è una griglia metallina (acciaio tungstennato) con fili metallici di circa $10 \mu m$ e 
-distanziati di $10 \mu m$ tra uno e l'altro. È una griglia dall'alta trasparenza (la parte fisica oscura $< 1/100$),
- se la doto di un potenziale negativo essa andrà a respingere gli elettroni prodotti. 
-Devo però posizionarla vicino al catodo che mi genera il fascio di elettroni, così che gli elettroni non abbiamo già acquistio un energia elevata (vicino alla sorgente è di circa $5 eV$). La sua funzione è quella di modulare il fascio di elttroni nell'intervallo di pochi $ns$.\\
+\end{itemize}   
 
-Questo strumento viene utilizzato per misurare delle tensioni che variano nel tempo, attraverso il posizionamento di un condensatore collegato al generatore di tensione variabile e posizionata con le due faccie sopra e sotto il fascio di elettroni (orizzonatalmente). 
-Quando l'elettrone passa tra le piastre del condensatore subirà una variazione della sua traiettoria dato dal campo $E= \frac{V(t)}{d}$ generato dal condensatore. \\
-Posso descrivere il mio elettrone attraverso la meccanica classica, perchè sono molto lontano dall'energia di massa dell'elettrone ($ \sim 0.511 MeV$), dunque:
+\subsubsection{Collimatore e griglia di controllo}
+All'uscita del cannoncino elettronico riesco ad ottenere un fascio di elettroni omocinetico (di energia $E \simeq 1eV$)
+Per convogliarli tutti in un forellino si usa un elettrodo cilindrico, con una \textit{tensione di collimazione}, 
+ciò permette di avere il minimo di potenziale del campo sull' asse di simmetria, che è identico a quello del cilindro.
+
+Mentre l'oscilloscopio funziona potrebbe essere utile fare delle operazioni di sistemazioni di tale fascio,
+poichè non posso semplicemente spegnere lo strumento, visto che i fenomeni d'interesse sono di pochi $ms$, viene 
+aggiunta una griglia metallica (acciaio tungstennato), praticamente geometricamente trasparente (oscura meno dell'$1\%$ dell'area totale), 
+ma molto fitta, infatti essa è composta da  fili metallici di circa $10 \mu m$ e distanziati di $10 \mu m$ tra uno e l'altro. 
+Dontandola di un potenziale negativo essa andrà a respingere gli elettroni prodotti,
+essa viene posizionata vicino al catodo che genera il fascio di elettroni, così che gli elettroni non abbiamo già acquistio un energia elevata. 
+La sua funzione è quella di modulare il fascio di elttroni nell'intervallo di pochi $ns$.\\
+
+\subsubsection{Fase di misurazione}
+Questo strumento, in generale, viene utilizzato per misurare delle tensioni che variano nel tempo, attraverso il posizionamento 
+di un condensatore piano collegato al generatore di tensione variabile (che genera il segnale da studiare) e posizionato con le due faccie sopra e sotto il fascio di elettroni. 
+
+\begin{center}
+\begin{tikzpicture}[
+    >=Stealth,
+    electron/.style={circle, fill=red, minimum size=2pt},
+    plate/.style={fill=gray!30, minimum width=3cm, minimum height=0.3cm},
+    gun/.style={fill=gray!20},
+    grid/.style={fill=gray!40, pattern=north east lines, pattern color=gray}
+]
+
+% Dimensioni principali
+\def\L{10}   % Lunghezza totale
+\def\H{6}    % Altezza totale
+\def\d{1.5}  % Distanza tra le piastre
+\def\l{2}    % Lunghezza piastre
+
+% CANNONE ELETTRONICO (sinistra)
+\begin{scope}[xshift=1cm, yshift={\H/2}]
+    % Filamento riscaldante
+    \draw[thick, decorate, decoration={coil, amplitude=3pt, segment length=3pt}] 
+        (0,0.3) -- (0,-0.3);
+    
+    % Catodo
+    \draw[gun] (-0.4,-0.6) rectangle (0,0.6);
+    \fill[black] (-0.2,0) circle (2pt);
+    
+    % Anodo acceleratore
+    \draw[gun] (0.8,-0.8) rectangle (1,0.8);
+    \foreach \y in {-0.6,-0.3,0,0.3,0.6} {
+        \draw (0.8,\y) -- (1,\y);
+    }
+    
+    % Elettroni iniziali
+    \foreach \y in {-0.2,0,0.2} {
+        \node[electron] at (1.2,\y) {};
+        \draw[red, dashed, ->] (1.2,\y) -- (2,\y);
+    }
+    
+    % Etichette cannocchiale
+    \node[above] at (0.5,0.8) {elettronico};
+    \node[above] at (0.5,1.1) {Cannone};
+\end{scope}
+
+% GRIGLIA DI CONTROLLO
+\draw[grid] (3,-0.2) rectangle (3.3,0.4);
+\draw[black, thick] (3.15,-0.2) -- (3.15,-0.6);
+% FASCIO ELETTRONICO PRIMA DELLE PIASTRE
+\draw[red, thick, ->] (3,1.4) -- (4.5,1.4) node[midway, above] {Fascio elettronico};
+
+% CONDENSATORE PIANO PER DEFLESSIONE
+\begin{scope}[xshift=5cm, yshift={\H/2}]
+    % Piastra superiore
+    \node[plate] (upper) at (0,\d/2+0.15) {};
+    \draw[->, thick] (upper.south) -- ++(0,-0.3) node[right, pos=0.5] {$+$};
+    
+    % Piastra inferiore  
+    \node[plate] (lower) at (0,-\d/2-0.15) {};
+    \draw[->, thick] (lower.north) -- ++(0,0.3) node[right, pos=0.5] {$-$};
+    
+    % Campo elettrico
+    \foreach \x in {-0.8,-0.4,0,0.4,0.8} {
+        \draw[blue, ->, thick] (\x,-\d/2+0.2) -- (\x,\d/2-0.2);
+    }
+    
+    % Elettrone che entra
+    \node[electron] at (-1.2,0) {};
+    \draw[red, dashed, ->] (-1.2,0) -- (-0.5,0);
+    
+    % Elettrone che esce deviato
+    \draw[red, dashed, ->] (1,0.1) to[out=20, in=180] (3,1.5);
+    \draw[black, thick] (-1.5,-1.5) -- (1.5,-1.5) node [midway, below] {l};
+    \draw[black, thick] (-4.5,2) -- (4.5,3) node [midway, below] {L};
+    \draw[black, thick] (2.5,-0.8) -- (2.5, 0.8) node [midway, left] {d};
+\end{scope}
+    
+    \draw[fill=green!20, very thick] (9,-1.5) rectangle (9.2,2);
+\foreach \y in {0.5,1.5,-1.3,-0.5} {
+    \draw[green!50!black, fill=green!30] (9.1,\y) circle (2pt);
+}
+\draw[black, thick] (8.8,0.2) -- (8.8,1.8) node[midway, above] {D};
+
+\end{tikzpicture}
+\end{center}
+
+Trascurando effetti di bordo (per esempio con elettrodi di guardia), posso affermare che quando l'elettrone passa tra le piastre del condensatore subirà una variazione della sua traiettoria dovuta al campo 
+$E= \frac{V(t)}{d}$ generato dal condensatore. \\
+Posso descrivere il mio elettrone attraverso la meccanica classica, perchè l'energia che fornisco è molto minore dall'energia di massa dell'elettrone 
+($ \sim 0.511 MeV$), dunque:
 \[
 \frac{1}{2}m v^2= e V_{acc}
 \]
-il mio elettrone dunque subirà una deviazione parabolica da parte del condensatore, e colpirà un punto diverso del mio schermo. 
-La variazione che io osservo sarà lineare quando: \[ L >> l \]
-con $L$ la distanza dall'uscita del condensatore e il mio schermo lumino e $l$ la lunghezza della piastra del condensatore.\\
-Inserisco inoltre un altro condensatore verticale alimentato da tensione variabile a \textit{dente di sega}. Questo mi serve per spostare il fascia da sinistra a destra del mio schermo,
- così da simulare il passaggio del tempo e la variazione in un periodo di tempo $ \Delta t$, che è anche il periodo del mio segnale a dente di sega. \\
- Per riniziare a misurare devo riportare la mia tensione del segnale campionatore (a dente di sega) al voltaggio iniziale, per fare questo impiegherò del tempo, dunque il segnale successivo lo vedrò sfasato. 
+il mio elettrone dunque subirà una deviazione parabolica da parte del condensatore, e colpirà un punto diverso del mio schermo.
+Supponendo che le tensioni date siano in grado di far assumere una traiettoria coincidente alla forma superficiale dell'oscilloscopio,
+Essendo:
+\begin{itemize}
+   \item  L la lunghezza del cannoncino
+   \item  d la distanza delle due piastre 
+   \item  D la distanza dal centro dello schermo
+   \item  l la lughezza della piastra del consensatore
+\end{itemize} 
+posso mettere in relazione D con d tramite $V(t$), supponendo che il tutto in sia lineare (ovvero quando $L >>l$), posso approssimare $\overline{LdD}$
+ad un triangolo rettangolo ($d<<D$)
+
+\pagebreak
+La geometria della deviazione è la seguente:
+Dato $J$ l'impulso dell'elettrone uscito dalla prima coppia di placche
+\[
+p_\perp=m_ev_\perp
+\]
+dove $v(\perp)$ è la velocità acquisita dopo le prime placche (prima aveva solo $v_\parallel)$.
+Utilizzando il teorema dell'impulso:
+\[ dp_{\perp} = F_{elett} dt \]
+dove $F_{elett} = eE= \frac{e V(t)}{d}$ e $dt = \frac{l}{v_{\parallel}}$, tempo nella quale l' elettrone attraversa il condensatore. 
+
+Il momento parallelo dell'elettrone, $p_{\parallel} = m_e v_{\parallel}$, posso invece collegarlo all'equazione dell'energia cinetica. 
+
+
+La distanza $D$ dal centro dello schermo è data da:
+\[ D = L \tan(\theta) \] 
+dove 
+\[ \tan(\theta) = \frac{p_{\perp}}{p_{\parallel}} = \frac{v_\perp}{v_\parallel} \]
+
+
+
+Sviluppando i calcoli:
+\[
+p_{\perp} = \frac{e l V(t)}{d v_{\parallel}}
+\]
+\[
+\tan\theta = \frac{p_{\perp}}{p_{\parallel}} = \frac{e l V(t)}{d m v_{\parallel}^2}
+\]
+Sostituendo $v_{\parallel}^2 = \frac{2eV_a}{m}$:
+\[
+\tan\theta = \frac{l V(t)}{2d V_a}
+\]
+Infine:
+\[
+D = L \tan\theta = \frac{L l}{2d V_a} V(t)
+\]
+Dunque $D \propto V(t)$.
+
+Inserisco inoltre un altro condensatore verticale alimentato da tensione variabile a \textit{dente di sega}. 
 \begin{center}
 \begin{tikzpicture}[scale=1, every node/.style={font=\small}]
 
@@ -1298,27 +1437,44 @@ Inserisco inoltre un altro condensatore verticale alimentato da tensione variabi
 
 \end{tikzpicture}
 \end{center}
-Durante il passaggi da tensione minima a tensione massima ho un circuito interno che mi attiva la griglia per schermare gli elettroni, questo mi serve per evitare di avere fenomeni di errore osservati dovuti al ripido cambio di tensione.\\
+Questo mi serve per spostare il fascio da sinistra a destra dello schermo $v$ costante 
+passando da una certa $V_0$ a $-V_0$ (all'inizio positiva perchè devo attarre gli $e^-$),
 
+\subsubsection{Limiti dello strumento}
+Pensando ad un segnale sinusoidale posso "riportarlo indietro", ma perdendo qualche $ms$, dunque vedrò il secondo segnale sfasato
 
-La distanza $D$ dal centro dello schermo è dato da:
-\[ D= L \tan(\theta) \] 
-dove \[ \tan(\theta)= \frac{\rho_{\perp}}{\rho_{\parallel}}\] posso ricavarlo dal momento perpendicolare e parallelo dell'elettrone, $ \rho_{\parallel} = m_e v_{\parallel}$, che collego all'equazione dell'energia cinetica. Per quanto 
-riguarda il momento angolare, esso deriva dal campo elettrico del condensatore, $ dp_{\perp}= F_{elet} dt$, dove $ F_{el}= \frac{e V(t)}{d}$ e $dt= \frac{d}{v_{\parallel}}$. Trovo allora che:
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
 
-\[
-D \propto V(t)
-\]
+% Assi
+\draw[->] (-0.2,0) -- (4.5,0) node[right] {$t$};
+\draw[->] (0,-1.2) -- (0,1.2) node[above] {$V(t)$};
 
-Per risolvere il problema del segnale che si sfasa uso il fatto di impostare l'oscilloscopio che trasmetta il segnale solo dopo un tempo di trigger $\delta^* t > \Delta t$, e se è maggiore di una tensione di soglia $V_T$, per ogni ripetizione.
+% Griglia
+\foreach \x in {0,1,...,4} \draw[gray!20] (\x,-1.2) -- (\x,1.2);
+\foreach \y in {-1,0,1} \draw[gray!20] (0,\y) -- (4.5,\y);
+
+% Tre sinusoidi sfasate
+\draw[red, thick, domain=0:4, samples=100] plot (\x, {sin(360*\x)});
+\draw[blue, thick, domain=0:4, samples=100] plot (\x, {sin(360*\x + 120)});
+\draw[green, thick, domain=0:4, samples=100] plot (\x, {sin(360*\x + 240)});
+
+\end{tikzpicture}
+\end{center}
+Ora entra in gioco la griglia per schermare gli elettroni, 
+che mi serve per evitare di avere fenomeni di sfasamento,
+infatti utilizzo un \textit{sistema di trigger}: imposto l'oscilloscopio che trasmetta il segnale solo dopo un tempo di trigger $\Delta^* t > \Delta t$,
+(maggiore del tempo che ci metto a riportare il segnale a tensione iniziale)
+Inoltre impongo l'inizio della misurazione solo quando il segnale si trova al di sopra di una tensione di soglia $V_T$, per ogni ripetizione.
 Questo mi permette di vedere il segnale sempre in fase ed evitare l'errore dovuto a $\Delta t$. 
 
-I problemi maggiori sono quando ho una $dV(t)$ molto elevata, dunque ho un cambio di potenziale troppo elevato rispetto al tempo che il mio elettrone attraversa il condensatore ($dt= \frac{d}{v_{\parallel}}$). Se la mia frequenza di variazione $f_{V(t) \simeq \frac{1}{dt}}$, avrò degli errori molto elevati. 
+Quando quando si ha una variazione di $V(t)$ molto elevata, dunque ho un cambio repentino
+del potenziale, troppo elevato rispetto al tempo che in cui l' elettrone attraversa il condensatore ($dt= \frac{d}{v_{\parallel}}$). Se la mia frequenza di variazione $f_{V(t)} \simeq \frac{1}{dt}$, avrò degli errori molto elevati. 
 
 Altri errori si generano dalle capacità parassite del circuito, $RC = \tau$, che ha le dimensioni di un tempo. La frequenza alla quale ho molti errori dovute alle caratteristiche instrinseche dell'oscilloscopio è dato da:
 \[
 \sqrt{{(\frac{1}{\Delta t })}^2+ {(\frac{1}{\tau})}^2}
 \]
-Un teorema mi dice che per campionare un segnale devo avere un segnale di campionamento che è almeno il doppio della frequenza del segnale da studiare. 
+Il teorema di Nyquist-Shannon stabilisce che per campionare un segnale devo avere una frequenza di campionamento che è almeno il doppio della frequenza massima del segnale da studiare per una corretta ricostruzione.
 
 \end{document}
