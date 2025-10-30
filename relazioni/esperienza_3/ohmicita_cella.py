@@ -34,5 +34,5 @@ c.Modified()
 c.Update()
 c.Draw()
 
-c.SaveAs("R_vs_I.pdf") 
+c.SaveAs("Ohmicita_cella.pdf") 
 input("Premi Invio per chiudere...") 
