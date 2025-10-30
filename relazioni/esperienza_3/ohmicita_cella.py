@@ -3,11 +3,11 @@ from array import array
 import numpy as np
 import pandas as pd
 
-df = pd.read_excel("faraday.xlsx", sheet_name="I_vs_t") #legge il file excel
-df = df.dropna(subset=["T", "I"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
+df = pd.read_excel("faraday.xlsx", sheet_name="Ohmicita_cella") #legge il file excel
+df = df.dropna(subset=["I", "R"]) #controlla solo le colonne V e I. Se una di queste contiene un valore mancante, elimina quella riga
 
-I = array('d', df["I"].iloc[236:40318].to_numpy(dtype=float))
-V = array('d', df["T"].iloc[236:40318].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
+I = array('d', df["R"].to_numpy(dtype=float))
+V = array('d', df["I"].to_numpy(dtype=float)) #df è il dataframe, "V" è il nome della colonna da leggere 
 
 
 eV = array('d', [0.0]*len(V))
@@ -15,11 +15,11 @@ eI = array('d', [0.0]*len(I))
 
 
 
-c = ROOT.TCanvas("c", "I vs t", 800, 600)
+c = ROOT.TCanvas("c", "R vs I", 800, 600)
 
 g=ROOT.TGraphErrors(len(V), V, I, eV, eI)
 
-g.SetTitle("I vs t;t[s];I[A]") 
+g.SetTitle("R vs I; I[A]; R[Ohm]") 
 g.SetMarkerStyle(21) 
 g.SetMarkerColor(ROOT.kBlue) 
 g.SetMarkerSize(0.5) 
@@ -34,5 +34,5 @@ c.Modified()
 c.Update()
 c.Draw()
 
-c.SaveAs("I_vs_t.pdf") 
+c.SaveAs("R_vs_I.pdf") 
 input("Premi Invio per chiudere...") 
