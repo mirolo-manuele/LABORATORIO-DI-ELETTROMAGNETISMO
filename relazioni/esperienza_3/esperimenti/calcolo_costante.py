@@ -27,5 +27,5 @@ weighted_sum = np.sum(diff_matrix * weights, axis=1)
 
 Q=np.dot(weighted_sum, I_media)
 F= Area / (2*Diff_m) * Q
-
+print(Q)
 print(F)
