@@ -7,11 +7,11 @@ df = pd.read_csv("squadra_Minnie_28_10.csv", sep=";")
 
 # 2. Filtra solo le righe che ti servono
 righe = [278,292,307,321,336,348,379,394,408,421,434,450,472,486,501,513,527,542,554,570,586,598,610,623,637,650,663,676,694,707,720,733,747,760,775,789]
-df_filtrato = df.loc[righe, ["strum1", "strum2"]]
+df_filtrato = df.loc[righe, ["Amperom", "Voltom"]]
 
 # 3. Converti in array numerici
-I = array('d', df_filtrato["strum1"].to_numpy(dtype=float))
-V = array('d', df_filtrato["strum2"].to_numpy(dtype=float))
+I = array('d', df_filtrato["Amperom"].to_numpy(dtype=float))
+V = array('d', df_filtrato["Voltom"].to_numpy(dtype=float))
 eV = array('d', [0.0]*len(V))
 eI = array('d', [0.0]*len(I))
 
