@@ -16,7 +16,7 @@
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}
 \usetikzlibrary{shapes,decorations,shadows}
 \usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
-
+\usepackage{physics}
 \usetikzlibrary{shapes,arrows,positioning}
 \title{Appunti laboratorio di elettromagnetismo}
 \author{ Mirolo Manuele / Alessio Brusini}
@@ -1476,5 +1476,228 @@ Altri errori si generano dalle capacità parassite del circuito, $RC = \tau$, ch
 \sqrt{{(\frac{1}{\Delta t })}^2+ {(\frac{1}{\tau})}^2}
 \]
 Il teorema di Nyquist-Shannon stabilisce che per campionare un segnale devo avere una frequenza di campionamento che è almeno il doppio della frequenza massima del segnale da studiare per una corretta ricostruzione.
+
+\section{Lezione 30/10}
+\subsection{L'andamento a onda quadra}
+La corrente che viene erogata dalla rete elettrica è del tipo:\[ V(\theta)= V_0 \sin(\omega t + \phi)\].
+Quando ho una corrente non costante nel mio conduttore (accelerazione a cui sono sottoposti gli elettroni),
+la carica elettrica irraggia energia.
+L'intensità dell'irragiamento è proporzionale all'accelerazione a cui è sottoposta. Per esempio se una carica la sottopongo ad una differenza di potenziale. 
+
+
+\begin{figure}[h]
+    \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                title={Andamento ad onda quadra di V(t)},
+                xlabel={t},
+                ylabel={V(t)},
+                xmin=0, xmax=4,
+                ymin=-1.5, ymax=1.5,
+                grid=both,
+                width=10cm,
+                height=6cm,
+                samples=1000,
+                axis lines=middle,
+                thick,
+                xtick={0,1,2,3,4},
+                ytick={-1,0,1},
+            ]
+
+            % Definizione dell'onda quadra
+            \addplot [blue, thick, domain=0:4] { 
+                mod(floor(x),2) == 0 ? 1 : -1
+            };
+
+            \end{axis}
+        \end{tikzpicture}
+\end{figure}
+
+L'andamento di V può essere anche ad onda quadra, impossibile da realizzare perfettamente nella realtà. Infatti 
+si creerà sempre un onda trapezoidale.
+Per poterla chiamare onda quadra definiremo la durata dell'onda come la distanza a metà altezza tra la curva di salita e di discesa
+(in un grafico $V$ vs $t$). 
+
+Per studiare il funzionamento di un circuito ci basta studiare un filo che collega i capi di un genratore di forza elettromotrice:
+\begin{itemize}
+    \item ogni tratto di filo influisce sul resto del filo, attraverso vari fenomeni;
+
+    \item Un circito chiuso percorso da corrente produce un \textit{campo magnetico}, che si propaga con velocità $\sim c$ e 
+    la sua formazione richiede un dispendio di energia. Andando a chiudere il filo su se stesso riesco a cambiare la distribuzione 
+    d'energia magnetica prodotta dalla corrente. Allora cambiando la \textit{topologia} mi fa cambiare l'energia necessaria a far passare corrente all'interno
+    del filo. 
+
+    \item posso allora introdurre il concetto di \textit{induttanza} ($L$), che è una specie di inerzia energetica collegata ai campi magnetici.  
+    \[V = \frac{L \Delta I}{\Delta t}\]
+    \textbf{N.B}: quando trattiamo correnti non continue ($dI/dt \neq 0$), dobbiamo stare attenti ad introdurre meno spire possibile tra i fili;
+
+    \item introduciamo anche la \textit{capacità} ($C$) come lo spazio per contenere la quantità di carica che si riesce a far affluire sulla superfice di un condensatore,
+    detta essa $Q$, avremo:
+    \[Q = VC \rightarrow V= \frac{Q}{C} \]
+
+\end{itemize}
+
+\begin{center}
+    \begin{circuitikz}[scale=1.2]
+        \draw (0,0) circle (1.5cm);
+        \draw (45:1.5) to [R, *-*] (135:1.5);
+        \draw (135:1.5) to [C, *-*] (225:1.5);
+        \draw (225:1.5) to [L, *-*] (315:1.5);
+        \draw (315:1.5) to [V, *-*] (45:1.5);
+    \end{circuitikz}
+\end{center}
+
+\subsection{I circuiti con corrente variabile}
+Consideriamo un generatore di segnali (o \textit{generatore di forma d'onda}) $G$, colleghiamolo ad un circuito semplice composto da una resistenza e un condesatore di capacità C
+
+Possiamo utilizzare le \textit{leggi di Kirkhoff} se assumiamo che esse valgano \textit{istante per istante}, ovvero in modo tale che non 
+ho strumenti per verificare la loro validità. La differenza di potenziale è collegata alla carica $Q$:
+
+\[
+V(t)= \frac{Q}{C} + IR = \frac{Q}{C} + R \frac{dQ}{dt}
+\]
+
+\begin{center}
+    \begin{circuitikz}[european, scale=1.2]
+        \draw (0,0) 
+            to [I, l=$G$, name=gen] (0,3) % Generatore di corrente variabile
+            to [R, l=$R$, name=res] (3,3) % Resistenza
+            to [C, l=$C$, name=cap] (3,0) % Condensatore
+            to [short] (0,0); % Chiusura del circuito
+            
+    \end{circuitikz}
+\end{center}
+
+\begin{equation*}
+    V(t)
+    \begin{cases}
+        0 \; \text{per t $<0$}\\
+        V_0 \; \text{per t $\leq 0$}
+    \end{cases}
+\end{equation*}
+
+Risolvendo l'equazione a variabili separabili trovo
+\[
+Q=  Q_0(1-e^{-\frac{t}{RC}}) \rightarrow V=V_0(1-e^{-\frac{t}{RC}}) \quad \text{dividendo per C la prima}
+\]
+
+\begin{figure}[h!]
+    \centering
+        \begin{tikzpicture}
+        \begin{axis}[
+            title={Carica di un condensatore: $Q = Q_0(1-e^{-\frac{t}{RC}})$},
+            xlabel={Tempo $t$},
+            ylabel={Carica $Q$},
+            xmin=0, xmax=5,
+            ymin=0, ymax=1.2,
+            grid=both,
+            width=10cm,
+            height=7cm,
+            samples=100,
+            axis lines=left,
+            legend pos=south east,
+            xtick={0,1,2,3,4,5},
+            ytick={0,0.5,1},
+            extra x ticks={1},
+            extra x tick labels={$\tau$},
+            extra x tick style={grid style={red,dashed}},
+        ]
+
+        % Funzione di carica del condensatore
+        \addplot [blue, thick, domain=0:5] {1 - exp(-x)};
+        \node at (axis cs:3,0.7) {$Q = Q_0(1-e^{-t/RC})$};
+
+    
+        \addplot [red, dashed, domain=0:5] {1};
+        \node[red] at (axis cs:4,1.1) {$Q = Q_0$};
+
+        \end{axis}
+        \end{tikzpicture}
+    \caption{Andamento della carica $Q$ in funzione del tempo $t$ durante la carica di un condensatore}
+\end{figure}
+
+Il risultato ci illustra come si accumula la carica e  come varia la differenza potenziale ai capi del condensatore. Grazie all'oscilloscopio posso confrontarlo con l'onda quadra generata. 
+\begin{itemize}
+    \item passato un tempo $t=RC$ l'esponenziale $e^{-1} \simeq \frac{1}{3} \rightarrow 1-\frac{1}{3} = \frac{2}{3}$,
+    dopo tale tempo $ \tau =RC$ il condesatore è arrivato a $\frac{2}{3}$ del valore $V_0$ a cui tende asintoticamente;
+    \item per quanto appena detto osservermo punti a multipli di $RC$
+    \item dato che la carica è quantizzata, si avrà un certo valore dopo il quale si raggiunge il segnale soglia;
+    \item quando il condensatore si scarica trovo la legge:\[ V(t)= V_0 \exp(-\frac{t}{RC})\]
+    Prenendo il logaritmo:
+    \[
+    \log (V(t)) = \log V_0 - \frac{t}{RC}
+    \]
+    dunque posso linearizzare la singola fase in scala semigolaritmica
+    \item tutto ciò vale ovviamente anche per $Q(t)$
+\end{itemize}
+Se il periodo dell'onda quadra è sufficientemente lungo, il condensatore ha il tempo di caricarsi e scaricarsi 
+quasi completamente durante ciascun periodo. Di conseguenza, la tensione ai suoi capi mostra andamenti esponenziali alternati: 
+nella fase in cui l’ingresso è alto il condensatore si carica verso il valore asintotico positivo, mentre nella fase in cui
+l’ingresso è basso si scarica (o si carica in senso opposto) verso quello negativo.
+
+
+\subsubsection{Come verificare la legge espoenenziale in laboratorio}
+Tali "onde" sono parallelle ad un asse passante per $\frac{V_0}{2}$, le curve sono sovrappobinibili, dovremo verificarlo sperimentalmente.
+\begin{itemize}
+    \item prendiamo delle coppie di valori $(V,t)$;
+    \item per una singola onda li inseriamo in un grafico $V$ vs $t$;
+    \item se non rileviamo più cmabiamenti nel voltaggio, possiamo approssimare l'asintoto della curva a $V_0$
+    \item per verificalo ora ad ogni punto sommiamo $- V_0$, così troviamo se le curve di carica e scarica corrispondo;
+\end{itemize}
+Alcune osservazioni
+
+\begin{itemize}
+    \item se abbiamo sovrastimato o sottostimato il valore di $V_0$ troveremo punti traslati
+    \item la non rettangolarità  dell'onda quadra durante l'inizio e la fine della carica (e della scarica)
+    non permette il rispetto della legge espoenenziale 
+\end{itemize}
+
+\subsection{Come costruire un onda a sega}
+Per creare un onda a sega uso il classico circuito RC, con una lampadina al neon (due elettrodi cilindrici in ambiente al neon),in parallelo al condensatore. \\
+Chiamiamo $C_{eq} = C + C^*$, dove $C^*$ è la capacità della lampadina.
+
+\begin{center}
+    \begin{circuitikz}[european]
+    \draw (0,0) 
+        to [V, l=$V$, i=$I$] (0,3)           % Generatore
+        to [R, l=$R$, i=$I$] (3,3)           % Resistenza
+        to [short, i=$I$] (4,3)
+        to [C, l=$C$, v=$V_C$] (4,0)         % Condensatore
+        to [short] (0,0);
+        
+    % Lampadina in parallelo
+    \draw (3,3) 
+        to [lamp, l=Lampada, i=$I_L$] (3,0); % Lampadina
+    \end{circuitikz}
+\end{center}
+
+
+\begin{itemize}
+\item Il generatore fornisce una tensione $V_0 > V_{S_1}$, che carica il condensatore.
+
+
+
+\item Quando la tensione \( V \) tra gli elettrodi del neon raggiunge la \textbf{soglia di ionizzazione} \( V_{S_1} \):
+\begin{itemize}
+    \item Il campo elettrico polarizza gli atomi di Neon.
+    \item Si strappa un elettrone, innescando una \textbf{scarica} per ionizzazione per urto.
+    \item Gli elettroni liberati creano un \textit{effetto a cascata}, moltiplicando gli urti ionizzanti.
+\end{itemize}
+
+\item La scarica provoca:
+\begin{itemize}
+    \item Un \textbf{calo rapido} della tensione \( V \) ai capi del condensatore (per riduzione della carica).
+    \item La scarica si interrompe quando \( V < V_{S_2} \), dove \( V_{S_2} \) è la \textbf{soglia di estinzione}.
+\end{itemize}
+
+\item Obiettivo del circuito:
+\begin{itemize}
+    \item \textbf{Rallentare la diminuzione} di \( V \) dopo il superamento di \( V_{S_1} \).
+    \item Limitare la corrente di scarica per ottenere un \textbf{andamento graduale} della tensione.
+    \item Generare così una forma d'onda a \textbf{dente di sega}.
+\end{itemize}
+\end{itemize}
+Il fenomeno luminoso osservato è la \textit{luce caratteristica} del Neon è emessa durante la ricombinazione degli elettroni con gli ioni positivi.
+
 
 \end{document}
