@@ -2,8 +2,8 @@ import pandas as pd
 from array import array
 import numpy as np
 
-Area= 0.0041440932  # m^2
-Diff_m= -2.35e-03  #kg
+Area= 63.564 
+Diff_m= -2.35  #kg
 
 
 # 1. Leggi il CSV specificando il separatore
@@ -26,6 +26,6 @@ weights = np.array([24*3600, 3600, 60, 1, 1e-3])  # giorno→s, ora→s, min→s
 weighted_sum = np.sum(diff_matrix * weights, axis=1)
 
 Q=np.dot(weighted_sum, I_media)
-F= Area / (2*Diff_m) * Q
+F= (Area / (2*Diff_m)) * Q
 print(Q)
 print(F)

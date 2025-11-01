@@ -31,7 +31,7 @@ fit.SetParNames("a", "b")
 fit.SetLineColor(ROOT.kRed)
 
 g.Fit(fit, "RQ")  # "Q" = quiet, rimuovi se vuoi output dettagliato ; "R" = fit nell'intervallo specificato 
-fit.SetRange(-4.3, -3.15)
+
 # 6. Visualizza risultati
 fit.Draw("same")
 c.Modified()
