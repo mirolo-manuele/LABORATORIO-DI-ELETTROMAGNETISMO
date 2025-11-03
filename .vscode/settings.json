@@ -2,5 +2,9 @@
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
     "python-envs.pythonProjects": [],
-    "latex-workshop.view.pdf.invert": 0
+    "pdf-viewer.invert":false,
+    "latex-workshop.view.pdf.color.dark": false,
+    "latex-workshop.view.pdf.color.light": true
+
+
 }
