@@ -2,9 +2,16 @@
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
     "python-envs.pythonProjects": [],
-    "pdf-viewer.invert":false,
+    "pdf-viewer.invert": false,
     "latex-workshop.view.pdf.color.dark": false,
-    "latex-workshop.view.pdf.color.light": true
+    "latex-workshop.view.pdf.color.light": true,
+    "latex-workshop.viewer.pdf.color.dark": {
+    "background": "#000000"
+  },
+    "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.invertMode.enabled": "never",
+  "latex-workshop.view.pdf.color.dark.background": "auto",
+  "latex-workshop.view.pdf.ref.viewer": "external",
 
 
 }

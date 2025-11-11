@@ -1699,5 +1699,138 @@ Chiamiamo $C_{eq} = C + C^*$, dove $C^*$ è la capacità della lampadina.
 \end{itemize}
 Il fenomeno luminoso osservato è la \textit{luce caratteristica} del Neon è emessa durante la ricombinazione degli elettroni con gli ioni positivi.
 
+\section{Lezione 06/11/2025}
+\subsection{Circuiti RCL}
+Immaginiamo un sistema che emette radiazioni elettromagnetiche, potremmo considerarlo isolato se e solo se consideriamo anche lo spazio attorno ad esso e per un periodo di tempo breve.
+Le leggi di Kirkhoff, come già detto, sono valide solo istante per istante, dunque rappresentano delle approssimazioni della realtà.\\
+Questo dunque genera della dispersione di nostri parametri che sono dovute all' energia che viene assorbita od emessa dal sistema.
+
+Ricordiamo che un qualunque tratto di circuito è caratterizzato da un' \textit{induttanza}:
+ogni circuito costituito da resistenza è assimilabile da un circuito con un'induttanza (in serie) e una capacità (in parallelo)\textit{parassita}, 
+ovvero trascurabili rispetto a un resistenza posta antecedentemente. Ciò cambia in base al comportamente induttivo o capacitivo del circuito; per indicare queste caratterisitche si usa una 
+lettera sovrastata da un asterisco $L^* \; C^*$.\\ 
+
+Stimolando il circuito (con resistenza in serie ad un capacitore) con un'onda quadra e analizzando il segnale con un oscilloscopio, in base a come abbiamo inserito capacità e resistenza, le curve caratteristiche potrebbero apparire
+con oscillazzioni all'inizio e alla fie della curva, ciò è indicativo della presenza di un induttanza in parallelo. 
+
+Creiamo un circuito con 
+
+\begin{itemize}
+    \item generatore di tensione variabile
+    \item in serie ad una resistenza $V=IR$
+    \item in serie ad un induttanza a cui capi vale $V=L\frac{dI}{dt}$
+    \item in serie ad un condensatore per cui vale $V=\frac{Q}{C}$
+\end{itemize}
+
+\begin{center}
+    \begin{circuitikz}[american]
+        % Circuito con generatore, resistenza, capacità e induttanza in serie
+        \draw (0,0) to[V, invert, l=$V(t)$] (0,2) 
+                    to[R] (2,2)
+                    to[C, name=myC] (4,2)  % Condensatore
+                    to[L] (6,2)            % Induttanza dopo il condensatore
+                    to[short] (6,0)
+                    to[short] (0,0);
+        
+        % Oscilloscopio in parallelo al condensatore
+        \draw (2,2) to[short, *-] (2,3) 
+                    to[oscope, l=Oscilloscopio] (4,3)
+                    to[short, -*] (4,2);
+    \end{circuitikz}
+\end{center}
+dunque dovrebbe valere
+\[
+V(t)=V_R+V_L+V_C=IR + L \frac{dI}{dt}+\frac{Q}{C} = \underbrace{\frac{dQ}{dt}R}_{\text{smorzante}}+ L \frac{d^{2} Q}{dt^{2}}+\frac{Q}{C}
+\]
+che è un equazione differenziale del secondo ordine, in particolare è simile a quella del moto armonico smorzato.
+
+Studiando ora il dominio dei tempi, dunque come il sistema evolve nel tempo dopo essere stato perturbato. Studiando un impulso d'energia semplice, che rimane costante nel tempo,
+ciò vuol dire c
+\begin{equation*}
+    V(t)=
+    \begin{cases}
+        0  \quad t<t_0 \\
+        V_0  \quad  t \geq t_0 
+    \end{cases}
+\end{equation*}
+Risolvendo agli autovalori ottengo:
+\[
+\lambda = -\frac{\Gamma}{2} \pm \underbrace{\sqrt{\frac{\Gamma^2}{4}- {\omega_0}^2}}_{\Delta}
+\]
+dove  $\Gamma = \frac{R}{L}$ e $\omega_0 = \frac{1}{\sqrt{CL}}$.
+
+Abbiamo diversi casi:
+\begin{itemize}
+    \item $\Delta =0$: smorzamento semplice
+    \item $\Delta >0$: sovrasmorzamento, soluzione esponenziale decrescente
+    \item $\Delta <0$: andamento oscillante smorzato, il cui andamento analitico è
+    \[
+       Q(t)=Q_0 \exp(-\frac{\Gamma}{2} t ) \cos(\omega t)
+    \]
+\end{itemize}
+il termine (esponenziale) di smorzamento è in funzione della resisteza e dell'induttanza, proporzionale a $R$ e inversamente a $L$.
+
+\subsection{Misura di $L$}
+Misureremo la d.d.p. ai capi del capacitore, utilizzando un oscilloscopio (lavoro con frequenze elevate), per la tensione ai capi delle piastre so che:
+\[
+V(t)=\frac{Q(t)}{C}=\frac{Q_0}{C} \exp(-\frac{\Gamma}{2} t ) \cos(\omega t)
+\]
+(i dati di $C$ ed $R$ sono noti dal costruttore)
+
+Dalla legge ricavata posiamo ricavare $L$, poichè la frequenza dell'oscillazione smorzata è quella intrinseca del circuito. 
+All'inizio dell'oscillazione ho un andamento dovuto a quello di una onda quadra (in realtà trapezoidale, smussata sugli spigoli), 
+dunque imprecisa per i calcoli (contributi sistematici ignoti a causa della non quadriticità dell'onda e della sua pendenza).
+
+Ricaveremo $\omega_0=\frac{2 \pi}{T}$, da cui dalla formula precedente otterremo $L$.
+
+\begin{itemize}
+    \item i 3 nodi da cui ricavo il periodo li ricavo dallo 0 del voltaggio, per individualizzarli imposto l'oscilloscopio su ground ($0V$), che costringe lo strumento
+    ad oscillare attorno allo $0$;
+    \item a causa dello smorzamento non apprezzerò più un oscillazione, ma una linea continua, essa rappresenta gli $0$ Volt. Devo verificare che essa coincida con il ground dell'oscilloscopio.
+    \item Per fare ciò devo far si che il semiperiodo dell'onda quadra debba essere t.c.: $\frac{2\pi T}{2} >> \frac{1}{\omega_0}$;
+    \item La linea che passa per i massimi (almeno $5/6$) nei massimi del segnale deve essere esponenziale $\exp(-\frac{\Gamma}{2}t)$ (svolgo un fit in scala semigolaritmica $\left(\log(V(t))= \log (V_0)-\frac{\Gamma}{2}t\right)$);
+    \item se ribalto ora i punti con ascissa negativa, dovrei trovare degli altri punti che sono contenuti nella curva esponenziale. La somma dei massimi e minimi (in scala semilogaritmica) risulta $-\frac{\Gamma}{2}$;
+    \item L'errore maggiore introdotto è dato da una lettura sbagliata dello $0$ del voltaggio (poichè ciò cambia il centro d'oscillazione).
+    \item Se il periodo non è troppo diverso $\left(\text{ovvero se} \quad \omega_0 \simeq \frac{2 \pi}{T}\right)$ dal periodo di oscillazione del circuito (il quale dipende solo da caratterisitche intrinseche del circuito $\omega_0 = \frac{1}{\sqrt{CL}}$)
+allora la differenza fra i massimi e minimi dell'oscillazione e del segnale risulta trascurabile. 
+    \item Per determinare il valore del periodo dell'onda quadra, dovrò iniziare la misura modificando la frequenza dell'onda, e notare quando ciò modifica l'oscillazione dello smorzamento. Faremo durare l'onda quadra 8 volte il periodo totale dato dalle 3 oscillaziooni, 
+in modo da diminuire l'errore. 
+    \item L'opportuna terna di $RCL$ è determianta dal fatto che i rumori esterni al circuito non influiscano il segnale, bisognerà scegliere ampiezza maggiori di $3V$. ($\nu \in [0,\text{qualche migliaio} \quad kHz]$)
+\end{itemize}
+
+\subsection{Onda a dente di sega: $2^\circ$ parte }
+Rimembriamo il circuito della lampadina a Neon, 
+
+\begin{center}
+    \begin{circuitikz}[american]
+    \draw (0,0) 
+        to [V, invert, l=$V$, i=$I$] (0,3)           % Generatore
+        to [R, l=$R$, i=$I$] (3,3)           % Resistenza
+        to [short, i=$I$] (4,3)
+        to [lamp] (4,0)         % Condensatore
+        to [short] (0,0);
+        
+    % Lampadina in parallelo
+    \draw (3,3) 
+        to [C, name=myC] (3,0); % Lampadina
+        
+    % Oscilloscopio in parallelo alla lampadina
+    \draw (3,3) to [short, *-] (5,3) 
+                to [oscope, l=Oscilloscopio] (5,0)
+                to [short, -*] (3,0);
+    \end{circuitikz}
+\end{center}
+
+Bisogna inanzitutto utilizzare dei valori di $RC$ consoni; e vedere poi come vario il periodo del dente di sega, la variabile su cui ci si può giostrare meglio è la tensione con cui sto alimentando il circuito. 
+
+Ciò perchè la lampadina si comporta come un condensatore di capacità $C^*$ e in parallelo ad un altro capacitore: $C_{eq} = C + C^*$. Dunque preso $V_0^*>V_0$, la curva diventerà più ripida,
+poichè nello stesso tempo dovrà caricare la stessa percentuale del voltaggio massimo $V_0$. 
+
+Salendo dunque col voltaggio $V_0$ si può osservare se c'è una collerazione fra $\nu$ e $V_0$. Per spiegarne il risultato dovrei prevedere a priori l'andamento, ma dobbiamo considerare
+\begin{itemize}
+    \item la polarizzazzione degli atomi
+    \item la cessione dell'energia da parte degli atomi a causa degli urti
+\end{itemize}
+
 
 \end{document}
