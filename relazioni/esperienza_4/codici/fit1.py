@@ -63,7 +63,24 @@ for j in range(0,2):
     em=fit_func.GetParError(1)
     rc= -1/m
     erc = em / (m**2) 
-    print(f"RC fit {s}: {rc:.3e} ± {erc:.3e}")
+    print(f"RC fit {j+1}: {rc:.3e} ± {erc:.3e}")
+
+    if j==0:
+       
+        q=fit_func.GetParameter(0)
+        eq=fit_func.GetParError(0)
+        v0= np.exp(q)
+        eV0= v0*eq
+        print(f"V0 fit {j+1}: {v0:.3e} ± {eV0:.3e}")
+    else:
+        y=m*(2.03E-05)+q
+        y=np.exp(y)
+        ey=np.sqrt((em**2)*(2.03E-05)+eq**2)
+        print(f"V0 fit {j+1}: {y:.3e} ± {ey:.3e}")
+
+
+
+
 
 c.Modified() 
 c.Update()
