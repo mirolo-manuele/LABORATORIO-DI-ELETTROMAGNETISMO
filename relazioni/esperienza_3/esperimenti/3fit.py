@@ -17,6 +17,9 @@ eI = array('d', [0.0]*len(I))
 vmin=[-5,-3,-1.5]
 vmax=[-3.5,-1.8,0]
 
+fit_graphs = []
+fit_functions = []
+
 # 4. Crea grafico principale
 c = ROOT.TCanvas("c", "I vs V", 800, 600)
 g = ROOT.TGraphErrors(len(V), V, I, eV, eI)
@@ -31,8 +34,7 @@ g.Draw("AP")
 R = []
 
 # Lista per mantenere i riferimenti ai grafici di fit
-fit_graphs = []
-fit_functions = []
+
 
 for j in range(0,3):
     indici_fit = [i for i in range(len(V)) if V[i] > vmin[j] and V[i] < vmax[j]]
