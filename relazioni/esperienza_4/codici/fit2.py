@@ -68,5 +68,5 @@ c.Modified()
 c.Update()
 c.Draw()
 
-c.SaveAs("log_V_vs_t_1.pdf") 
+c.SaveAs("log_V_vs_t_2.pdf") 
 input("Premi Invio per chiudere...") 
