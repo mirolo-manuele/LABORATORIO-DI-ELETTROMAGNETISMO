@@ -23,8 +23,9 @@ g.SetMarkerColor(ROOT.kBlue)
 g.SetMarkerSize(0.3)
 g.SetLineWidth(1) 
 
-v_soglia=[0, 2.03E-5]
-v_sup=[1.4E-5, 2.8E-5]
+v_soglia=[0, 2.0E-5]
+v_sup=[1.4E-5, 2.48E-5]
+intercetta = [7.0E-6, 2.03E-05]
 
 fit_graphs = []
 fit_functions = []
@@ -64,19 +65,17 @@ for j in range(0,2):
     rc= -1/m
     erc = em / (m**2) 
     print(f"RC fit {j+1}: {rc:.3e} ± {erc:.3e}")
+    q=fit_func.GetParameter(0)
+    eq=fit_func.GetParError(0)
+    
 
-    if j==0:
-       
-        q=fit_func.GetParameter(0)
-        eq=fit_func.GetParError(0)
-        v0= np.exp(q)
-        eV0= v0*eq
-        print(f"V0 fit {j+1}: {v0:.3e} ± {eV0:.3e}")
-    else:
-        y=m*(2.03E-05)+q
-        y=np.exp(y)
-        ey=np.sqrt((em**2)*(2.03E-05)+eq**2)
-        print(f"V0 fit {j+1}: {y:.3e} ± {ey:.3e}")
+    y=m*(intercetta[j])+q
+    print(y)
+
+    ey=np.sqrt((em**2)*(intercetta[j]**2)+eq**2)
+    exp=np.exp(y)
+    eexp=exp*ey
+    print(f"V0 fit {j+1}: {exp:.3e} ± {eexp:.3e}")
 
 
 
