@@ -1832,5 +1832,48 @@ Salendo dunque col voltaggio $V_0$ si può osservare se c'è una collerazione fr
     \item la cessione dell'energia da parte degli atomi a causa degli urti
 \end{itemize}
 
+\section{Lezione 14/11/2025}
+\subsection{Circuiti RC in serie}
+Dal circuito mostrato in figura otterremo, dalla legge di Kirkhoff
+\begin{equation}
+V(t)=V_C+V_R=\frac{Q}{C}+R \frac{dQ}{dt}
+\label{voltage}
+\end{equation}
 
+\begin{circuitikz}
+    % Componenti principali
+    \draw (0,0) to[V, v=$v(t)$] (0,2);
+    \draw (0,2) to[short, i=$i(t)$] (2,2);
+    \draw (2,2) to[C, l=$C$] (2,0);
+    \draw (2,2) to[R, l=$R$] (4,2);
+    \draw (4,2) to[short] (4,0);
+    \draw (0,0) to[short] (4,0);
+    
+    % Nodi numerati
+    \node at (0,0) [below left] {1};
+    \node at (0,2) [above left] {2};
+    \node at (4,2) [above right] {3};
+\end{circuitikz}
+
+Se la soluzione di questa equazione differenziale è del tipo $V(t)=\cos (\omega t)$, considereremo l'estenzione complessa:
+\[
+V(t)=V_0 \exp (i\omega t)
+\]
+Ricordando che il significato fisico risiede nella parte reale.
+Poichè $V$ e $I$ sono legati a meno di una costante troveremo le stesse soluzioni per $I(t)$:
+\[
+I(t)=I_0 \cos (\omega t) \rightarrow I(t)=I_0 \exp (i\omega t)
+\]
+e sostituendo nella \eqref{voltage} otteniamo:
+\[
+V(t)=I(R+\frac{1}{i \omega C}) 
+\]
+da cui si ottiene facilemnte la parte reale:
+\begin{align*}
+I(t) &= \text{Re}[I(t)] == \text{Re}\left[\frac{\vec{V}  e^{j\omega t}}{R + 1/(j\omega C)}\right] = \text{Re}\left[\frac{\omega C\vec{V}  e^{j\omega t}}{-j + \omega RC}\right] = \\
+&= \text{Re}\left[\frac{\omega C\vec{V}  e^{j\omega t}e^{j\pi/2}(1 - j\omega RC)}{1 + (\omega RC)^2}\right] = \quad \text{ponendo} \quad \omega_0 = \frac{1}{RC} \\
+&= \text{Re}\left[\frac{\vec{V}  e^{j\left[\omega t + \pi/2 - \arctan(\omega/\omega_0)\right]} \omega/(R\omega_0)}{\sqrt{1 + (\omega/\omega_0)^2}}\right] = \text{Re}\left[\frac{\vec{V}  e^{j\left[\omega t + \arctan(\omega_0/\omega)\right]}}{R\sqrt{1 + (\omega/\omega_0)^2}}\right] = \\
+&= \frac{V}{R\sqrt{1 + (\omega_0/\omega)^2}} \cos\left(\omega t + \arctan\frac{\omega_0}{\omega}\right) = I  \cos(\omega t + \varphi_i)
+\end{align*}
+da cui notiamo che $I(t)$ precede $V(t)$ di un angolo $\varphi_i = \arctan(\omega_0/\omega)$, inoltre avremo $0 \leq I \leq \frac{V}{R}= I_{max}$ come aspettato.
 \end{document}
