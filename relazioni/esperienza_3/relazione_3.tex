@@ -1,0 +1,138 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{titling}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{ragged2e}
+\usepackage{circuitikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usepackage{ragged2e}
+\usepackage{siunitx}
+% \usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
+\usepackage{enumitem}  %distanza degli itemize
+\setlist[itemize]{itemsep=4pt, parsep=1pt}
+\newtcolorbox{nota}{
+  blanker,
+  before skip=1em,
+  after skip=1em,
+  left=1em,
+  borderline west={1pt}{0pt}{black},
+  fontupper=\itshape,
+  before upper={\noindent\textbf{Nota}:\quad}
+}
+
+
+
+\begin{document}
+\justifying
+	\title{\textbf{Misura della curva caratteristica del diodo}}
+	\author{Brusini Alessio \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele}
+	\date{29 Ottobre 2025}
+	\maketitle
+	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
+	\onecolumn
+\vspace{3cm}
+	\begin{abstract}
+		\centering
+		\large
+    L'esperimento consiste nella misura della costante di Faraday e nella stima delle dimensioni efficaci delle dimensioni di uno ione solvatato
+    
+
+       
+	\end{abstract}
+
+	\newpage
+\restoregeometry
+\twocolumn
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{I_vs_V.pdf} % o .png, .pdf, ecc.
+  \label{fig:II}
+\end{figure}
+
+\[
+\displaystyle I(V)= I_0 \left(e^{(\frac{qV}{\eta kT})} - 1\right)
+\]
+Si può notare come, al diminuire della temperature:
+
+\begin{itemize}
+  \item la derivata prima aumenti
+  \item l'innalzamento della curva si verifica a valori di di $V$ sempre maggiori
+\end{itemize}
+La seconda considerazione ci fa intuire che il passaggio della corrente sia estremamente condizionato dalla temperature, questo perchè 
+a temperature minori vi sarà una minore eccitazione degli elettroni e, conseguentemente, per oltrepassare la barriera di potenziale della giunzione
+essi avranno bisogno di un voltaggio maggiore.
+
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{scala_semilogaritmica.pdf} % o .png, .pdf, ecc.
+  \label{fig:I_V_}
+\end{figure}
+Ivi è riportato il grafico della curva caratteristica del diodo in scala semilogaritmica,
+su cui è stato fatto il fit lineare. 
+Tramite esso siamo riusciti a ricavare il valore di $\eta$, 
+caratteristico per diverse temperature.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{T} [$^\circ$C] & \textbf{$\eta$} \\ \hline
+    60.5 & 1.702 \\ \hline
+    47.7 & 1.604 \\ \hline
+    25.1 & 1.676 \\ \hline
+    -0.6 & 1.637 \\ \hline
+    -195.5 & 1.791 \\ \hline
+	\end{tabular}
+\end{table}
+Si può notare che l'ultimo fit, quello svolto a temperature minore (azoto liquido), presenta un valore di $\eta$  più alto.
+I valori trovati confermano che il diodo utilizzato e' un diodo di silicio ($\eta = 2$)
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{pol_inv.pdf} % o .png, .pdf, ecc.
+  \label{fig:V}
+\end{figure}
+I dati rappresentati in questo grafico sono quelli campionati in polrizzazzione inversa alla temperatura di $-0.9^\circ C$
+Il fit lineare dei dati in polarizzazione inversa ha permesso di stimare la corrente di polarizzazione inversa $I_0$ 
+(il valore  dell'intercetta $q$).
+
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{V_vs_T.pdf} % o .png, .pdf, ecc.
+  \label{fig:VI}
+\end{figure}
+Il grafico sopra riportato mostra l'andamento di V rispetto a T
+per specifici valori di corrente, scelti accurandosi di essere ben sopra del ginocchio della curva caratteristica del diodo
+e al contempo sotto la fine della curva.
+Si nota come, al tendere a 0 della T il valore di V tenda anch'esso ad uno specifico valore (ciò è evidenziato dal primo grafico), che sarà il valore
+di tensione di build-in del diodo. Nel nostro caso, tale valore si trovi nell'intervallo $[1.18V-1.20V]$
+\begin{figure} [H]% [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{V_vs_T_lim.pdf} % o .png, .pdf, ecc.
+  \label{fig:VII}
+\end{figure}
+
+Quest'ultimo grafico viene riportato per evidenziare la bontà del fit svoltosi per i punti precedenti, 
+nonostante il numero di punti disponibili per farlo non fosse elevato.
+
+\end{document}
