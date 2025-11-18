@@ -1832,5 +1832,115 @@ Salendo dunque col voltaggio $V_0$ si può osservare se c'è una collerazione fr
     \item la cessione dell'energia da parte degli atomi a causa degli urti
 \end{itemize}
 
+\section{Lezione 14/11/2025}
+\subsection{Circuiti RC in serie}
+Dal circuito mostrato in figura otterremo, dalla legge di Kirkhoff
+\begin{equation}
+V(t)=V_C+V_R=\frac{Q}{C}+R \frac{dQ}{dt}
+\label{voltage}
+\end{equation}
+
+\begin{center}
+\begin{circuitikz}
+    % Componenti principali
+    \draw (0,0) to[V, v=$v(t)$] (0,2);
+    \draw (0,2) to[short, i=$i(t)$] (2,2);
+    \draw (2,2) to[C, l=$C$] (2,0);
+    \draw (2,2) to[R, l=$R$] (4,2);
+    \draw (4,2) to[short] (4,0);
+    \draw (0,0) to[short] (4,0);
+    
+    % Nodi numerati
+    \node at (0,0) [below left] {1};
+    \node at (0,2) [above left] {2};
+    \node at (4,2) [above right] {3};
+\end{circuitikz}
+\end{center}
+Se la soluzione di questa equazione differenziale è del tipo $V(t)=\cos (\omega t)$, considereremo l'estenzione complessa:
+\[
+V(t)=V_0 \exp (i\omega t)
+\]
+Ricordando che il significato fisico risiede nella parte reale.
+Poichè $V$ e $I$ sono legati a meno di una costante troveremo le stesse soluzioni per $I(t)$:
+\[
+I(t)=I_0 \cos (\omega t) \rightarrow I(t)=I_0 \exp (i\omega t)
+\]
+e sostituendo nella \eqref{voltage} otteniamo:
+\[
+V(t)=I(R+\frac{1}{i \omega C}) 
+\]
+da cui si ottiene facilemnte la parte reale:
+\begin{align*}
+I(t) &= \text{Re}[I(t)] == \text{Re}\left[\frac{\vec{V}  e^{j\omega t}}{R + 1/(j\omega C)}\right] = \text{Re}\left[\frac{\omega C\vec{V}  e^{j\omega t}}{-j + \omega RC}\right] = \\
+&= \text{Re}\left[\frac{\omega C\vec{V}  e^{j\omega t}e^{j\pi/2}(1 - j\omega RC)}{1 + (\omega RC)^2}\right] = \quad \text{ponendo} \quad \omega_0 = \frac{1}{RC} \\
+&= \text{Re}\left[\frac{\vec{V}  e^{j\left[\omega t + \pi/2 - \arctan(\omega/\omega_0)\right]} \omega/(R\omega_0)}{\sqrt{1 + (\omega/\omega_0)^2}}\right] = \text{Re}\left[\frac{\vec{V}  e^{j\left[\omega t + \arctan(\omega_0/\omega)\right]}}{R\sqrt{1 + (\omega/\omega_0)^2}}\right] = \\
+&= \frac{V}{R\sqrt{1 + (\omega_0/\omega)^2}} \cos\left(\omega t + \arctan\frac{\omega_0}{\omega}\right) = I  \cos(\omega t + \varphi_i)
+\end{align*}
+da cui notiamo che $I(t)$ precede $V(t)$ di un angolo $\varphi_i = \arctan(\omega_0/\omega)$, inoltre avremo $0 \leq I \leq \frac{V}{R}= I_{max}$ come aspettato.
+
+\begin{center}
+    \begin{circuitikz}[american]
+        % Circuito con generatore, resistenza, capacità e induttanza in serie
+        \draw (0,0) to[V, invert, l=$V(t)$] (0,2) 
+                    to[R] (2,2)
+                    to[C, name=myC] (4,2)  % Condensatore
+                    to[L] (6,2)            % Induttanza dopo il condensatore
+                    to[short] (6,0)
+                    to[short] (0,0);
+        
+        % Oscilloscopio in parallelo al condensatore
+        \draw (2,2) to[short, *-] (2,3) 
+                    to[oscope, l=Oscilloscopio] (4,3)
+                    to[short, -*] (4,2);
+    \end{circuitikz}
+\end{center}
+
+Consideriamo la risposta del circuito RLC, dato da un onda quadra, allora i valori consigliati da inserire sono:
+\begin{itemize}
+    \item R = 100 $\Omega$
+    \item L = 40 mH
+    \item C = 0.07 $\mu F$
+\end{itemize}
+
+Avrò un errore dovuto alla determinazione del massimo(e alle oscillazioni intorno ad esso), allora per dedurre il periodo misuro la distanza tra tre modi consecutivi
+ quando intercano l'asse dei tempi. 
+\\
+Introduciamo allora un fattore di qualità $Q_s = \frac{\omega_0}{\Gamma}$, le mie tensioni reali ai capi delle mie componenti generate da un segnale di stimolo del tipo $V(t)= V_0 \sin(\omega t)$ sono:
+\[
+V_R= \frac{V_0}{\sqrt{1 + A^2}} \cos(\omega t - A)\]\[
+V_L = \frac{\omega}{\omega_0} \frac{V_0 Q_s}{\sqrt{1 + A^2}} \cos(\omega t - A + \frac{\pi}{2})\]\[
+V_C= \frac{\omega_0}{\omega} \frac{V_0}{\sqrt{1 + A^2}} \cos(\omega t - A - \frac{\pi}{2})
+\]
+
+dove $ A = Q_s (\frac{\omega}{\omega_0}- \frac{\omega_0}{\omega})$
+
+Ai capi dell'induttanza mi aspetto un valore $V=V_0 Q_S$, ma per quanto detto, i valori della tensione graficati danno una curva il cui massimo è proprio ha valore  $V=V_0 Q_S$,
+e sulle ascisse troverem il valore proprio del circuit $\omega=\frac{1}{\sqrt{RC}}$.
+
+Presa la larghezza della curva  alla quota $\frac{V_0 Q_s}{\sqrt{2}}$, trovo che essa è identica a $\Gamma$, dunque aumentando la resistenza mi aspetto un circuito in cui la curva rimane sostanzialmente la stessa ma $\Gamma$ aumenta.\\
+Dunque per una misura appropriata dovrò aumentare le frequenze per campionare i valori di $V(t)$ che trovo. 
+
+
+La potenza emessa dal circuito risulta $W \propto \Gamma^2$, però in questo caso il valore di $\Gamma$ è la \textbf{larghezza a metà ampiezza}.  
+
+Dunque noto che al variare della frequenza del segnale di stimolo cambia la tensione ai capi dell'induttanza, se però voglio distinguere due segnali differenti
+voglio ottenere una curva a picco (per esempio diminuendo la resistenza o aumentando l'induttanza), in modo che l'interferenza fra i due sia la minore possibile (sto attuando una
+\textit{modulazione in frequenza}), chiameremo $\Gamma$ la \textit{banda di ricezione} mentre $Q_S$ è \textit{l'efficenza della modulazione}.
+\\ 
+Si noti che modificando $C$ vado a variare $\omega_0$, dunque la mia frequenza che voglio ricevere (la manovella della radio). 
+
+Lo sfasamento temporale dell'onda si valuta andando a far coincidere l'asse del segnale principale con quello misurato ai capi dell'induttanza\.
+In condizioni di risonanza lo sfasamento sarà (per quanto visto prima)
+\begin{itemize}
+    \item 0 su $V_R$
+    \item $\pi/2$ su $V_C$ e $V_L$
+\end{itemize}
+I problemi potrebbero essee:
+\begin{itemize}
+    \item rumori esterni
+    \item la geometria interne delle scatolette d'induttanza
+\end{itemize}
+
+
 
 \end{document}
