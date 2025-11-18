@@ -24,7 +24,7 @@ g.SetMarkerSize(0.3)
 g.SetLineWidth(1) 
 
 v_soglia=[0, 2.03E-5]
-v_sup=[1.4E-5, 2.8E-5]
+v_sup=[1.4E-5, 2.4E-5]
 
 fit_graphs = []
 fit_functions = []
