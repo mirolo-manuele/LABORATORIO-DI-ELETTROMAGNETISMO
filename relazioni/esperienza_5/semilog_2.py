@@ -54,6 +54,7 @@ eL=(R/(Γ**2))*eΓ*1000
 real_L=43
 percentual_error= (abs(L - real_L)/real_L)*100
 
+print(f"il valore di Γ é: {Γ:.3f} ± {eΓ:.3f}")
 print(" il valore dell'induttanza è:")
 print(f"L = ({L:.3f} ± {eL:.3f}) mH")
 print(f"L'errore è del: {percentual_error:.2f} %")

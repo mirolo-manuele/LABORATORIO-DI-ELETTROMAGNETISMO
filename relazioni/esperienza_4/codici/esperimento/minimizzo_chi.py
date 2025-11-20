@@ -31,8 +31,9 @@ def fit_automatico_chi2_minimo(): #def si fa per funzioni, era figo metterlo
     t_min, t_max = min(t), max(t)
     
     # Parametri per la ricerca automatica
-    num_fit_per_regione = 15  # Numero di fit da provare per ogni regione
+    num_fit_per_regione = 150  # Numero di fit da provare per ogni regione
     risultati_tutti = []
+    fit_graphs = []
     
     for regione in range(2): 
         #range del fit
@@ -129,7 +130,7 @@ def fit_automatico_chi2_minimo(): #def si fa per funzioni, era figo metterlo
     
     c.Modified()
     c.Update()
-    c.SaveAs("fit_automatico_chi2_minimo.pdf")
+    c.SaveAs("fit_automatico_chi2_minimo.png")
     
     print("\nPremi Invio per chiudere...")
     input()
