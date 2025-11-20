@@ -1929,7 +1929,7 @@ voglio ottenere una curva a picco (per esempio diminuendo la resistenza o aument
 \\ 
 Si noti che modificando $C$ vado a variare $\omega_0$, dunque la mia frequenza che voglio ricevere (la manovella della radio). 
 
-Lo sfasamento temporale dell'onda si valuta andando a far coincidere l'asse del segnale principale con quello misurato ai capi dell'induttanza\.
+Lo sfasamento temporale dell'onda si valuta andando a far coincidere l'asse del segnale principale con quello misurato ai capi dell'induttanza.
 In condizioni di risonanza lo sfasamento sarà (per quanto visto prima)
 \begin{itemize}
     \item 0 su $V_R$
@@ -1941,8 +1941,172 @@ I problemi potrebbero essee:
     \item la geometria interne delle scatolette d'induttanza
 \end{itemize}
 
+\section{Lezione 20/11/2025}
+\subsection{Effetto Hold}
+Immaginiamo che presa una piastra conduttrice, omogenea e parallelepipedea, sul piano cartesiano e che vi sia una corrente $I$ verso l'asse $y$, mentre vi sia
+un campo magnetico $\vec B$ verso l'asse $z$.
+Dal punto di vista elettrico:
+\[
+I=\vec{J} A \hat n = J l c \quad J= n e v
+\]
+dove $\vec J$ è la densità di corrente, possiamo passare ai moduli perchè abbiamo tutti vettori ortogonali ($l$, $c$ sono lato e spessore del rettangolo che forma il parallelepipedo)
+$v$ è la velocità della corrente e $n$ ed $e$ sono rispettivamente LA densità di carica degli elettroni e la loro carica.
 
-\section{Effetto Hole}
+A causa di B agisce sugli elettroni la Forza di Lorentz:
+\[
+F_{mag}=e \vec v \times \vec B = evB
+\]
+nel nostro caso considero solo i moduli essendo corrente e campo magnetico ortogonali. 
+
+\begin{center}
+\begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+    % 3D box (parallelepipedo) via offset
+    \def\dx{0.8}
+    \def\dy{0.5}
+    \draw[thick] (0,0) rectangle (3,2); % front face
+    \draw[thick] (\dx,\dy) rectangle (\dx+3,\dy+2); % back face (offset)
+    \draw[thick] (0,0) -- (\dx,\dy);
+    \draw[thick] (3,0) -- (\dx+3,\dy);
+    \draw[thick] (0,2) -- (\dx,\dy+2);
+    \draw[thick] (3,2) -- (\dx+3,\dy+2);
+
+    % corrente I (lungo y, verso l'alto)
+    \foreach \x in {0.6,1.5,2.4}{
+        \draw[->, thick, blue] (\x,0.15) -- (\x,1.85);
+    }
+    \node[blue, right] at (3.15,1) {$\vec I\;(\hat{y})$};
+
+    % campo magnetico B (perpendicolare, rappresentato da punti "verso di noi")
+    \foreach \xx in {0.9,1.5,2.1}{
+        \foreach \yy in {0.4,1.0,1.6}{
+            \node at (\dx+\xx,\dy+\yy) {$\odot$};
+        }
+    }
+    \node[above] at (\dx+1.5,\dy+2.2) {$\vec B\;(\hat{z})$};
+
+    % forza di Lorentz su un elettrone: v along +y, B along +z => v x B = +x, q=-e => F = -e (v x B) = -x
+    \draw[->, red, thick] (1.5,1) .. controls (1.0,0.8) .. (0.35,0.55) node[left] {$\vec F_{mag}$};
+    \node[red,left] at (0.25,0.5) {$e^-$};
+
+    % accumulo cariche sulle facce (segno convenzionale dovuto alla deviazione)
+    \node at (3.35,0.35) {+};
+    \node at (3.35,0.95) {+};
+    \node at (3.35,1.55) {+};
+    \node at (-0.25,0.35) {-};
+    \node at (-0.25,0.95) {-};
+    \node at (-0.25,1.55) {-};
+    \node[below] at (1.5,-0.2) {Accumulazione di cariche laterali};
+
+    % assi di riferimento
+    \draw[->] (0,-1.0) -- (2.5,-1.0) node[right] {$\hat{x}$};
+    \draw[->] (-1.0,0) -- (-1.0,2.2) node[above] {$\hat{y}$};
+    \draw[->] (4.5,0) -- (4.5,1.2) node[above] {$\hat{z}$};
+\end{tikzpicture}
+\end{center}
+
+La forza (tramite la regola della mano destra) e ricordando che l'elettrone ha carica negativa, fa compiere all'elettrone una traiettoria curva.
+Al di sotto di questa carica, dunqe, rimangono cariche postive, creando una $\Delta V$, dunque un campo $\vec E$, che contrasta la forza di Lorenzt:
+\[
+F_{el}=\frac{e V_H}{a}
+\]
+dove $a$ è la distanza fra i lati delle piastre del parallelepipedo e $V_H$ il potenziale di Hold:
+\[
+\frac{V_H}{a}= vB
+\]
+da cui otteniamo:
+\[
+I=nveac
+\]
+ricavo allora il potenziale di Hold pari a: 
+\[
+\frac{V_H}{a}= \frac{BI}{naec} \rightarrow V_H = \frac{BI}{nec}
+\]
+quindi fra due facce opposte rispetto alla direzione della corrente si instaura un d.d.p. prorzionale a $B$ ed $I$ e inversamente proporzionale allo spessore ($c$), che posso misurare
+grazie ad un voltmetro (ai capi delle facce orizzontali) e un amperometro (ai capi delle facce ortogonali). \\
+Questo mi permette di trovare la \textbf{densità di portatori di carica} in un determinato materiale conduttore. 
+
+I valori
+\begin{itemize}
+    \item $c = 10 \mu m$
+    \item $B = 1 T$
+    \item $n$ nota
+    \item $e = 1.6 \times 10^{-19} C$
+    \item $I \simeq 5A$
+    \item 
+\end{itemize}
+
+Risulteranno valori molto bassi per $V_H$, per dimiuire l'errore il parametro più gestibile è $c$, comunque limitato (rischio di fondere la piastrina.)
+
+\subsection{Errori sistematici}
+\begin{itemize}
+    \item i puntali che misurano $V_H$ devono esspere sullo stesso asse, altrimenti si risente di una resistenza $R \propto \rho \text{e} c$ dove $\rho$ è la resistività del materiale.
+    \item bisogna misurare la d.d.p. senza $B$, per evitare di misurare come $V_H$ valori di altre cadute di potenziale
+    \item La corrente va misurato in entrambi in sensi
+\end{itemize}
+
+\subsection{Misura di $\frac{e}{m}$}
+Prendiamo un pallone di vetro che contiene un cannoncino elettronico, riempito con $Ne$.
+Utilizzando \textit{bobine di Helmotz} 
+\footnote {ovvero 2 bobine identiche, distanti in come il loro diametro (per rendere più piccolo $B_{centro}/B_{ovunque}$), e paralleli ad un asse passante per il centro. Voglio creare un volume
+con $B$ uniforme nello spazio fra le due bobine. Fatto ciò possiamo immaginare che le linee di campo siano ortogonali alle bobine e parallele fra loro. }
+
+Possiamo dunque immaginare che la bolla sia immerso in $B$ uniforme, all'interno abbiamo una bassissima pressione, producendo il fascetto collimato di elettroni che sbatterà contro
+il vetro, essendo l'energia degli elettroni prodotti dal cannoncino $\simeq 100 eV$
+\[
+\rightarrow
+\]
+Avendo inserito il $Ne$ (e non essendo dunque nel vuoto) gli elettroni incontrano atomi di $Ne$, rilasciando energia cinetica ed eccitandoli. $Ne$ emette fotoni nel visibile, dunque posso vedere
+il fascio di elettroni. L'importante è che la pressione da far si che l'elettrone, nonostante gli urti, non abbia perso troppa $E_{cin}$.\\
+Ora applicando il campo uniforme delle bobine di Helmontz avrò su ogni elettrone la forza di Lorenz che mi devia l'elettrone,
+ dando luogo ad una forza centripeta, facendo seguire all'elettrone un arco di cerchio (ciò accade, in realtà, solo se $B$ è perfettamente ortogonnale e $e^-$ non perde $E$).\\
+Fatte talune approssimazioni:
+\[
+evB =m_e\frac{v^2}{r} \rightarrow eB= m_e \frac{v}{r}
+\]
+dove $r$ è il raggio dell'arco di cerchio. Allora ottengo:
+\[
+\frac{e}{m} \propto \frac{V}{r^2 B^2}
+\]
+dunque se misuro in modo indipendente $m$ ed $e$ posso ricavare l'uno dal'altro.
+Gli altri valori risultano:
+\begin{itemize}
+    \item $V=V_H = 1V$
+    \item $r$: sapendo che la diversità dall'orbita circolare si nota solo dopo metà della circonferenza (infatti risulta essere una scia), 
+    posso definire dunque un punto a meno dello spessore della scia, costruendo una scala coincidente col diametro della circonferenza percorsa, posso far coincidere la traccia luminosa
+    (ovvero quando una tacca copre la traccia, evitando errori di parallasse) con la circonferenza. luminosa. \\
+    Sapendo la distanza di tale tacca conosciamo il diametro della circonferenza 
+    (a meno di un errore di $\frac{1}{4}mm$, cioè lo spessore della tacca, ma esso è compatibile con l'errore della misura)
+    \item Nel cannoncino elettronico: Dati $V_c$ tensione di collimazione e $V_a$ la d.d.p. all'elettrodo accellerante. Possiamo ricavare gli effetti di bordo (quando l'elettrone è quasi fuori dalla zona di collimazione)
+    Tali effetti si ripercuotono sull'elettrone in uscita (che sente la tensione negativa dell'elettrodo di collimazione): $V_{eff} < V_a$, ma possiamo dire che $V_a > V_{eff} > V_a - V_c$, amche se sarà più vicino al primo estremo .\\
+    Qusto può cambiare molto la misura, sottostimando $\frac{e}{m}$
+    \item Campi elettrici del cannoncino: hanno effetti sulla traiettoria, soprattutto se $r$ è molto piccolo 
+    \item Il pezzo di vetro in cui schiantano gli elettroni si carica negativamente: costruisco un grafico $I_{fascio} $ (I=intensità), quindi tali parti di vetro tendono a respingere gli $e^-$, duqnue si riduce il raggio,
+    il quale ha un contributo di $\frac{1}{r^2}$ alla formula 
+\end{itemize}
+
+\subsection{Misura di 0}
+Abbiamo un cannoncino elettronico che colpisce uno schermo che si illumina, se non vi sono altri campi vedremo il punto perfettamente nel centro dello schermo.\\
+Inserendo una coppia di placchette deflettrici con potenziale $V$, possiamo misurare la distanza $d$ dal centro dello schermo (dovuta alla traiettoria parabolica assunta durante il passaggio fra le placchette).\\
+Immaginiamo di poter creare $B$ uniforme agente solo fra le placchette (con bobine di Helmontz), orientato ortogonalmente al campo elettrico $E$ delle placchette. Dunque abbiamo forza di Lorentz:
+\[
+F_{mag}=\frac{eV}{d} + evB 
+\]
+con $v$ ricavata tramite l'energia cinetica ($eV_e = \frac{1}{2}m_ev^2 $), mettendomi nella condizione:
+\[
+ (E=\frac{V}{d})-vB=0
+\]
+l'elettrone sente su di se forza nulla dunque, riscrivendo $ v= \sqrt{\frac{2eV_e}{m_e}}$..
+Questo  mi permette di poter ricavarre il rapporto carica su massa, in una maniera diistinata dal caso precedente. 
+
+Per sapere di aver bilanciato $E$ basta guardande che il segnale sia ritornato al centro dello schermo
+
+\begin{itemize}
+    \item a causa di campi esterni non avrò un singolo spot luminoso ma una circonferenza, oppure di altra forma (più difficile per determinare il centro)
+    \item Se il campo magnetico $B$ non agisce solamente sul volumetto occupato dalle due piastre delefftrici, avrò un errore. Sapendo che 
+    $B$ ha la stessa direzione, è sufficente dunque un campo più piccolo rispetto a quello teorico, nelle equazioni otteniamo una sovracorrezione. Poiche $\frac{e}{m} \propto \frac{1}{B^2}$ 
+    sto sovrastimando il rapporto
+
+\end{itemize}
 
 
 
