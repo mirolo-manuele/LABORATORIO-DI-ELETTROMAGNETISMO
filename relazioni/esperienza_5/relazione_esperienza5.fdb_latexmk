@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1763807378.86431 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1763807380.80497 0
-  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" 1763807378 4606 f377d949c84812dec006e169245639b4 ""
+["pdflatex"] 1763807414.5823 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1763807416.53493 0
+  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" 1763807413 4649 565b7b56d1a7ad444bc4aafa9d7ca1c4 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1759156621 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1759156621 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1759158153 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -227,10 +227,10 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1759163199 5574153 af86687748baf417d9e7d549313527be ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1759163373 3628997 7eee35390fc9978dac054bcf98033fd1 ""
   "c:/texlive/2025/texmf.cnf" 1759163170 713 e69b156964470283e0530f5060668171 ""
-  "relazione_esperienza5.aux" 1763807380 751 0e062412875f34e357be2684153f2a75 "pdflatex"
-  "relazione_esperienza5.out" 1763807380 486 9832eb9a844af0d34ce7344cb24844c6 "pdflatex"
-  "relazione_esperienza5.tex" 1763807378 4606 f377d949c84812dec006e169245639b4 ""
-  "relazione_esperienza5.toc" 1763807380 345 e3b149a8a9b34781e6556371aa86fee5 "pdflatex"
+  "relazione_esperienza5.aux" 1763807416 751 0e062412875f34e357be2684153f2a75 "pdflatex"
+  "relazione_esperienza5.out" 1763807416 486 9832eb9a844af0d34ce7344cb24844c6 "pdflatex"
+  "relazione_esperienza5.tex" 1763807413 4649 565b7b56d1a7ad444bc4aafa9d7ca1c4 ""
+  "relazione_esperienza5.toc" 1763807416 345 e3b149a8a9b34781e6556371aa86fee5 "pdflatex"
   (generated)
   "relazione_esperienza5.aux"
   "relazione_esperienza5.log"
