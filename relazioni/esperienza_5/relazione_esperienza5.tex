@@ -60,17 +60,7 @@
 \twocolumn
 
 \section{Apparato sperimentale}
-Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
-\begin{itemize}
-    \item Generatore di corrente continua
-    \item Voltmetro
-    \item Amperometro
-    \item Becher
-    \item Acqua bidistillata
-    \item Elettrodi di rame
-    \item Solfato di rame
-    \item Parallelepipedo di plexiglass
-\end{itemize}
+\subsection{Circuito RC}
 \begin{center}
 \begin{circuitikz}[american]
     
@@ -92,7 +82,36 @@ Per ottenere la misura a bassi voltaggi si costruisce un circuito composto da:
     to[short] (3,1);
 \end{circuitikz}
 \end{center}
-%Non mi ricordo com'era fatto il circuito
+
+
+\subsection{Circuito RLC}
+
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=G] (0,5);
+    
+    % Resistenza in alto
+    \draw (0,4) to[R, l=$R$] (3,4);
+
+    % Induttanza
+    \draw (3,4) to[L, l=$L$] (3,1);
+
+    % Condensatore a destra
+    \draw (3,1) to[C, l=$C$] (0,1);
+
+    \draw (0,0) to (0,1)
+    \draw (0,4) to (0,5)
+    \draw (0,5) to (4,5)
+    \draw (4,5) to[rmeter, t=osc] (4,0)
+    \draw (4,0) to (0,0)
+    \draw (3,4) to (4,4)
+    \draw (3,1) to (4,1)
+    
+
+\end{circuitikz}
+\end{center}
 
 \section{Procedimento di misura}
 È necessario misurare la massa dei due elettrodi per poter valutare il trasferimento di massa, 
