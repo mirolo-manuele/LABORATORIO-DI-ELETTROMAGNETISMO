@@ -1,0 +1,150 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{titling}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{ragged2e}
+\usepackage{circuitikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usepackage{ragged2e}
+\usepackage{siunitx}
+% \usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
+\usepackage{enumitem}  %distanza degli itemize
+\setlist[itemize]{itemsep=4pt, parsep=1pt}
+\newtcolorbox{nota}{
+  blanker,
+  before skip=1em,
+  after skip=1em,
+  left=1em,
+  borderline west={1pt}{0pt}{black},
+  fontupper=\itshape,
+  before upper={\noindent\textbf{Nota}:\quad}
+}
+
+\begin{document}
+\justifying
+	\title{\textbf{Misura della costante di Faraday}}
+	\author{Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele}
+	\date{18 Novembre 2025}
+	\maketitle
+	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
+	\onecolumn
+	\tableofcontents
+\vspace{3cm}
+	\begin{abstract}
+		\centering
+		\large
+    L'esperimento consiste nello studio di un circuito RC stimolato da onde quadre e di un circuito RLC stimolato da onde quadre allo scopo di visualizzare l'oscillazione smorzata e da onde sinusoidali per osservare l'effetto di risonanza.
+    %La parte sulla lampadina al neon va messa nella relazione??
+       
+	\end{abstract}
+
+	\newpage
+\restoregeometry
+\twocolumn
+
+\section{Apparato sperimentale}
+\subsection{Circuito RC}
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=G] (0,3);
+    
+    % Resistenza in alto
+    \draw (0,3) to[R, l=$R$] (3,3);
+    
+    % Condensatore a destra
+    \draw (3,3) to[C, l=$C$] (3,0);
+    
+    % Amperometro in basso
+    \draw (0,0) to (3,0);
+    
+    \draw (3,2) to[short] (2,2) 
+    % Voltmetro in parallelo alla lampadina
+    to[rmeter, t=osc] (2,1)
+    to[short] (3,1);
+\end{circuitikz}
+\end{center}
+
+
+\subsection{Circuito RLC}
+
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=G] (0,5);
+    
+    % Resistenza in alto
+    \draw (0,4) to[R, l=$R$] (3,4);
+
+    % Induttanza
+    \draw (3,4) to[L, l=$L$] (3,1);
+
+    % Condensatore a destra
+    \draw (3,1) to[C, l=$C$] (0,1);
+
+    \draw (0,0) to (0,1)
+    \draw (0,4) to (0,5)
+    \draw (0,5) to (4,5)
+    \draw (4,5) to[rmeter, t=osc] (4,0)
+    \draw (4,0) to (0,0)
+    \draw (3,4) to (4,4)
+    \draw (3,1) to (4,1)
+    %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
+
+\end{circuitikz}
+\end{center}
+
+\section{Procedimento di misura}
+Si sono usati i seguenti strumenti:
+\begin{itemize}
+  \item Oscilloscopio digitale
+  \item Generatore di segnali periodici
+  \item Cavi conduttori
+  \item Resistenza variabile
+  \item Capacità variabile
+  \item Induttanza variabile
+\end{itemize}
+\subsection{Circuito RC}
+Per visualizzare il cosiddetto "dente di sega" associato al processo di carica e scarica del condensatore si è 
+costruito un circuito RC con l'oscilloscopio in parallelo al condensatore. Per poter valutare correttamente il
+fenomeno è necessario scegliere un'opportuna frequenza di onda quadra. Si può considerare buono il segnale visualizzato
+sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Non sarebbe possibile 
+infatti ottenere una precisione migliore a causa delle interferenze dell'ambiente, da cui non si può prescindere.
+\subsection{Circuito RLC}
+\subsubsection{Oscillazione smorzata}
+Come per il caso del circuito RC è necessario impostare l'onda quadra a una frequenza tale da non essere più in grado
+di percepire la differenza tra interferenza e oscillazione smorzata nella parte finale del segnale visualizzato
+sull'oscilloscopio.
+\subsubsection{Risonanza}
+Per ricostruire la Laurentiana della risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
+dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo in cui l'ampiezza del segnale aumenta.
+
+\section{Grafici}
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  %\includegraphics[width=0.5\textwidth]{curva_voltammetrica/fotodiodo.png} % o .png, .pdf, ecc.
+  %\label{fig:I/V_fotodiodo}
+\end{figure}
+
+\section{Conclusione}
+
+\end{document}
