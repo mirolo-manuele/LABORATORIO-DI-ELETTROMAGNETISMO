@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1764021247.14896 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1764021249.91478 2
-  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/relazione_esperienza5.tex" 1764021189 4865 dcf75bfafa0e906334eb479ac8b4e294 ""
+["pdflatex"] 1764535063.14383 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1764535065.88725 2
+  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1764535058 4843 8da25eb46fe59ff92771766d7bec459d ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1759156621 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1759156621 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1759158153 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -227,10 +227,11 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1759163199 5574153 af86687748baf417d9e7d549313527be ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1759163373 3628997 7eee35390fc9978dac054bcf98033fd1 ""
   "c:/texlive/2025/texmf.cnf" 1759163170 713 e69b156964470283e0530f5060668171 ""
-  "relazione_esperienza5.aux" 1764021249 1489 b2cb86f7154b81e63b590632cfa4ade8 "pdflatex"
-  "relazione_esperienza5.out" 1764021249 1244 73b8c9583fee8917a00cbac804262bb6 "pdflatex"
-  "relazione_esperienza5.tex" 1764021189 4865 dcf75bfafa0e906334eb479ac8b4e294 ""
-  "relazione_esperienza5.toc" 1764021249 837 561c9f288eef383670fabf9bff9f7516 "pdflatex"
+  "oscillazione_smorzata_2.pdf" 1764534101 15913 f57614068fb05a28b619774ebecb60a8 ""
+  "relazione_esperienza5.aux" 1764535065 1691 4bbbe55832b3a072169d2a5f6d79aa79 "pdflatex"
+  "relazione_esperienza5.out" 1764535065 1244 73b8c9583fee8917a00cbac804262bb6 "pdflatex"
+  "relazione_esperienza5.tex" 1764535058 4843 8da25eb46fe59ff92771766d7bec459d ""
+  "relazione_esperienza5.toc" 1764535065 837 561c9f288eef383670fabf9bff9f7516 "pdflatex"
   (generated)
   "relazione_esperienza5.aux"
   "relazione_esperienza5.log"
