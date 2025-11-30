@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  30 NOV 2025 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  30 NOV 2025 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -744,7 +744,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip74
-) (./relazione_esperienza5.aux)
+)
+No file relazione_esperienza5.aux.
 \openout1 = `relazione_esperienza5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -765,7 +766,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -984,10 +984,30 @@ Underfull \vbox (badness 1137) has occurred while \output is active []
 <oscillazione_smorzata_2.pdf, id=58, 569.12625pt x 191.71625pt>
 File: oscillazione_smorzata_2.pdf Graphic file (type pdf)
 <use oscillazione_smorzata_2.pdf>
-Package pdftex.def Info: oscillazione_smorzata_2.pdf  used on input line 145.
+Package pdftex.def Info: oscillazione_smorzata_2.pdf  used on input line 147.
 (pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 145--147
+Overfull \hbox (5.0pt too wide) in paragraph at lines 147--149
+ [][] 
+ []
+
+<curva_esponenizale_2.pdf, id=59, 569.12625pt x 191.71625pt>
+File: curva_esponenizale_2.pdf Graphic file (type pdf)
+<use curva_esponenizale_2.pdf>
+Package pdftex.def Info: curva_esponenizale_2.pdf  used on input line 160.
+(pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 160--162
+ [][] 
+ []
+
+<semilog_2.pdf, id=60, 569.12625pt x 407.5225pt>
+File: semilog_2.pdf Graphic file (type pdf)
+<use semilog_2.pdf>
+Package pdftex.def Info: semilog_2.pdf  used on input line 174.
+(pdftex.def)             Requested size: 256.07481pt x 183.37099pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 174--176
  [][] 
  []
 
@@ -996,7 +1016,13 @@ Overfull \hbox (5.0pt too wide) in paragraph at lines 145--147
 [3
 
 
-{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./oscillazione_smorzata_2.pdf, page is rotated 90 degrees>] (./relazione_esperienza5.aux)
+{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./oscillazione_smorzata_2.pdf, page is rotated 90 degrees> <./curva_esponenizale_2.pdf, page is rotated 90 degrees>]
+
+
+
+[4
+
+ <./semilog_2.pdf, page is rotated 90 degrees>] (./relazione_esperienza5.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -1012,21 +1038,21 @@ Package rerunfilecheck Warning: File `relazione_esperienza5.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `relazione_esperienza5.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  73B8C9583FEE8917A00CBAC804262BB6;1244.
+(rerunfilecheck)             After:  C0E94F92736BE6F64F2F6143813C8A16;1807.
  ) 
 Here is how much of TeX's memory you used:
- 53873 strings out of 467748
- 1301791 string characters out of 5431138
- 1962216 words of memory out of 5000000
- 81990 multiletter control sequences out of 15000+600000
+ 53896 strings out of 467748
+ 1302322 string characters out of 5431138
+ 1966216 words of memory out of 5000000
+ 82007 multiletter control sequences out of 15000+600000
  639628 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,8n,106p,567b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on relazione_esperienza5.pdf (3 pages, 138750 bytes).
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on relazione_esperienza5.pdf (4 pages, 213522 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

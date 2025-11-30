@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1764535063.14383 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1764535065.88725 2
-  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1764535058 4843 8da25eb46fe59ff92771766d7bec459d ""
+["pdflatex"] 1764537050.19558 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1764537052.91347 2
+  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1764537048 6647 e05722dcdfac8661077e141e6a89c0be ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1759156621 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1759156621 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1759158153 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -28,6 +28,11 @@
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1759156611 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1759156611 1120 8b7d695260f3cff42e636090a8002094 ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1759155592 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1759155592 36281 c355509802a035cadc5f15869451dcee ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1759155592 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1759155592 32762 7fee39e011c23b3589931effd97b9702 ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1759155592 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1759155592 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb" 1759156621 143961 fe73b0de40bc9eebafe5b31a39c455e0 ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb" 1759156621 145408 bcd327f112f643a875638eafb48d1d8b ""
   "c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1759156621 140176 d0f50dba675c56d445f84a32c1f93a79 ""
@@ -227,11 +232,13 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1759163199 5574153 af86687748baf417d9e7d549313527be ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1759163373 3628997 7eee35390fc9978dac054bcf98033fd1 ""
   "c:/texlive/2025/texmf.cnf" 1759163170 713 e69b156964470283e0530f5060668171 ""
+  "curva_esponenizale_2.pdf" 1764534101 14352 0c0c78d4ce8f0361deeabdbfc136bd74 ""
   "oscillazione_smorzata_2.pdf" 1764534101 15913 f57614068fb05a28b619774ebecb60a8 ""
-  "relazione_esperienza5.aux" 1764535065 1691 4bbbe55832b3a072169d2a5f6d79aa79 "pdflatex"
-  "relazione_esperienza5.out" 1764535065 1244 73b8c9583fee8917a00cbac804262bb6 "pdflatex"
-  "relazione_esperienza5.tex" 1764535058 4843 8da25eb46fe59ff92771766d7bec459d ""
-  "relazione_esperienza5.toc" 1764535065 837 561c9f288eef383670fabf9bff9f7516 "pdflatex"
+  "relazione_esperienza5.aux" 1764537052 2552 d101c9f500d7eef102c8460731421a04 "pdflatex"
+  "relazione_esperienza5.out" 1764537052 1807 c0e94f92736be6f64f2f6143813c8a16 "pdflatex"
+  "relazione_esperienza5.tex" 1764537048 6647 e05722dcdfac8661077e141e6a89c0be ""
+  "relazione_esperienza5.toc" 1764537052 1212 6767bebfc4e1ab80196530d76b12e3bf "pdflatex"
+  "semilog_2.pdf" 1764534101 14749 19df6b5b822e2900cdec34a1ae72a4af ""
   (generated)
   "relazione_esperienza5.aux"
   "relazione_esperienza5.log"
