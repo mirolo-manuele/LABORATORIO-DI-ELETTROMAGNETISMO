@@ -142,6 +142,7 @@ dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo 
 \subsection{Circuito RC}
 
 \subsection{Circuito RLC}
+\subsubsection{Oscillazione smorzata}
 \begin{figure}[H] % [h] = here, posizione approssimativa
   \centering
   \includegraphics[width=0.5\textwidth]{oscillazione_smorzata_2.pdf} % o .png, .pdf, ecc.
@@ -179,6 +180,23 @@ Graficando la curva esponenziale vista nel grafico precedente
 in scala semilogaritmica, si può fare un fit lineare per ottenere
 una stima di $-\frac{\Omega}{2}$ e conseguentemente una stima di L.
 Eseguendo i calcoli si ottiene $L=(32,7\pm2,7)mH$.
+
+\subsubsection{Risonanza}
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{risonanza.pdf} % o .png, .pdf, ecc.
+  \label{fig:I/Risonanza}
+\end{figure}
+Per stimare $\Gamma$ a partire dall'effetto di risonanza, bisogna
+valutare l'ampiezza della Laurentiana a $\frac{V_0Q_s}{\sqrt{2}}$,
+dove $V_0Q_s$ è il valore del massimo della curva, che viene trovato
+tramite un'approssimazione al secondo ordine, ovvero ricavando
+l'equazione della parabola passante per i tre punti con valore di
+tensione maggiore e prendendo il suo vertica come massimo della
+Laurentiana. L'ampiezza viene valutata con un'approssimazione al
+primo ordine tra i due punti immediatamente sopra e sotto alla retta
+$\frac{V_0Q_s}{\sqrt{2}}$. In questo modo si ottiene L=5,83 mH
+%non ho ben capito come è ottenuto L_omega nel file Esperienza_5\risonanza e perché questi valori sono così sbagliati
 
 \section{Risultati}
 \subsection{Circuito RC}
