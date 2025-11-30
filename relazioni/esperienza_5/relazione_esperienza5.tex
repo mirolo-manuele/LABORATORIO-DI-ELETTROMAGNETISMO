@@ -50,8 +50,8 @@
 	\begin{abstract}
 		\centering
 		\large
-    L'esperimento consiste nello studio di un circuito RC stimolato da onde quadre e di un circuito RLC stimolato da onde quadre allo scopo di visualizzare l'oscillazione smorzata e da onde sinusoidali per osservare l'effetto di risonanza.
-    %La parte sulla lampadina al neon va messa nella relazione??
+    L'esperimento consiste nello studio di due circuiti, uno RC ed uno RLC, stimolati da onde quadre allo scopo di visualizzare l'oscillazione smorzata. Inoltre i due vengono stimolati da onde sinusoidali per osservare l'effetto di risonanza.
+    %La parte sulla lampadina al neon va messa nella relazione?? No
        
 	\end{abstract}
 
@@ -101,13 +101,13 @@
     % Condensatore a destra
     \draw (3,1) to[C, l=$C$] (0,1);
 
-    \draw (0,0) to (0,1)
-    \draw (0,4) to (0,5)
-    \draw (0,5) to (4,5)
-    \draw (4,5) to[rmeter, t=osc] (4,0)
-    \draw (4,0) to (0,0)
-    \draw (3,4) to (4,4)
-    \draw (3,1) to (4,1)
+    \draw (0,0) to (0,1);
+    \draw (0,4) to (0,5);
+    \draw (0,5) to (4,5);
+    \draw (4,5) to[rmeter, t=osc] (4,0);
+    \draw (4,0) to (0,0);
+    \draw (3,4) to (4,4);
+    \draw (3,1) to (4,1);
     %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
@@ -127,15 +127,15 @@ Si sono usati i seguenti strumenti:
 Per visualizzare il cosiddetto "dente di sega" associato al processo di carica e scarica del condensatore si è 
 costruito un circuito RC con l'oscilloscopio in parallelo al condensatore. Per poter valutare correttamente il
 fenomeno è necessario scegliere un'opportuna frequenza di onda quadra. Si può considerare buono il segnale visualizzato
-sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Non sarebbe possibile 
-infatti ottenere una precisione migliore a causa delle interferenze dell'ambiente, da cui non si può prescindere.
+sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Infatti, non sarebbe possibile 
+ ottenere una precisione migliore a causa delle interferenze dell'ambiente, dalla quale non si può prescindere.
 \subsection{Circuito RLC}
 \subsubsection{Oscillazione smorzata}
 Come per il caso del circuito RC è necessario impostare l'onda quadra a una frequenza tale da non essere più in grado
 di percepire la differenza tra interferenza e oscillazione smorzata nella parte finale del segnale visualizzato
 sull'oscilloscopio.
 \subsubsection{Risonanza}
-Per ricostruire la Laurentiana della risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
+Per ricostruire la Lorentziana tipica del grafico ottenuto analizzando la risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
 dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo in cui l'ampiezza del segnale aumenta.
 
 \section{Grafici}
