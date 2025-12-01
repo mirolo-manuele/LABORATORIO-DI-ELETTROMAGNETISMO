@@ -2231,88 +2231,6 @@ L'ampiezza che non passa per il condensatore va nel diodo "buttandolo via", per 
 \end{circuitikz}
 \end{center}
 
-\begin{tikzpicture}[every node/.style={font=\small}, thick]
-
-% ---------- Left diagram ----------
-\begin{scope}[xshift=-6.5cm]
-  % Nodes of the diamond
-  \coordinate (T) at (0,2);   % top
-  \coordinate (R) at (2,0);   % right
-  \coordinate (B) at (0,-2);  % bottom
-  \coordinate (L) at (-2,0);  % left
-
-  % resistor in the center (between left and right)
-  \draw (L) -- ++(0.6,0) to[R, l=R, -*] ++(1.4,0) -- (R);
-
-  % diodes forming the bridge (use diode orientation arrow -> current direction)
-  \draw (T) to[diode, -*, l_=] (R); % top-right diagonal
-  \draw (T) to[diode, *-, l_] (L);  % top-left diagonal
-
-  \draw (B) to[diode, *-, l_] (R);  % bottom-right diagonal
-  \draw (B) to[diode, -*, l_=] (L); % bottom-left diagonal
-
-  % input terminals and labels (Vin across top and bottom)
-  \draw[|-|] (-3.6,2.1) -- ++(0, -4.2) node[midway, left] {${V_{in}}$};
-  \draw[thick, ->] (-2.6,2.2) -- ++(1.8,0) node[above,pos=0.95] {I}; % top current arrow
-
-  % output terminals (Vout across left-bottom to right-bottom)
-  \draw[|-|] (-2.6,-2.6) -- ++(4.6,0) node[midway, below] {${V_{out}}$};
-
-  % signs at resistor sides
-  \node[left] at ( -0.2,0) {$-$};
-  \node[right] at ( 1.2,0) {$+$};
-
-  % small current arrows on diagonals (to resemble original)
-  \draw[thick, -{Stealth[]}] (1.0,1.0) ++(-0.25,-0.25) -- ++(0.6,0.6);
-  \draw[thick, -{Stealth[]}] (-1.0,1.0) ++(0.25,-0.25) -- ++(-0.6,0.6);
-  \draw[thick, -{Stealth[]}] (-1.0,-1.0) ++(-0.25,0.25) -- ++(-0.6,-0.6);
-  \draw[thick, -{Stealth[]}] (1.0,-1.0) ++(0.25,0.25) -- ++(0.6,-0.6);
-
-  % title (optional)
-  %\node at (0,-3.6) {Figura (a)};
-\end{scope}
-
-% ---------- Right diagram (mirrored / alternate orientation) ----------
-\begin{scope}[xshift=6.5cm]
-  % Nodes of the diamond
-  \coordinate (T) at (0,2);   % top
-  \coordinate (R) at (2,0);   % right
-  \coordinate (B) at (0,-2);  % bottom
-  \coordinate (L) at (-2,0);  % left
-
-  % resistor in the center (between left and right)
-  \draw (L) -- ++(0.6,0) to[R, l=R, -*] ++(1.4,0) -- (R);
-
-  % diodes: mirrored orientation (so current paths differ)
-  \draw (T) to[diode, *-, l_] (R); % top-right diagonal (opposite orientation)
-  \draw (T) to[diode, -*, l_=] (L);  % top-left diagonal
-
-  \draw (B) to[diode, -*, l_=] (R);  % bottom-right diagonal
-  \draw (B) to[diode, *-, l_] (L); % bottom-left diagonal
-
-  % input terminals and labels (Vin across top and bottom)
-  \draw[|-|] (3.6,2.1) -- ++(0, -4.2) node[midway, right] {${V_{in}}$};
-  \draw[thick, <-] (0.6,2.2) -- ++(1.8,0) node[above,pos=0.05] {I}; % top current arrow (pointing left)
-
-  % output terminals (Vout across left-bottom to right-bottom)
-  \draw[|-|] (-1.8,-2.6) -- ++(4.6,0) node[midway, below] {${V_{out}}$};
-
-  % signs at resistor sides
-  \node[left] at ( -0.2,0) {$-$};
-  \node[right] at ( 1.2,0) {$+$};
-
-  % small current arrows on diagonals (to resemble original)
-  \draw[thick, -{Stealth[]}] (0.6,1.0) ++(0.25,-0.25) -- ++(-0.6,0.6);
-  \draw[thick, -{Stealth[]}] (-0.6,1.0) ++(-0.25,-0.25) -- ++(0.6,0.6);
-  \draw[thick, -{Stealth[]}] (-0.6,-1.0) ++(0.25,0.25) -- ++(0.6,-0.6);
-  \draw[thick, -{Stealth[]}] (0.6,-1.0) ++(-0.25,0.25) -- ++(-0.6,-0.6);
-
-  % title (optional)
-  %\node at (0,-3.6) {Figura (b)};
-\end{scope}
-
-\end{tikzpicture}
-
 
 Tramite questi circuiti posso recuperare i lobi dei segnali di negativi, essi vengono chiamati \textit{ponti di Graetz}, mi è necessaria una capacità circa la metà di quella di prima per ottenere la stessa
 tensione di ripple, col vantaggio di avere una tensione più costante rispetto a prima.
@@ -2325,6 +2243,33 @@ Per prima cosa dovremo verificarre che le curve caratteristiche dei quattro diod
  \item la resistenza del diodo cambia bruscamente all'inizio e a lla fine delle orecchie di gatto, il segnale reale infatti ivi risulta più ripida del segnale teorico (a causa del cambiamento esponenziale della resistenza del diodo)
  ivi perdiamo un po' di potenza che può essere valutata
 \end{itemize}
+
+
+\subsection{Misura del campo magnetico prodotto da un filo}
+Supponendo un filo infinitamente esteso vogliamo trovare l'andamento del campo magnetico, per farlo, insereremo due staffe in modo da tendere il filo il più possibile (anchè se avraà una forma catenaria) e attaccate ai lati di un tavolo
+La \textit{freccia} (differenza fra il minimo della catenaria e la retta passante per i due estremi superiori delle staffe) deve essere trascurabile rispetto alla distanza fra gli estremi del filo.\\
+
+Mi aspetto che il filo rispetti la relazione:
+\[
+B_* \propto \frac{I}{r}
+\]
+Colleghiamo gli estremi del filo ad un alimentatore, esso (i collegamenti) produrrà un campo magnetico, ma sarà trascurabile a quello in prossimità del filo. La condizione ($R << D$) ci garantisce la bontà della misura. 
+
+Orientando il tavolo parallelo alla componente parallela del campo magnetico locale, e così anche per il filo, mi aspetto un campo magnetico ortgonale al filo, dunque 
+il campo totale sarà la somma di $B_{\parallel}$ e $B_{\perp}$, inserendo una bussola, essa avrà orientazione eguale a quella di $B_{tot}$. 
+
+Misuando l'angolo fra $B_{\parallel}$ e $B_{tot}$, e prendendone la tangente posso associare questa al variare della corrente, dopodichè farò lo stesso ma variando la distanza. 
+Le maggiori cause di errore sistematico sono:
+\begin{itemize}
+    \item la distanza fra gli estremi deve essere molto maggiore di quella  fra bussola e filo, in modo da avere l'approsimazione di un filo infinitamente estesom, se non lo sono, sottostimo il valore di $B$
+    \item se inserisco il fulcro dell'ago pari al raggio dove effettuo la misura su tutto l'ago è diverso (agli estremi dell'ago il campo è più piccolo), sto sottostimando il campo
+\end{itemize}
+
+
+
+
+
+
 
 
 
