@@ -2265,6 +2265,64 @@ Le maggiori cause di errore sistematico sono:
     \item se inserisco il fulcro dell'ago pari al raggio dove effettuo la misura su tutto l'ago è diverso (agli estremi dell'ago il campo è più piccolo), sto sottostimando il campo
 \end{itemize}
 
+\section{Lezione 04/12/2025}
+\subsection{Misura di Millikan}
+
+Si tratta della prima misura della carica elementare. Poichè era impossibile per l'epoca avere microscopi molto raffinati, lo sperimentatore creò un oggetto costituito da:
+\begin{itemize}
+    \item 2 placche metalliche separate 
+    \item un foro al di sopra di una delle armature 
+    \item al suo interno inseriamo un \textit{tubo di venturi}, questo serve a nebulizzare un liquido.
+    \item un vetro con cui guardare le goccioline nebulizzate tramite un microscopio.
+    \item sul lato laterale inseriamo una luce che serve per far "brillare le goccioline"
+\end{itemize}
+In tale modo possiamo definire la posizione della particella che diffonde la luce, 
+in realtà si osserveranno delle lineette, a causa delle lenti convergenti
+del microscopio, le quali rovesciano l'immagine che si vuole osservare.
+Dunque le goccioline superano un reticolo costiutiiti da tacche, sapendo la distanza fra le tacche
+posso dedurre la velocità di salita della gocciolina. \\
+
+\subsubsection{Effetto di Stokes}
+L'effetto della forza di gravità, poichè, sapendo che una mole di acqua si trova in $22.4L$ di aria, possiamo supporre,
+data la dimensione dello strumento, che le goccioline siano più grandi delle particelle con cui urtano, 
+dunque è possibile utiilizzare la legge di Stokes.\\
+Possiamo approssimare la forma della gocciolina ad una sfera oscillante, se utilizziamo un liquido molto denso (nel nostro caso olio di paraffina), 
+la sua forma rimarrà più stabile, causa la maggior intensità richiesta alle forze elastiche per deformarla. \\
+Data tale apprssimazione posso applicare la legge di Stokes, che formulata assume la seguente forma:
+\[
+\vec F_{\text{Stokes}}=6\pi \eta  R \vec{v}
+\]
+dove $\eta$ è la viscosità dell'aria, il quale dipende da vari fattori, quali la temperatura. 
+La componente della velocità d'interesse è quella perpendicolare al piano, la risultante delle forze e':
+\[
+F_{tot}=-mg + F_{stokes} = -mg + 6\pi \eta  R \vec{v}
+\]
+La velocità si modifica nel tempo, all'equilibrio (a $t=\infty$) le due forze si bilanciano, ma 
+l'equazione differenziale associata è ideale, il quale vale solo se $2R$ è relativamente grande rispetto
+al cammino libero medio (senza fare urti) all'interno del fliuido in cui mi sto muovendo. Inoltre
+Le masse delle molecole che urto devono essere piccole rispetto all'oggetto che viaggia al loro interno,
+ altrimenti non vale la legge di Stokes.\\
+
+Se gli urti non avvengono a grandi distanze di tempo possiamo eguagliare per trovare la velocità massima,
+dunque basta far entrare la particella nel foro già raggiunta tale velocità (spruzzando a $\simeq 3/4mm$ dal foro).
+\subsubsection{Effetto di Archimede}
+Inoltre vi è la forza di Archimede da considerare, che è $\propto \rho_{aria} V_{sfera} g $
+\[
+m_{\sigma}=\rho_{\sigma} V_{\sigma} \quad m'=\rho_l V_{\sigma}
+\]
+L'equazione diviene 
+\[
+F_{tot}=-mg + F_{stokes} + F_{arch} = -mg + 6\pi \eta  R \vec{v} + m'g
+\]
+ovvero (essendo $V =  \frac{4}{3}\pi R^3 $):
+\[
+F_{tot}= -mg + 6\pi \eta  R v_\infty - (\rho_{\sigma}-\rho_l) \frac{4}{3}\pi R^3 g
+\]
+La velocità la conosciamo misurando in quanto tempo la gocciolina attraversa le tacchette, l'incognita rimanente è 
+il raggio della gocciolina, ponendo a 0:
+\[
+R= \sqrt{\frac{6\pi \eta  v_\infty}{\frac{4}{3}\pi g + (\rho_{\sigma}-\rho_l) g} }= \sqrt{\frac{9\pi \eta }{2(\rho_{\sigma}-\rho_l) g}}
+\]
 
 
 
@@ -2272,9 +2330,20 @@ Le maggiori cause di errore sistematico sono:
 
 
 
-<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
-=======
-
-\end{document}
->>>>>>> f3810553bb8c08db06e6ae030238da16cbba549a
