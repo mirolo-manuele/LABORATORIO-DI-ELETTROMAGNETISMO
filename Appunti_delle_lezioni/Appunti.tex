@@ -1930,10 +1930,11 @@ voglio ottenere una curva a picco (per esempio diminuendo la resistenza o aument
 Si noti che modificando $C$ vado a variare $\omega_0$, dunque la mia frequenza che voglio ricevere (la manovella della radio). 
 
 Lo sfasamento temporale dell'onda si valuta andando a far coincidere l'asse del segnale principale con quello misurato ai capi dell'induttanza.
-In condizioni di risonanza lo sfasamento sarà (per quanto visto prima)
+
+In condizioni di risonanza lo sfasamento sara (per quanto visto prima)
 \begin{itemize}
     \item 0 su $V_R$
-    \item $\pi/2$ su $V_C$ e $V_L$
+    \item $\pi / 2$ su $V_C$ e $V_L$
 \end{itemize}
 I problemi potrebbero essee:
 \begin{itemize}
@@ -2108,6 +2109,161 @@ Per sapere di aver bilanciato $E$ basta guardande che il segnale sia ritornato a
 
 \end{itemize}
 
+\section{Lezione 01/12/2025}
+\subsection{Misura del campo magnetico locale}
+Nel laboratorio che solitamente utilizziamo ci sono campi magnetici dovuti alla presenza di molto materiale ferro-magnetico nello scantinato e magneti negli armadi. Il nostro scopo è quello di non avere campi magnetici variabili.\\
+
+Immaginiamo di essere in un ambiente dove vi è un campo magnetico ambientale costante, la cui direzione e verso è quella della "diagonale" della stanza. Il campo magnetico terrestre infatti ha componente radiale e parallela (al piano che ci troviamo)
+Se chiamiamo $\vec{m}$ il momento di dipoolo della terra, allora avremo che il campo magnetico prima citato sarà $B_{rad}= \frac{\mu_0}{4\pi}\frac{2m \cos(\theta)}{R_T^3}$ e $B_{par}= \frac{\mu_0}{4\pi}\frac{2m \sin(\theta)}{R_T^3}$.    
+Utilizzando una bobina, incardianata perpendicolarmente al suo asse, che ruota tramite una manovella, possiami far cambiare il flusso di $B$ al ruotare di essa seconndo $\sin (\omega_0t)$ con $\omega_0$ e la velocità angolare costante.\\
+Dunque cambia $V$, possiamo ricavare $B_{terrestre}$:
+\[
+V(t)=n \omega_0(t) \underbrace{\pi r^2}_{\text{area bobina}} B_{locale} \sin (\phi) \sin (\theta) \sin (\omega_0t)
+\]
+Se l'asse di rotazione della bobina si trova nel piano verticale contenente il campo magnetico della stanza, il flusso in tal caso è minore (infatti se l'asse di rotazione avesse direzione parallela a quello del campo magnetico, il flusso sarebbe nullo)
+
+\begin{itemize}
+    \item n numero di spire
+    \item $\omega(t)$ è la velocità angolare
+    \item 
+\end{itemize}
+
+Facciò ciò per diversi angoli, passando in condizioni di massimo e minimo per il campo magnetico. In questo modo possiamo capire modulo e direzione del campo magnetico. Per valutare il verso colleghiamo la bobina 
+ad un oscilloscopio, potremmo vedere un andamento sinusoidale (dovuto a $\omega_0$ costante), conoscendo la \textit{legge di Lentz} (un circuiti si oppone alla variazione del campo amgnetico al suo interno), dall'incipit della rotazione, se il primo lobo è negativo
+Posso ricavare $T$ dal diagramma dell'oscilloscopio (da cui si trova $\omega_0$), succesivamente definisco gli angoli $\theta$ e $\phi$ e scelgo i tempi in modo che $\sin (\omega_0t)$ abbia valore unitario. Da qui posso valutare il verso di $B$.\\
+
+Alcune osservazioni
+\begin{itemize}
+    \item Poichè la bobina deve ruotare il filo viene collegato all'esterno tramite collegamento strisciante con l'oscilloscopio (inizialmente non dovrò ricavare dati causa la presenza di ossidi).
+    \item Le sinusoidi che otterremo nell'oscilloscopio avranno frequenza dell'ordine di $6/7 Hz$, da cui ottengo un massimo di $15mV$, dell'ordine del rumore ambientale. Inserisco un filtro \textit{passabasso}, un circuito RCL
+    che filtra tutte le frequenze più alte di $\simeq 10Hz$ (ovvero le frequenze disturbanti verrano abbassate d'ampiezza) 
+    \item insereremo inoltre un amplificatore per le nostre frequenze, in modo che il rumore residuo sia compatibile con lo spessore della traccia luminosa. Dovremo dunque calibrare l'amplificatore (per capire il valore dell'amplificazione).
+    Una volta tarato potremmo inserire la bobina, conoscendo valore di filtraggio e amplificazione.
+    \item l'errore atteso su $B$ è sulla seconda cifra decimale
+\end{itemize}
+
+\subsection{Creazione di un raddrizzatore}
+La corrente viene trasportata con la tensione alternata, se ho bisogno di una tensione continua devo raddrizzarlo.
+
+Se applico un circuito composto da resistenza e diodo, con la corrente che polarizza direttamente quest'ultimo mi aspetto che, misurando il voltaggio ai capi del diodo, trovo un segnale "a orecchie di gatto"(quando il diodo è polarizzato inversamente
+non dovrebbe esserci passaggio di corrente, dunque non dovrei vedere alcun segnale \footnote[1]{in realtà una piccola corrente passa lo stesso ma è trascurabile}), la media di $V$ sul diodo mi fornisce il segnale di raddrizzamento. 
+
+Voglio stiracchiare il segnale per non avere voltaggi negativi, per farlo inserisco in parallelo al diodo e resistenza un condensatore, se il filo utilizzato ha bassa resistenza la corrente troverà una direzione privilegiata, poichè 
+salita del segnale e caricamento del condensatore avvengono allo stesso tempo, quando il segnale si abbassa il condensatore si scarica e riemette la carica nel circuito con la mia resistenza. 
+
+La resistenza totale del circuto sarà $R^* = R' +R$ con $R'$ resistenza del filo che collega il circuito al condensatore, e l'andamento del voltaggio sarà $V(t) = V_0 \exp (-t/R^*C)$
+\begin{center}
+\begin{circuitikz}[american] % Usa lo stile americano (resistenze a zigzag)
+    
+    % --- Ramo 1: La serie Resistenza + Diodo ---
+    % Disegniamo una linea orizzontale da (0,0) a (6,0)
+    % I terminali 'o-o' indicano i nodi di ingresso/uscita aperti
+    \draw (0,0) to[R, l=$R$, o-] (3,0) 
+                to[D, l=$D$, -o] (6,0);
+
+    % --- Ramo 2: Il Condensatore in parallelo ---
+    % Partiamo dal nodo iniziale (0,0), saliamo, mettiamo il condensatore e scendiamo alla fine (6,0)
+    \draw (0,0) -- (0,2) 
+                to[C, l=$C$] (6,2) 
+                -- (6,0);
+
+    % --- Etichette dei Nodi (Opzionale) ---
+    \node[left] at (0,0) {A};
+    \node[right] at (6,0) {B};
+
+\end{circuitikz}
+\end{center}
+
+Otterrò una corrente quasi costante caratterizzata dalla \textit{tensione di Ripple} (differenza fra massimi e minimi):
+\[
+\Delta V_r= V_{\max}- V_{\min}
+\]
+Potrò dire di avere un sistema che raddrizza il segnale minore è tale valore. Considero il valore della tensione:
+\[
+<V> = \frac{1}{2}  V_{\max} + V_{\min}
+\]
+Ovviamente avremo $<V> < V_0$, così come per la corrente. 
+
+L'ampiezza che non passa per il condensatore va nel diodo "buttandolo via", per recuperare questa corrente 
+\begin{center}
+% Utilizziamo lo stile americano per i componenti e le tensioni
+\begin{circuitikz}[american, node distance=2.5cm]
+
+    % --- Definizione dei nodi principali del ponte ---
+    % Immagina un rombo. Definiamo i 4 vertici.
+    \coordinate (AC_left) at (0, 2.5);   % Ingresso AC sinistro
+    \coordinate (AC_right) at (5, 2.5);  % Ingresso AC destro
+    \coordinate (DC_plus) at (2.5, 5);   % Uscita DC positiva (alto)
+    \coordinate (DC_minus) at (2.5, 0);  % Uscita DC negativa (basso)
+
+    % --- Disegno dei 4 Diodi del Ponte ---
+    % Nota: D* disegna un diodo pieno (nero), spesso preferito negli schemi.
+    % L'orientamento è cruciale per il funzionamento del ponte.
+    
+    % Diodo in alto a sinistra (punta verso il +)
+    \draw (AC_left) to[D*, l=$D_1$, *-*] (DC_plus);
+    % Diodo in alto a destra (punta verso il +)
+    \draw (AC_right) to[D*, l=$D_2$, *-*] (DC_plus);
+    % Diodo in basso a sinistra (punta via dal -)
+    \draw (DC_minus) to[D*, l=$D_3$, *-*] (AC_left);
+    % Diodo in basso a destra (punta via dal -)
+    \draw (DC_minus) to[D*, l=$D_4$, *-*] (AC_right);
+
+
+    % --- Sezione di Ingresso (Sorgente AC) ---
+    % Disegniamo una sorgente sinusoidale a sinistra
+    \draw (AC_left) -- (-2, 2.5) 
+          to[sV, l=$V_{in} (AC)$] (-2, 0) % sV = sinusoidal Voltage source
+          -- (DC_minus); % Connessione al nodo inferiore
+
+
+    % --- Sezione di Uscita (Carico Resistivo) ---
+    % Disegniamo una resistenza a destra per rappresentare il carico
+    \draw (DC_plus) -- (7, 5) 
+          to[R, l=$R_{Load}$, v=$V_{out} (DC)$] (7, 0) 
+          -- (DC_minus);
+
+    % --- Aggiunta di etichette di polarità (Opzionale) ---
+    % Aggiungiamo un + e un - per chiarire l'uscita DC
+    \node[above] at (DC_plus) {+};
+    \node[below] at (DC_minus) {-};
+
+\end{circuitikz}
+\end{center}
+
+
+Tramite questi circuiti posso recuperare i lobi dei segnali di negativi, essi vengono chiamati \textit{ponti di Graetz}, mi è necessaria una capacità circa la metà di quella di prima per ottenere la stessa
+tensione di ripple, col vantaggio di avere una tensione più costante rispetto a prima.
+
+Abbiamo inserito nel circuito un \textit{trasformatore}, il quale trasforma la tensione d'ingresso in ampiezza, tramite un accopiamento di bobine.\\
+
+Per prima cosa dovremo verificarre che le curve caratteristiche dei quattro diodi si assomiglino. Al variare dei parametri del circuito ($C$ e $R$) varia il comportamento del segnale:
+\begin{itemize}
+ \item la forma del segnale di corrente inversa deve essere più dolce possibile
+ \item la resistenza del diodo cambia bruscamente all'inizio e a lla fine delle orecchie di gatto, il segnale reale infatti ivi risulta più ripida del segnale teorico (a causa del cambiamento esponenziale della resistenza del diodo)
+ ivi perdiamo un po' di potenza che può essere valutata
+\end{itemize}
+
+
+\subsection{Misura del campo magnetico prodotto da un filo}
+Supponendo un filo infinitamente esteso vogliamo trovare l'andamento del campo magnetico, per farlo, insereremo due staffe in modo da tendere il filo il più possibile (anchè se avraà una forma catenaria) e attaccate ai lati di un tavolo
+La \textit{freccia} (differenza fra il minimo della catenaria e la retta passante per i due estremi superiori delle staffe) deve essere trascurabile rispetto alla distanza fra gli estremi del filo.\\
+
+Mi aspetto che il filo rispetti la relazione:
+\[
+B_* \propto \frac{I}{r}
+\]
+Colleghiamo gli estremi del filo ad un alimentatore, esso (i collegamenti) produrrà un campo magnetico, ma sarà trascurabile a quello in prossimità del filo. La condizione ($R << D$) ci garantisce la bontà della misura. 
+
+Orientando il tavolo parallelo alla componente parallela del campo magnetico locale, e così anche per il filo, mi aspetto un campo magnetico ortgonale al filo, dunque 
+il campo totale sarà la somma di $B_{\parallel}$ e $B_{\perp}$, inserendo una bussola, essa avrà orientazione eguale a quella di $B_{tot}$. 
+
+Misuando l'angolo fra $B_{\parallel}$ e $B_{tot}$, e prendendone la tangente posso associare questa al variare della corrente, dopodichè farò lo stesso ma variando la distanza. 
+Le maggiori cause di errore sistematico sono:
+\begin{itemize}
+    \item la distanza fra gli estremi deve essere molto maggiore di quella  fra bussola e filo, in modo da avere l'approsimazione di un filo infinitamente estesom, se non lo sono, sottostimo il valore di $B$
+    \item se inserisco il fulcro dell'ago pari al raggio dove effettuo la misura su tutto l'ago è diverso (agli estremi dell'ago il campo è più piccolo), sto sottostimando il campo
+\end{itemize}
 
 
 
@@ -2115,5 +2271,10 @@ Per sapere di aver bilanciato $E$ basta guardande che il segnale sia ritornato a
 
 
 
+
+<<<<<<< HEAD
+\end{document}
+=======
 
 \end{document}
+>>>>>>> f3810553bb8c08db06e6ae030238da16cbba549a
