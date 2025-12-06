@@ -1,0 +1,213 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{titling}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{ragged2e}
+\usepackage{circuitikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usepackage{ragged2e}
+\usepackage{siunitx}
+% \usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
+\usepackage{enumitem}  %distanza degli itemize
+\setlist[itemize]{itemsep=4pt, parsep=1pt}
+\newtcolorbox{nota}{
+  blanker,
+  before skip=1em,
+  after skip=1em,
+  left=1em,
+  borderline west={1pt}{0pt}{black},
+  fontupper=\itshape,
+  before upper={\noindent\textbf{Nota}:\quad}
+}
+
+\begin{document}
+\justifying
+	\title{\textbf{Misura della costante di Faraday}}
+	\author{Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele}
+	\date{18 Novembre 2025}
+	\maketitle
+	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
+	\onecolumn
+	\tableofcontents
+\vspace{3cm}
+	\begin{abstract}
+		\centering
+		\large
+    L'esperimento consiste nello studio di due circuiti, uno RC ed uno RLC, stimolati da onde quadre allo scopo di visualizzare l'oscillazione smorzata. Inoltre i due vengono stimolati da onde sinusoidali per osservare l'effetto di risonanza.
+    %La parte sulla lampadina al neon va messa nella relazione?? No
+       
+	\end{abstract}
+
+	\newpage
+\restoregeometry
+\twocolumn
+
+\section{Apparato sperimentale}
+\subsection{Circuito RC}
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=G] (0,3);
+    
+    % Resistenza in alto
+    \draw (0,3) to[R, l=$R$] (3,3);
+    
+    % Condensatore a destra
+    \draw (3,3) to[C, l=$C$] (3,0);
+    
+    % Amperometro in basso
+    \draw (0,0) to (3,0);
+    
+    \draw (3,2) to[short] (2,2) 
+    % Voltmetro in parallelo alla lampadina
+    to[rmeter, t=osc] (2,1)
+    to[short] (3,1);
+\end{circuitikz}
+\end{center}
+
+
+\subsection{Circuito RLC}
+
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=G] (0,5);
+    
+    % Resistenza in alto
+    \draw (0,4) to[R, l=$R$] (3,4);
+
+    % Induttanza
+    \draw (3,4) to[L, l=$L$] (3,1);
+
+    % Condensatore a destra
+    \draw (3,1) to[C, l=$C$] (0,1);
+
+    \draw (0,0) to (0,1);
+    \draw (0,4) to (0,5);
+    \draw (0,5) to (4,5);
+    \draw (4,5) to[rmeter, t=osc] (4,0);
+    \draw (4,0) to (0,0);
+    \draw (3,4) to (4,4);
+    \draw (3,1) to (4,1);
+    %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
+
+\end{circuitikz}
+\end{center}
+
+\section{Procedimento di misura}
+Si sono usati i seguenti strumenti:
+\begin{itemize}
+  \item Oscilloscopio digitale
+  \item Generatore di segnali periodici
+  \item Cavi conduttori
+  \item Resistenza variabile
+  \item Capacità variabile
+  \item Induttanza variabile
+\end{itemize}
+\subsection{Circuito RC}
+Per visualizzare i processi di carica e scarica del condensatore si è 
+costruito un circuito RC con l'oscilloscopio in parallelo al condensatore. Per poter valutare correttamente il
+fenomeno è necessario scegliere un'opportuna frequenza di onda quadra. Si può considerare buono il segnale visualizzato
+sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Infatti, non sarebbe possibile 
+ ottenere una precisione migliore a causa delle interferenze dell'ambiente, dalla quale non si può prescindere.
+\subsection{Circuito RLC}
+\subsubsection{Oscillazione smorzata}
+Come per il caso del circuito RC è necessario impostare l'onda quadra a una frequenza tale da non essere più in grado
+di percepire la differenza tra interferenza e oscillazione smorzata nella parte finale del segnale visualizzato
+sull'oscilloscopio.
+\subsubsection{Risonanza}
+Per ricostruire la Lorentziana tipica del grafico ottenuto analizzando la risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
+dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo in cui l'ampiezza del segnale aumenta.
+
+\section{Grafici}
+\subsection{Circuito RC}
+
+\subsection{Circuito RLC}
+\subsubsection{Oscillazione smorzata}
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{oscillazione_smorzata_2.pdf} % o .png, .pdf, ecc.
+  \label{fig:I/Oscillazione smorzata}
+\end{figure}
+Nel grafico si vede l'andamendo dell'oscillazione smorzata
+del circuito RLC, che è descritto dall'equazione: 
+\[V(t)=V_0e^{-\Gamma t/2}cos(\omega_0t+\phi)\]
+dove $\Gamma=\frac{R}{L}$ e $\omega_0=\frac{1}{\sqrt{LC}}$.
+Note R e C si può stimare il valore di L in due modi:
+facendo un fit semilogaritmico dell'andamento dei massimi e
+valutando il periodo dell'oscillazione smorzata.
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{curva_esponenizale_2.pdf} % o .png, .pdf, ecc.
+  \label{fig:I/Curva esponenziale}
+\end{figure}
+
+Nel grafico si può notare l'andamento dei massimi
+e dei minimi (presi in valore assoluto). La forma risulta abbastanza
+simile a un'esponenziale, le inconguenze rispetto al risultato
+atteso sono da attribuire al rumore di rete e a una possibile
+imprecisione sulla taratura dello zero nell'asse delle tensioni,
+dovuta anche questa all'incertezza data dalle interferenze sulla 
+misura.
+
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{semilog_2.pdf} % o .png, .pdf, ecc.
+  \label{fig:I/Fit semilogaritmico}
+\end{figure}
+
+Graficando la curva esponenziale vista nel grafico precedente
+in scala semilogaritmica, si può fare un fit lineare per ottenere
+una stima di $-\frac{\Gamma}{2}$ e conseguentemente una stima di L.
+Eseguendo i calcoli si ottiene $L=(32,7\pm2,7)mH$.
+
+\subsubsection{Risonanza}
+\begin{figure}[H] % [h] = here, posizione approssimativa
+  \centering
+  \includegraphics[width=0.5\textwidth]{risonanza.pdf} % o .png, .pdf, ecc.
+  \label{fig:I/Risonanza}
+\end{figure}
+Per stimare $\Gamma$ a partire dall'effetto di risonanza, bisogna
+valutare l'ampiezza della Lorentziana a $\frac{V_0Q_s}{\sqrt{2}}$,
+dove $V_0Q_s$ è il valore del massimo della curva, che viene trovato
+tramite un'approssimazione al secondo ordine, ovvero ricavando
+l'equazione della parabola passante per i tre punti con valore di
+tensione maggiore e prendendo il suo vertica come massimo della
+Lorentziana. L'ampiezza viene valutata con un'approssimazione al
+primo ordine tra i due punti immediatamente sopra e sotto alla retta
+$\frac{V_0Q_s}{\sqrt{2}}$. In questo modo si ottiene L=5,83 mH
+%non ho ben capito come è ottenuto L_omega nel file Esperienza_5\risonanza e perché questi valori sono così sbagliati7
+
+
+\section{Risultati}
+\subsection{Circuito RC}
+
+\subsection{Circuito RLC}
+I valori ottenuti per L sono $L=(32,7\pm2,7)mH$ con il fit in scala semilogaritmica e $L=(26,4\pm4,8)mH$
+dalla misura del periodo dell'oscillazione smorzata, il valore di induttanza che era stato impostato
+era $L=42mH$.
+
+\section{Conclusioni}
+
+\end{document}
+
