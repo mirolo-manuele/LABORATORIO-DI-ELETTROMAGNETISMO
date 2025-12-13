@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1764541985.25923 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1764541989.12878 0
+["pdflatex"] 1765660363.20435 "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1765660366.8665 0
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1762008248 81015 8f522890e5525b3cb752cee1c80a3b68 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1748538834 22504 42a3f95f43de46a13cbf653330dc2dd8 ""
   "C:/Users/manue/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1745730635 25420 85c9bd0d2c0285994386342aaede91c1 ""
@@ -235,13 +235,15 @@
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253165583 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/manue/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729261622 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1764541984 7675 f09f7f756e164494b0aaef4eea738004 ""
-  "curva_esponenizale_2.pdf" 1763590492 14352 0c0c78d4ce8f0361deeabdbfc136bd74 ""
+  "c:/Users/manue/Documents/UNIVERSITA'/II ANNO/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1765660362 9379 8350cae32626cd6bcd37b2081ec9a5b9 ""
+  "curva_esponenizale_2.pdf" 1765660084 14352 8dbc25157408404dd462d8a33b574816 ""
+  "fit_presa_dati_manuale.pdf" 1765660084 14833 9a022afa51ee3284ff6b644d53cb822e ""
   "oscillazione_smorzata_2.pdf" 1763590321 15913 f57614068fb05a28b619774ebecb60a8 ""
-  "relazione_esperienza5.aux" 1764541988 2959 5ab19f3dd4fe48e7006bd6c726190734 "pdflatex"
-  "relazione_esperienza5.out" 1764541988 2096 43592da66b6d90419606494d5a9ea5ad "pdflatex"
-  "relazione_esperienza5.tex" 1764541984 7675 f09f7f756e164494b0aaef4eea738004 ""
-  "relazione_esperienza5.toc" 1764541988 1394 9219f55c208ae827aa25c0db772d84d7 "pdflatex"
+  "presa_dati_manuale.pdf" 1765660084 13702 e4b9268a11c380b651ae2f814d075050 ""
+  "relazione_esperienza5.aux" 1765660366 3451 76597c3fa900a8bcb861b8e3cd670582 "pdflatex"
+  "relazione_esperienza5.out" 1765660366 2096 43592da66b6d90419606494d5a9ea5ad "pdflatex"
+  "relazione_esperienza5.tex" 1765660362 9379 8350cae32626cd6bcd37b2081ec9a5b9 ""
+  "relazione_esperienza5.toc" 1765660366 1394 aa25767158873f85902cf0370633c3cc "pdflatex"
   "risonanza.pdf" 1763895397 13819 01b078b6744449880ec09ca10d16bba5 ""
   "semilog_2.pdf" 1763674028 14749 19df6b5b822e2900cdec34a1ae72a4af ""
   (generated)
