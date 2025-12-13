@@ -141,6 +141,32 @@ dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo 
 \section{Grafici}
 \subsection{Circuito RC}
 
+In seguito alla risoluzione dell'equazione differenziale del circuito è possibile ricavare la carica accumulata nelle lamine del condensatore e la corrente passante all'interno del circuito in funzione del tempo. 
+Da quest'ultima è possibile passare all'espressione della dellogaritmo naturale della tensione a capi del condensatore in funzione del tempo, il cui andamento è dato da:
+\[
+ln(V(t))=ln(V_0)- \frac{1}{RC}t
+\]
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{presa_dati_manaule}
+    \caption{andamento della tensione a capi del capacitorecd}
+    \label{fig:esempio}
+\end{figure}
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fit_presa_dati_manaule}
+    \caption{grafico in scala logaritmica}
+    \label{fig:esempio}
+\end{figure}
+ 
+Questi due grafici rappresentano l'andamento della tensione nella sua forma esponenizale e nella sua espressione in scala logaritmica. I dati sono stati presi manualemnte per osservare e verificare che effettivmente l''andamento sperimentale rispecchi almeno in parte quello teorico.
+È possibile osservare sia dal primo ma soprattutto dal secondo grafico che nella fase di carica il si riscontra l'effettivo andamento lineare mentre dagli istanti di tempo successivi a $ 6 \dot 10^-6$ risulta esserci una deviazione dalla linearità questo probabilmente è  causato dal raggiungimento della tensione di regime, dove il tasso di variazione di quest'ultima si avvicina a zero:
+la variazione fisica esponenziale è così piccola che viene sopraffatta dal rumore di fondo e dai limiti di risoluzione dello strumento, distorcendo la pendenza della retta logaritmica.
+
+
 \subsection{Circuito RLC}
 \subsubsection{Oscillazione smorzata}
 \begin{figure}[H] % [h] = here, posizione approssimativa
