@@ -50,8 +50,8 @@
 	\begin{abstract}
 		\centering
 		\large
-    L'esperimento consiste nello studio di un circuito RC stimolato da onde quadre e di un circuito RLC stimolato da onde quadre allo scopo di visualizzare l'oscillazione smorzata e da onde sinusoidali per osservare l'effetto di risonanza.
-    %La parte sulla lampadina al neon va messa nella relazione??
+    L'esperimento consiste nello studio di due circuiti, uno RC ed uno RLC, stimolati da onde quadre allo scopo di visualizzare l'oscillazione smorzata. Inoltre i due vengono stimolati da onde sinusoidali per osservare l'effetto di risonanza.
+    %La parte sulla lampadina al neon va messa nella relazione?? No
        
 	\end{abstract}
 
@@ -101,13 +101,13 @@
     % Condensatore a destra
     \draw (3,1) to[C, l=$C$] (0,1);
 
-    \draw (0,0) to (0,1)
-    \draw (0,4) to (0,5)
-    \draw (0,5) to (4,5)
-    \draw (4,5) to[rmeter, t=osc] (4,0)
-    \draw (4,0) to (0,0)
-    \draw (3,4) to (4,4)
-    \draw (3,1) to (4,1)
+    \draw (0,0) to (0,1);
+    \draw (0,4) to (0,5);
+    \draw (0,5) to (4,5);
+    \draw (4,5) to[rmeter, t=osc] (4,0);
+    \draw (4,0) to (0,0);
+    \draw (3,4) to (4,4);
+    \draw (3,1) to (4,1);
     %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
@@ -124,18 +124,18 @@ Si sono usati i seguenti strumenti:
   \item Induttanza variabile
 \end{itemize}
 \subsection{Circuito RC}
-Per visualizzare il cosiddetto il processo di carica e scarica del condensatore si è 
+Per visualizzare i processi di carica e scarica del condensatore si è 
 costruito un circuito RC con l'oscilloscopio in parallelo al condensatore. Per poter valutare correttamente il
 fenomeno è necessario scegliere un'opportuna frequenza di onda quadra. Si può considerare buono il segnale visualizzato
-sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Non sarebbe possibile 
-infatti ottenere una precisione migliore a causa delle interferenze dell'ambiente, da cui non si può prescindere.
+sull'oscilloscopio quando la parte finale della curva di carica/scarica sembra avere tangente orizzontale. Infatti, non sarebbe possibile 
+ ottenere una precisione migliore a causa delle interferenze dell'ambiente, dalla quale non si può prescindere.
 \subsection{Circuito RLC}
 \subsubsection{Oscillazione smorzata}
 Come per il caso del circuito RC è necessario impostare l'onda quadra a una frequenza tale da non essere più in grado
 di percepire la differenza tra interferenza e oscillazione smorzata nella parte finale del segnale visualizzato
 sull'oscilloscopio.
 \subsubsection{Risonanza}
-Per ricostruire la Laurentiana della risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
+Per ricostruire la Lorentziana tipica del grafico ottenuto analizzando la risonanza è necessario cambiare molto lentamente la frequenza dell'onda sinusoidale
 dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo in cui l'ampiezza del segnale aumenta.
 
 \section{Grafici}
@@ -178,7 +178,7 @@ misura.
 
 Graficando la curva esponenziale vista nel grafico precedente
 in scala semilogaritmica, si può fare un fit lineare per ottenere
-una stima di $-\frac{\Omega}{2}$ e conseguentemente una stima di L.
+una stima di $-\frac{\Gamma}{2}$ e conseguentemente una stima di L.
 Eseguendo i calcoli si ottiene $L=(32,7\pm2,7)mH$.
 
 \subsubsection{Risonanza}
@@ -188,15 +188,16 @@ Eseguendo i calcoli si ottiene $L=(32,7\pm2,7)mH$.
   \label{fig:I/Risonanza}
 \end{figure}
 Per stimare $\Gamma$ a partire dall'effetto di risonanza, bisogna
-valutare l'ampiezza della Laurentiana a $\frac{V_0Q_s}{\sqrt{2}}$,
+valutare l'ampiezza della Lorentziana a $\frac{V_0Q_s}{\sqrt{2}}$,
 dove $V_0Q_s$ è il valore del massimo della curva, che viene trovato
 tramite un'approssimazione al secondo ordine, ovvero ricavando
 l'equazione della parabola passante per i tre punti con valore di
 tensione maggiore e prendendo il suo vertica come massimo della
-Laurentiana. L'ampiezza viene valutata con un'approssimazione al
+Lorentziana. L'ampiezza viene valutata con un'approssimazione al
 primo ordine tra i due punti immediatamente sopra e sotto alla retta
 $\frac{V_0Q_s}{\sqrt{2}}$. In questo modo si ottiene L=5,83 mH
-%non ho ben capito come è ottenuto L_omega nel file Esperienza_5\risonanza e perché questi valori sono così sbagliati
+%non ho ben capito come è ottenuto L_omega nel file Esperienza_5\risonanza e perché questi valori sono così sbagliati7
+
 
 \section{Risultati}
 \subsection{Circuito RC}
@@ -209,3 +210,4 @@ era $L=42mH$.
 \section{Conclusioni}
 
 \end{document}
+
