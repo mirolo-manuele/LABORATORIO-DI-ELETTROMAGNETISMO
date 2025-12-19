@@ -5,13 +5,13 @@ import numpy as np
 import math
 
 # 1. Leggi il CSV specificando il separatore
-df = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5912.csv", sep=",", comment='#')
-df1 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5913.csv", sep=",", comment='#')
-df2 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5914.csv", sep=",", comment='#')
+df = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData597.csv", sep=",", comment='#')
+df1 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData598.csv", sep=",", comment='#')
+df2 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData599.csv", sep=",", comment='#')
 n_soglia_inf = 0
 n_soglia_sup = 2500
-R_in= 693
-C_in = 0.00047
+R_in= 830000
+C_in = 0.00022
 
 # valori buoni 626, 2535 
 
@@ -19,11 +19,9 @@ C_in = 0.00047
 t_np = df.iloc[n_soglia_inf:n_soglia_sup, 0].to_numpy(dtype=float)
 V_np = df.iloc[n_soglia_inf:n_soglia_sup, 1].to_numpy(dtype=float)
 # Estrai i dati come array NumPy
-t_np1 = df1.iloc[n_soglia_inf+150:n_soglia_sup+150, 0].to_numpy(dtype=float)
-V_np1 = df1.iloc[n_soglia_inf+150:n_soglia_sup+150, 1].to_numpy(dtype=float)
+t_np1 = df1.iloc[n_soglia_inf+125:n_soglia_sup+125, 0].to_numpy(dtype=float)
+V_np1 = df1.iloc[n_soglia_inf+125:n_soglia_sup+125, 1].to_numpy(dtype=float)
 
-t_np2 = df2.iloc[n_soglia_inf+150:n_soglia_sup+150, 0].to_numpy(dtype=float)
-V_np2 = df2.iloc[n_soglia_inf+150:n_soglia_sup+150, 1].to_numpy(dtype=float)
 
 # --- APPLICAZIONE VETTORIZZATA (PIÙ VELOCE) ---
 V_np += 0 # Aggiunge 6.240 a tutti gli elementi di V_np
@@ -35,9 +33,6 @@ V_np1 += 0 # Aggiunge 6.240 a tutti gli elementi di V_np
 V_np1 = V_np1 # Riscalo tutto perchè abbiamo preso dati sbagliati
 t_np1 -= t_np1[0] # Normalizzo t sottraendo primo elemento
 
-V_np2 += 0 # Aggiunge 6.240 a tutti gli elementi di V_np
-V_np2 = V_np2 # Riscalo tutto perchè abbiamo preso dati sbagliati
-t_np2 -= t_np2[0] # Normalizzo t sottraendo primo elemento
 
 
 # Trova dove il prodotto di elementi consecutivi è negativo
@@ -63,7 +58,6 @@ v_ang = 2*math.pi / t_medio
 #c2 = ROOT.TCanvas("c2", "t vs ln(V)", 800, 600)
 g = ROOT.TGraphErrors(len(t_np), t_np, V_np)
 g2= ROOT.TGraphErrors(len(t_np1), t_np1, V_np1)
-g3= ROOT.TGraphErrors(len(t_np2), t_np2, V_np2)
 # 6. Crea il Canvas e Dividilo
 # Un canvas più largo è utile per due grafici affiancati (es. 1200x600)
 c = ROOT.TCanvas("c", "Grafico Lineare e Semilogaritmico", 1200, 600)
@@ -83,11 +77,6 @@ g2.SetMarkerColor(ROOT.kRed)
 g2.SetLineColor(ROOT.kRed)
 g2.SetMarkerSize(0.5)
 
-g3.SetTitle("Scala Lineare;t [s];V [V]")
-g3.SetMarkerStyle(21)
-g3.SetMarkerColor(ROOT.kRed)
-g3.SetLineColor(ROOT.kMagenta)
-g3.SetMarkerSize(0.5)
 # 4. Usiamo TMultiGraph per sovrapporli
 mg = ROOT.TMultiGraph()
 mg.SetTitle("Confronto tra due CSV;Asse X;Asse Y") # Titolo globale;X;Y
@@ -96,19 +85,16 @@ mg.SetTitle("Confronto tra due CSV;Asse X;Asse Y") # Titolo globale;X;Y
     # "LP" significa disegna Linea e Punti per quel grafico
 mg.Add(g, "L")
 mg.Add(g2, "L")
-mg.Add(g3, "L")
-
     # 5. Disegniamo il tutto
     # "A" disegna gli assi attorno a tutti i grafici contenuti
 mg.Draw("A") 
     
 # 6. Aggiungiamo la legenda (fondamentale per capire chi è chi)
-leg = ROOT.TLegend(0.7, 0.7, 0.9, 0.9) # Coordinate x1, y1, x2, y2
-leg.AddEntry(g, "R= 693", "lp")
-leg.AddEntry(g2, "C = 0.00047", "lp")
-leg.AddEntry(g3, "C = 0.000022", "lp")
+leg = ROOT.TLegend(0.75, 0.75, 0.9, 0.9) # Coordinate x1, y1, x2, y2
+leg.AddEntry(g, "R= 830 k#Omega", "lp")
+leg.AddEntry(g2, "C = 220 #muF", "lp")
 leg.Draw()
     # Manteniamo la finestra aperta (necessario se esegui da script)
 c.Update()
 
-c.SaveAs("ponte_1.pdf")
+c.SaveAs("ponte_3.pdf")
