@@ -1,0 +1,113 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2cm, bottom=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{titling}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{ragged2e}
+\usepackage{circuitikz}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{physics}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz-3dplot}
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+\usepackage{ragged2e}
+\usepackage{siunitx}
+% \usepackage{booktabs}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
+\usepackage{enumitem}  %distanza degli itemize
+\setlist[itemize]{itemsep=4pt, parsep=1pt}
+\newtcolorbox{nota}{
+  blanker,
+  before skip=1em,
+  after skip=1em,
+  left=1em,
+  borderline west={1pt}{0pt}{black},
+  fontupper=\itshape,
+  before upper={\noindent\textbf{Nota}:\quad}
+}
+
+
+
+\begin{document}
+\justifying
+	\title{\textbf{Circuiti RLC}}
+	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele\ hspace{0.7cm} Brusini Alessio}
+	\date{29 Ottobre 2025}
+	\maketitle
+	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
+	\onecolumn
+\vspace{3cm}
+	\begin{abstract}
+		\centering
+		\large
+    L'esperimento consiste nella caratterizzazione di un circuito rettificatore/raddrizzatore e nell'individuazione del valore del suo coefficiente di ripple
+       
+	\end{abstract}
+
+	\newpage
+\restoregeometry
+\twocolumn
+
+\section{apparato di misura}
+ \begin{itemize}
+    \item Trasformatore di tensione
+    \item generatore di tensione 
+    \item Bread board
+    \item Oscilloscopio 
+    \item Condensatori elettrolici
+    \item Resistense
+    \item Diodi 
+ \end{itemize}
+
+\section{Procedimento di misura}
+In prima battuta si è proceduto con il costruire le curve volt-amperometriche dei quattro diodi che abbaiamo poi insierito nei nel ponte di Gratez del circuito di cui vogliamo studiare le propietà, questo per verificare se siano compatibili. Succesivamente abbiamo visualizzato tramite l'oscilloscopio la curva della tensione d'ingresso prima ed dopo la l'inserimento di un condensatore posto in parllelo alla resistenza posta in serie al diodo, infine abbiamo considerato il circuito con i diodi disposti in configurazione di ponte di Gratez
+procedendo allo stesso modo: riportiamo qui i circuiti che abbiamo utilizzato:
+
+
+\begin{center}
+\begin{circuitikz}[american]
+    
+    % Generatore di corrente continua variabile a sinistra
+    \draw (0,0) to[rmeter, t=T] (0,4);
+    
+    % Resistenza in alto
+    \draw (0,4) to[full diode] (3,4);
+
+    % Induttanza
+    \draw (3,4) to[R] (3,0);
+    \draw (3,3) to (2,3);
+
+    % Condensatore a destra
+    \draw (2,3) to[C] (2,1);
+    \draw (3,3) to (4,3);
+
+    \draw (4,3) to[rmeter, t=osc] (4,1);
+    \draw (4,1) to (3,1);
+    \draw (2,1) to (3,1);
+    \draw (3,0) to (0,0);
+    %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
+
+\end{circuitikz}
+\end{center}
+
+\vspace{0.2 cm}
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.4\textwidth]{circuito diodi con ponte di gratez.jpeg}
+    \caption{Circuito con configurazione dei diodi a ponte di Gratez.}
+    \label{fig:etichetta}
+\end{figure}
+\section{Grafici}
+\section{coefficiente di ripple del circuito}
+\section{Conclusione e commenti}
