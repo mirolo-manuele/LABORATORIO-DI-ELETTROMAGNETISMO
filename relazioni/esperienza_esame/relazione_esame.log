@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  15 DEC 2025 19:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  19 DEC 2025 18:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex"
-(c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex
+**"c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex"
+(c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -621,7 +621,26 @@ File: tikzlibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \arrowsize=\dimen328
-))) (c:/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
+)))
+
+c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex:25: LaTeX Error: Option clash for package circuitikz.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \usepackage
+                {ragged2e}
+The package circuitikz has already been loaded with options:
+  []
+There has now been an attempt to load it with options
+  [siunitx]
+Adding the global options:
+  ,siunitx
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+(c:/texlive/2025/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2025-07-09 v3.4.14 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count356
 \l__siunitx_number_exponent_fixed_int=\count357
@@ -744,32 +763,28 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip74
-) (./relazione_esperienza5.aux
-
-LaTeX Warning: Label `fig:esempio' multiply defined.
-
 )
-\openout1 = `relazione_esperienza5.aux'.
+No file relazione_esame.aux.
+\openout1 = `relazione_esame.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -804,8 +819,8 @@ LaTeX Font Info:    ... okay on input line 40.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \it@ocap on input line 40.
-LaTeX Info: Redefining \it@ccap on input line 40.
+LaTeX Info: Redefining \it@ocap on input line 43.
+LaTeX Info: Redefining \it@ccap on input line 43.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -843,11 +858,10 @@ Package siunitx Warning: Detected the "physics" package:
 (siunitx)                
 (siunitx)                to your preamble.
 
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 40.
-Package hyperref Info: Link coloring ON on input line 40.
-(./relazione_esperienza5.out) (./relazione_esperienza5.out)
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 43.
+Package hyperref Info: Link coloring ON on input line 43.
 \@outlinefile=\write4
-\openout4 = `relazione_esperienza5.out'.
+\openout4 = `relazione_esame.out'.
 
 
 
@@ -890,127 +904,40 @@ Package hyperref Info: Link coloring ON on input line 40.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- (./relazione_esperienza5.toc)
-\tf@toc=\write5
-\openout5 = `relazione_esperienza5.toc'.
-
 
 
 [2
 
 
 ]
-Underfull \vbox (badness 1137) has occurred while \output is active []
+
+LaTeX Warning: File `circuito diodi con ponte di gratez.jpeg' not found on input line 107.
 
 
+c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex:107: Package pdftex.def Error: File `circuito diodi con ponte di gratez.jpeg' not found: using draft setting.
 
-<presa_dati_manuale.pdf, id=144, 569.12625pt x 191.71625pt>
-File: presa_dati_manuale.pdf Graphic file (type pdf)
-<use presa_dati_manuale.pdf>
-Package pdftex.def Info: presa_dati_manuale.pdf  used on input line 151.
-(pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.107 ...{circuito diodi con ponte di gratez.jpeg}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-Overfull \hbox (5.0pt too wide) in paragraph at lines 151--152
- [][] 
- []
+)
+! Emergency stop.
+<*> ...zioni/esperienza_esame/relazione_esame.tex"
+                                                  
+*** (job aborted, no legal \end found)
 
-<fit_presa_dati_manuale.pdf, id=145, 569.12625pt x 191.71625pt>
-File: fit_presa_dati_manuale.pdf Graphic file (type pdf)
-<use fit_presa_dati_manuale.pdf>
-Package pdftex.def Info: fit_presa_dati_manuale.pdf  used on input line 160.
-(pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 160--161
- [][] 
- []
-
-
-
-[3
-
-
-{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./presa_dati_manuale.pdf, page is rotated 90 degrees> <./fit_presa_dati_manuale.pdf, page is rotated 90 degrees>]
-<oscillazione_smorzata_2.pdf, id=245, 569.12625pt x 191.71625pt>
-File: oscillazione_smorzata_2.pdf Graphic file (type pdf)
-<use oscillazione_smorzata_2.pdf>
-Package pdftex.def Info: oscillazione_smorzata_2.pdf  used on input line 174.
-(pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 174--176
- [][] 
- []
-
-<curva_esponenizale_2.pdf, id=246, 569.12625pt x 191.71625pt>
-File: curva_esponenizale_2.pdf Graphic file (type pdf)
-<use curva_esponenizale_2.pdf>
-Package pdftex.def Info: curva_esponenizale_2.pdf  used on input line 187.
-(pdftex.def)             Requested size: 256.07481pt x 86.26566pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 187--189
- [][] 
- []
-
-<semilog_2.pdf, id=247, 569.12625pt x 407.5225pt>
-File: semilog_2.pdf Graphic file (type pdf)
-<use semilog_2.pdf>
-Package pdftex.def Info: semilog_2.pdf  used on input line 201.
-(pdftex.def)             Requested size: 256.07481pt x 183.37099pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 201--203
- [][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-<risonanza.pdf, id=248, 569.12625pt x 407.5225pt>
-File: risonanza.pdf Graphic file (type pdf)
-<use risonanza.pdf>
-Package pdftex.def Info: risonanza.pdf  used on input line 216.
-(pdftex.def)             Requested size: 256.07481pt x 183.37099pt.
-
-Overfull \hbox (5.0pt too wide) in paragraph at lines 216--218
- [][] 
- []
-
-
-Underfull \vbox (badness 1137) has occurred while \output is active []
-
-
-
-[4 <./oscillazione_smorzata_2.pdf, page is rotated 90 degrees> <./curva_esponenizale_2.pdf, page is rotated 90 degrees> <./semilog_2.pdf, page is rotated 90 degrees> <./risonanza.pdf, page is rotated 90 degrees>]
-
-
-
-[5
-
-] (./relazione_esperienza5.aux)
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
- ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `relazione_esperienza5.out' has not changed.
-(rerunfilecheck)             Checksum: 43592DA66B6D90419606494D5A9EA5AD;2096.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 53975 strings out of 467748
- 1303987 string characters out of 5431138
- 1967216 words of memory out of 5000000
- 82064 multiletter control sequences out of 15000+600000
- 642692 words of font info for 69 fonts, out of 8000000 for 9000
+ 53550 strings out of 467748
+ 1292993 string characters out of 5431138
+ 1947198 words of memory out of 5000000
+ 81687 multiletter control sequences out of 15000+600000
+ 637935 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,13n,106p,567b,1067s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on relazione_esperienza5.pdf (5 pages, 350106 bytes).
-PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 34 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 103i,8n,106p,704b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
