@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  19 DEC 2025 18:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  19 DEC 2025 18:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -911,16 +911,16 @@ Package hyperref Info: Link coloring ON on input line 43.
 
 ]
 
-LaTeX Warning: File `circuito diodi con ponte di gratez.jpeg' not found on input line 107.
+LaTeX Warning: File `circuito diodi con ponte di gratez.jpeg' not found on input line 116.
 
 
-c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex:107: Package pdftex.def Error: File `circuito diodi con ponte di gratez.jpeg' not found: using draft setting.
+c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/relazione_esame.tex:116: Package pdftex.def Error: File `circuito diodi con ponte di gratez.jpeg' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.107 ...{circuito diodi con ponte di gratez.jpeg}
+l.116 ...{circuito diodi con ponte di gratez.jpeg}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -939,5 +939,5 @@ Here is how much of TeX's memory you used:
  81687 multiletter control sequences out of 15000+600000
  637935 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,8n,106p,704b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,8n,106p,558b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
