@@ -26,7 +26,7 @@ g.SetMarkerColor(ROOT.kBlack)
 g.SetMarkerSize(0.3)
 g.SetLineWidth(1) 
 
-g.Draw("ApL")
+g.Draw("APL")
 
 
 
