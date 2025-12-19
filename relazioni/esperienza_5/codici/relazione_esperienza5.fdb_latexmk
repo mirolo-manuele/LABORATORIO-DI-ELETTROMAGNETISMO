@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1765821663.0168 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1765821665.73103 0
-  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1765821651 11485 36c0040f9917fe77dbd550b219610093 ""
+["pdflatex"] 1765823150.92469 "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" "relazione_esperienza5.pdf" "relazione_esperienza5" 1765823155.15985 0
+  "c:/Users/Carolss/Desktop/Università/02 Secondo anno/Lab/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_5/codici/relazione_esperienza5.tex" 1765823149 11480 e3e4bb46edb72278c06b81ff4aaa835f ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1759156621 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1759156621 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1759158153 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -248,10 +248,10 @@
   "fit_presa_dati_manuale.pdf" 1765821651 14833 9a022afa51ee3284ff6b644d53cb822e ""
   "oscillazione_smorzata_2.pdf" 1764534101 15913 f57614068fb05a28b619774ebecb60a8 ""
   "presa_dati_manuale.pdf" 1765821651 13702 e4b9268a11c380b651ae2f814d075050 ""
-  "relazione_esperienza5.aux" 1765821665 3451 93f023f60d045dbc85fc61ba34c0b963 "pdflatex"
-  "relazione_esperienza5.out" 1765821665 2096 43592da66b6d90419606494d5a9ea5ad "pdflatex"
-  "relazione_esperienza5.tex" 1765821651 11485 36c0040f9917fe77dbd550b219610093 ""
-  "relazione_esperienza5.toc" 1765821665 1394 aa25767158873f85902cf0370633c3cc "pdflatex"
+  "relazione_esperienza5.aux" 1765823154 3451 93f023f60d045dbc85fc61ba34c0b963 "pdflatex"
+  "relazione_esperienza5.out" 1765823154 2096 43592da66b6d90419606494d5a9ea5ad "pdflatex"
+  "relazione_esperienza5.tex" 1765823149 11480 e3e4bb46edb72278c06b81ff4aaa835f ""
+  "relazione_esperienza5.toc" 1765823154 1394 aa25767158873f85902cf0370633c3cc "pdflatex"
   "risonanza.pdf" 1764534101 13819 01b078b6744449880ec09ca10d16bba5 ""
   "semilog_2.pdf" 1764534101 14749 19df6b5b822e2900cdec34a1ae72a4af ""
   (generated)
