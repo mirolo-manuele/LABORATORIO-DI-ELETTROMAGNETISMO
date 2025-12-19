@@ -19,11 +19,10 @@
 \usepackage{physics}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
-\usepackage{tikz-3dplot}
 \usepackage{tikz}
-\usepackage[siunitx]{circuitikz}
+\usepackage{circuitikz}
 %\usepackage{ragged2e}
-\usepackage{siunitx}
+%\usepackage{siunitx}
 % \usepackage{booktabs}
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
 \usepackage{enumitem}  %distanza degli itemize
@@ -38,12 +37,10 @@
   before upper={\noindent\textbf{Nota}:\quad}
 }
 
-
-
 \begin{document}
 \justifying
 	\title{\textbf{Circuiti RLC}}
-	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele\ hspace{0.7cm} Brusini Alessio}
+	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele\hspace{0.7cm} Brusini Alessio}
 	\date{29 Ottobre 2025}
 	\maketitle
 	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
@@ -69,7 +66,7 @@
     \item Bread board
     \item Oscilloscopio 
     \item Condensatori elettrolici
-    \item Resistense
+    \item Resistenze
     \item Diodi 
  \end{itemize}
 
@@ -77,8 +74,9 @@
 In prima battuta si è proceduto con il costruire le curve 
 volt-amperometriche dei quattro diodi che sono stati poi inseriti nel 
 ponte di Graetz del circuito di cui si vogliono studiare le proprietà, 
-questo per verificare che effettivamente avessero caratteristiche simili,
-come da dichiarazione nominale. Successivamente sono stati analizzati
+questo per verificare che effettivamente avessero caratteristiche simili tra loro,
+come da dichiarazione nominale.\\
+Successivamente sono stati analizzati
 due diversi prototipi di circuiti raddrizzatori e rettificatori.
 Per entrambi i circuiti sono state visualizzate sia la fase di raddrizzamento
 che la fase di raddrizzamento e rettificazione, sono riportati di seguito 
@@ -86,6 +84,8 @@ i circuiti utilizzati:
 
 
 \begin{center}
+  \begin{figure}[H]
+  \centering
 \begin{circuitikz}[american]
     
     % Generatore di corrente continua variabile a sinistra
@@ -95,20 +95,23 @@ i circuiti utilizzati:
     \draw (0,4) to[full diode] (3,4);
 
     % Induttanza
-    \draw (3,4) to[R] (3,0);
-    \draw (3,3) to (2,3);
+    \draw(3,4) to[R] (3,0);
+    \draw(3,3) to (2,3);
 
     % Condensatore a destra
-    \draw (2,3) to[C] (2,1);
-    \draw (3,3) to (4,3);
+    \draw(2,3) to[C] (2,1);
+    \draw(3,3) to (4,3);
 
-    \draw (4,3) to[rmeter, t=osc] (4,1);
-    \draw (4,1) to (3,1);
-    \draw (2,1) to (3,1);
+    \draw(4,3) to[rmeter, t=osc] (4,1);
+    \draw(4,1) to (3,1);
+    \draw(2,1) to (3,1);
     \draw (3,0) to (0,0);
     %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
+    \caption{Circuito con diodo e condensatore in parallelo.}
+    \label{fig:etichetta}
+  \end{figure}
 \end{center}
 
 \vspace{0.2 cm}
@@ -120,6 +123,10 @@ i circuiti utilizzati:
 \section{Grafici}
 \section{Coefficiente di ripple del circuito}
 \section{Conclusione e commenti}
+Confrontare efficienza ottenuta con i due diversi circuiti (dovrebbe venire circa doppia con ponte di Graetz)
+Fare osservazioni su quale siano i valori migliori per raddrizzare e rettificatore
 
 
+
+\end{document}
  
