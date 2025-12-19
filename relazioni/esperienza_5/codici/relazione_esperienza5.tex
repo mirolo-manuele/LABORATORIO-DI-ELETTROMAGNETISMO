@@ -39,9 +39,9 @@
 
 \begin{document}
 \justifying
-	\title{\textbf{Misura della costante di Faraday}}
+	\title{\textbf{Esperienze circuiti RC e RLC}}
 	\author{Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele}
-	\date{18 Novembre 2025}
+	\date{14/12/2025}
 	\maketitle
 	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
 	\onecolumn
@@ -142,7 +142,7 @@ dal generatore al fine di individuare, osservando l'oscilloscopio, l'intervallo 
 \subsection{Circuito RC}
 
 In seguito alla risoluzione dell'equazione differenziale del circuito è possibile ricavare la carica accumulata nelle lamine del condensatore e la corrente passante all'interno del circuito in funzione del tempo. 
-Da quest'ultima è possibile passare all'espressione della dellogaritmo naturale della tensione a capi del condensatore in funzione del tempo, il cui andamento è dato da:
+Da quest'ultima è possibile passare all'espressione del logaritmo naturale della tensione a capi del condensatore in funzione del tempo, il cui andamento è dato da:
 \[
 ln(V(t))=ln(V_0)- \frac{1}{RC}t
 \]
@@ -162,8 +162,8 @@ ln(V(t))=ln(V_0)- \frac{1}{RC}t
     \label{fig:esempio}
 \end{figure}
  
-Questi due grafici rappresentano l'andamento della tensione nella sua forma esponenizale e nella sua espressione in scala logaritmica. I dati sono stati presi manualemnte per osservare e verificare che effettivmente l''andamento sperimentale rispecchi almeno in parte quello teorico.
-È possibile osservare sia dal primo ma soprattutto dal secondo grafico che nella fase di carica il si riscontra l'effettivo andamento lineare mentre dagli istanti di tempo successivi a $ 6 \cdot 10^{-6} s$ risulta esserci una deviazione dalla linearità questo probabilmente è  causato dal raggiungimento della tensione di regime, dove il tasso di variazione di quest'ultima si avvicina a zero:
+Questi due grafici rappresentano l'andamento della tensione nella sua forma esponenziale e nella sua espressione in scala logaritmica. I dati sono stati presi manualmente per osservare e verificare che effettivmente l'andamento sperimentale rispecchi almeno in parte quello teorico.
+È possibile osservare sia dal primo ma soprattutto dal secondo grafico che nella fase di carica si riscontra l'effettivo andamento lineare mentre dagli istanti di tempo successivi a $ 6 \cdot 10^{-6} s$ risulta esserci una deviazione dalla linearità, questo probabilmente è  causato dal raggiungimento della tensione di regime, dove il tasso di variazione di quest'ultima si avvicina a zero:
 la variazione fisica esponenziale è così piccola che viene sopraffatta dal rumore di fondo e dai limiti di risoluzione dello strumento, distorcendo la pendenza della retta logaritmica.
 
 
@@ -207,7 +207,7 @@ in scala semilogaritmica, si può fare un fit lineare per ottenere
 una stima di $-\frac{\Gamma}{2}$ e conseguentemente una stima di L.
 Eseguendo i calcoli si ottiene $L_{\Gamma_1}=(32,7\pm2,7)mH$.
 
-A questo punto e possibile, tramite i periodi misurati stimare il valore di L
+A questo punto è possibile, tramite i periodi misurati stimare il valore di L
 direttamente dalla frequenza usando: $L=\frac{1}{\omega_0^2 C}$, da cui si ottiene $L_{\omega_1}=(26,4\pm4,8)mH$
 
 \subsubsection{Risonanza}
@@ -221,7 +221,7 @@ valutare l'ampiezza della Lorentziana a $\frac{V_0Q_s}{\sqrt{2}}$,
 dove $V_0Q_s$ è il valore del massimo della curva, che viene trovato
 tramite un'approssimazione al secondo ordine, ovvero ricavando
 l'equazione della parabola passante per i tre punti con valore di
-tensione maggiore e prendendo il suo vertica come massimo della
+tensione maggiore e prendendo il suo vertice come massimo della
 Lorentziana. L'ampiezza viene valutata con un'approssimazione al
 primo ordine tra i due punti immediatamente sopra e sotto alla retta
 $\frac{V_0Q_s}{\sqrt{2}}$. In questo modo si ottiene $L_{\Gamma_2}=18.81mH$ ed $L_{\omega_2}=26.39mH$
@@ -269,10 +269,10 @@ dalla misura del periodo dell'oscillazione smorzata, il valore di induttanza che
 era $L=42mH$.
 
 \section{Conclusioni}
-I valori ottenuti risultano non comatibili, nè fra di loro nè con il valore impostato, l'errore atteso maggiore era su $L_w$,
+I valori ottenuti risultano non compatibili, nè fra di loro nè con il valore impostato, l'errore atteso maggiore era su $L_w$,
 in quanto tale metodo dipendeva fortemente dall'interpolazione svoltasi durante la presa dati. \\
 Tale ipotesi risulta confermata dai dati ottenuti. \\
 Tuttavia, ci si attendeva un errore massimo del $15\%$ sul valore di L. Cause probabili di tale discrepanze sono un errore sistematico
-nella determinazione dello zero dell'oscilloscopio (più specificatamente una sottostima di tale valore)
+nella determinazione dello zero dell'oscilloscopio (più specificatamente una sottostima di tale valore).
 \end{document}
 
