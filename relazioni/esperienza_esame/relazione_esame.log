@@ -763,7 +763,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip74
-) (./relazione_esame.aux)
+)
+No file relazione_esame.aux.
 \openout1 = `relazione_esame.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
@@ -784,7 +785,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -933,10 +933,10 @@ If that doesn't work, type  X <return>  to quit.
 
  
 Here is how much of TeX's memory you used:
- 53553 strings out of 467748
- 1293065 string characters out of 5431138
+ 53550 strings out of 467748
+ 1292993 string characters out of 5431138
  1947198 words of memory out of 5000000
- 81688 multiletter control sequences out of 15000+600000
+ 81687 multiletter control sequences out of 15000+600000
  637935 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,8n,106p,704b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s

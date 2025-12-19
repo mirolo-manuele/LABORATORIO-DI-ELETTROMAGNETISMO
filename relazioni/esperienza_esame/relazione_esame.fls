@@ -330,9 +330,6 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT c:/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT c:/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
-INPUT ./relazione_esame.aux
-INPUT ./relazione_esame.aux
-INPUT relazione_esame.aux
 OUTPUT relazione_esame.aux
 INPUT c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
