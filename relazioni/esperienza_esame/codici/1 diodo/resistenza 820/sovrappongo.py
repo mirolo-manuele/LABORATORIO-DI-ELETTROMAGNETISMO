@@ -9,8 +9,8 @@ df = pd.read_csv("WaveData5915.csv")
 df1 = pd.read_csv("WaveData5916.csv")
 df = df.dropna(subset=["t", "V"])
 df1 = df1.dropna(subset=["t", "V"])
-n_soglia_inf = 0
-n_soglia_sup = 4000
+n_soglia_inf = 900
+n_soglia_sup = 1500
 R_in= 693
 C_in = 0.00047
 
@@ -81,7 +81,7 @@ g2.SetMarkerSize(0.5)
 
 # 4. Usiamo TMultiGraph per sovrapporli
 mg = ROOT.TMultiGraph()
-mg.SetTitle("Confronto raddrizzatto e rettificato;  Voltaggio [V]; t [s];") # Titolo globale;X;Y
+mg.SetTitle("Confronto fra due CSV; t [s]; Voltaggio [V]") # Titolo globale;X;Y
 
     # Aggiungiamo i grafici al contenitore
     # "LP" significa disegna Linea e Punti per quel grafico
@@ -93,9 +93,9 @@ mg.Add(g2, "L")
 mg.Draw("A") 
     
 # 6. Aggiungiamo la legenda (fondamentale per capire chi è chi)
-leg = ROOT.TLegend(0.75, 0.75, 0.9, 0.9) # Coordinate x1, y1, x2, y2
+leg = ROOT.TLegend(0.80, 0.80, 0.9, 0.9) # Coordinate x1, y1, x2, y2
 leg.AddEntry(g, "R= 820 #Omega", "lp")
-leg.AddEntry(g2, "C = 0.00047 F", "lp")
+leg.AddEntry(g2, "C = 470 #muF", "lp")
 leg.Draw()
     # Manteniamo la finestra aperta (necessario se esegui da script)
 c.Update()
