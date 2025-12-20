@@ -11,21 +11,18 @@
 \usepackage{amsmath}
 \usepackage{sectsty}
 \usepackage{ragged2e}
-\usepackage{circuitikz}
 \usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage{tikz}
 \usepackage{physics}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{tikz-3dplot}
-\usepackage[siunitx]{circuitikz}
-%\usepackage{ragged2e}
-\usepackage{siunitx}
-% \usepackage{booktabs}
-\usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
-\usepackage{enumitem}  %distanza degli itemize
+\usepackage{siunitx} % Carica prima siunitx
+\usepackage[siunitx, american]{circuitikz} % Carica circuitikz UNA sola volta con le opzioni
+\usepackage[colorlinks=true, linkcolor=black]{hyperref} 
+\usepackage{enumitem} 
+
 \setlist[itemize]{itemsep=4pt, parsep=1pt}
+
 \newtcolorbox{nota}{
   blanker,
   before skip=1em,
@@ -40,7 +37,7 @@
 
 \begin{document}
 \justifying
-	\title{\textbf{Circuiti RLC}}
+	\title{\textbf{Circuito raddrizzatore rettificatore}}
 	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele \hspace{0.7cm} Brusini Alessio}
 	\date{29 Ottobre 2025}
 	\maketitle
@@ -83,7 +80,8 @@ che la fase di raddrizzamento e rettificazione, sono riportati di seguito
 i circuiti utilizzati:
 
 
-\begin{center}
+\begin{figure}[H]
+    \centering
 \begin{circuitikz}[american]
     
     % Generatore di corrente continua variabile a sinistra
@@ -107,7 +105,9 @@ i circuiti utilizzati:
     %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
-\end{center}
+\caption{Circuito utilizzato col diodo singolo.}
+    \label{fig:diodo_singolo}
+\end{figure}
 
 \vspace{0.2 cm}
 \begin{figure}[H]
@@ -119,13 +119,13 @@ i circuiti utilizzati:
 \section{Grafici}
 
 \begin{figure}[H]
-    \centering    \includegraphics[width=0.4\textwidth]{curva_diodi.pdf}
+    \centering    \includegraphics[width=0.4\textwidth]{codici/ponte/curva_diodi.pdf}
     \caption{Curve volt-amperometriche dei diodi utilizzati.}
     \label{fig:curva_diodi}
 \end{figure}
 
 Come detto in precedenza la prima operazione che abbiamo eseguito è stata quella di costruire le curve volt-amperometriche dei 
-quattro diodi, in \ref{fig:curva_diodi} sono state riportate tutte insieme per rendere più semplice il confronto. Si osserva in modo 
+quattro diodi, in figura sono state riportate tutte insieme per rendere più semplice il confronto. Si osserva in modo 
 evidente che il primo diodo ha una curva volt-amperometrica traslata verso destra rispetto agli altri tre diodi che possiedono curve sostanzialemente
 equivalenti, questo mette in risalto una differenza dei parametri fisici che caratterizzano le giunzioni p-n che costituiscono i diodi,
  quali la propria resistenza interna o la tensione di soglia della giunzione.
@@ -136,4 +136,4 @@ equivalenti, questo mette in risalto una differenza dei parametri fisici che car
 Confrontare efficienza ottenuta con i due diversi circuiti (dovrebbe venire circa doppia con ponte di Graetz)
 Fare osservazioni su quale siano i valori migliori per raddrizzare e rettificatore
 
- 
+\end{document}
