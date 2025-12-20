@@ -3,7 +3,6 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
-\usepackage{amsmath}
 \usepackage{titling}
 \usepackage{caption}
 \usepackage{graphicx}
@@ -19,10 +18,10 @@
 \usepackage{physics}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
-\usepackage{tikz}
-\usepackage{circuitikz}
+\usepackage{tikz-3dplot}
+\usepackage[siunitx]{circuitikz}
 %\usepackage{ragged2e}
-%\usepackage{siunitx}
+\usepackage{siunitx}
 % \usepackage{booktabs}
 \usepackage[colorlinks=true, linkcolor=black]{hyperref}  %per rendere l'indice genrale "interattivo"
 \usepackage{enumitem}  %distanza degli itemize
@@ -37,10 +36,12 @@
   before upper={\noindent\textbf{Nota}:\quad}
 }
 
+
+
 \begin{document}
 \justifying
 	\title{\textbf{Circuiti RLC}}
-	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele\hspace{0.7cm} Brusini Alessio}
+	\author{ \hspace{0.7cm} Ferrari Carola \hspace{0.7cm} Mirolo Manuele \hspace{0.7cm} Stroili Emanuele \hspace{0.7cm} Brusini Alessio}
 	\date{29 Ottobre 2025}
 	\maketitle
 	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
@@ -74,9 +75,8 @@
 In prima battuta si è proceduto con il costruire le curve 
 volt-amperometriche dei quattro diodi che sono stati poi inseriti nel 
 ponte di Graetz del circuito di cui si vogliono studiare le proprietà, 
-questo per verificare che effettivamente avessero caratteristiche simili tra loro,
-come da dichiarazione nominale.\\
-Successivamente sono stati analizzati
+questo per verificare che effettivamente avessero caratteristiche simili,
+come da dichiarazione nominale. Successivamente sono stati analizzati
 due diversi prototipi di circuiti raddrizzatori e rettificatori.
 Per entrambi i circuiti sono state visualizzate sia la fase di raddrizzamento
 che la fase di raddrizzamento e rettificazione, sono riportati di seguito 
@@ -84,8 +84,6 @@ i circuiti utilizzati:
 
 
 \begin{center}
-  \begin{figure}[H]
-  \centering
 \begin{circuitikz}[american]
     
     % Generatore di corrente continua variabile a sinistra
@@ -95,38 +93,47 @@ i circuiti utilizzati:
     \draw (0,4) to[full diode] (3,4);
 
     % Induttanza
-    \draw(3,4) to[R] (3,0);
-    \draw(3,3) to (2,3);
+    \draw (3,4) to[R] (3,0);
+    \draw (3,3) to (2,3);
 
     % Condensatore a destra
-    \draw(2,3) to[C] (2,1);
-    \draw(3,3) to (4,3);
+    \draw (2,3) to[C] (2,1);
+    \draw (3,3) to (4,3);
 
-    \draw(4,3) to[rmeter, t=osc] (4,1);
-    \draw(4,1) to (3,1);
-    \draw(2,1) to (3,1);
+    \draw (4,3) to[rmeter, t=osc] (4,1);
+    \draw (4,1) to (3,1);
+    \draw (2,1) to (3,1);
     \draw (3,0) to (0,0);
     %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
-    \caption{Circuito con diodo e condensatore in parallelo.}
-    \label{fig:etichetta}
-  \end{figure}
 \end{center}
 
 \vspace{0.2 cm}
 \begin{figure}[H]
     \centering    \includegraphics[width=0.4\textwidth]{Foto.pdf}
     \caption{Circuito con configurazione dei diodi a ponte di Gratez.}
-    \label{fig:etichetta}
+    \label{fig:ponte_di_Graetz}
 \end{figure}
+
 \section{Grafici}
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.4\textwidth]{curva_diodi.pdf}
+    \caption{Curve volt-amperometriche dei diodi utilizzati.}
+    \label{fig:curva_diodi}
+\end{figure}
+
+Come detto in precedenza la prima operazione che abbiamo eseguito è stata quella di costruire le curve volt-amperometriche dei 
+quattro diodi, in \ref{fig:curva_diodi} sono state riportate tutte insieme per rendere più semplice il confronto. Si osserva in modo 
+evidente che il primo diodo ha una curva volt-amperometrica traslata verso destra rispetto agli altri tre diodi che possiedono curve sostanzialemente
+equivalenti, questo mette in risalto una differenza dei parametri fisici che caratterizzano le giunzioni p-n che costituiscono i diodi,
+ quali la propria resistenza interna o la tensione di soglia della giunzione.
 \section{Coefficiente di ripple del circuito}
+
 \section{Conclusione e commenti}
+
 Confrontare efficienza ottenuta con i due diversi circuiti (dovrebbe venire circa doppia con ponte di Graetz)
 Fare osservazioni su quale siano i valori migliori per raddrizzare e rettificatore
 
-
-
-\end{document}
  
