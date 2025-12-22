@@ -150,23 +150,34 @@ del segnale rettificato è minore del massimo del segnale in corrente alternata.
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito a diodo singolo con $R=820 \unit{\Omega}$.}
     \label{fig:curva_diodo_singolo2}
 \end{figure}
-In questo grafico osserva il cosiddetto "segnale a orecchie di gatto", ovvero il
+In questo grafico si osserva il cosiddetto "segnale a orecchie di gatto", ovvero il
 segnale raddrizzato dal circuito a singolo diodo, caratterizzato da dei semiperiodi
 di segnale armonico (quando il diodo risulta polarizzato direttamente rispetto alla corrente) e 
-da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto).
+da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto alla polarizzazione).
 
 \begin{figure}[H]
+<<<<<<< HEAD
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_confronto.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
+=======
+    \centering    \includegraphics[width=0.4\textwidth]{codici/ponte/ponte_confronto.pdf}
+    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Graetz con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
+>>>>>>> c66b2c541feb3836562b4058aa31552fa2a88bb7
     \label{fig:curva_ponte_confronto}
 \end{figure}
-
+In questo grafico si vede il confronto tra segnale in ingresso, segnale raddrizzato 
+e segnale rettificato. Si nota che l'aggiunta di ogni elemento circuitale diminuisce
+il massimo raggiunto dalla tensione. Ciò è dato dalla resistenza propria del circuito, che
+fa in modo che la differenza di potenziale ai capi della resistenza sia minore
+di quella fornita dal generatore e dal processo di carica del condensatore, che non arriva
+mai a completamento.
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_2.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con lo stesso valore di resistenza e due diversi valori di capacità}
     \label{fig:curva_ponte_2}
 \end{figure}
+<<<<<<< HEAD
 
 
 
@@ -175,12 +186,33 @@ da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi pe
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratezcon  $R=693 \unit{\Omega} e C=470 \unit{\micro\farad}$.}
     \label{fig:curva_ponte_3}
 \end{figure}
+=======
+In questo grafico si vede l'andamento della corrente raddrizzata dalla
+configurazione a ponte di Graetz, per due diversi valori di R e C (con R fissato e C variabile).
+L'andamento della tensione riportato in rosa dimostra come con un RC sufficientemente
+piccolo si possa ottenere un voltaggio massimo pressoché uguale a quello del segnale originario, infatti $\tau$ 
+è direttamente proporzionale al tempo di carica, ovvero ci vuole meno tempo per ottenere
+una differenza di potenziale maggiore tra le due armature. Ciò, però, implica anche
+un processo di scarica più rapido (rispetto a una scelta di RC maggiore), ovvero
+una peggior rettificazione del segnale.
+>>>>>>> c66b2c541feb3836562b4058aa31552fa2a88bb7
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_invertito.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez invertita }
     \label{fig:curva_ponte_invertito}
 \end{figure}
+
+È utile fare un confronto tra \ref{fig:curva_ponte_2} e \ref{fig:curva_ponte_invertito}, in quanto rappresentano
+la medesima situazione con lo scambio di due diodi, al fine di verificare che
+il circuito mostra pressoché lo stesso identico comportamento.
+
+\begin{figure}[H]
+    \centering    \includegraphics[width=0.4\textwidth]{codici/ponte/ponte_3.pdf}
+    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratezcon  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
+    \label{fig:curva_ponte_3}
+\end{figure}
+
 
 Le figure \ref{fig:curva_diodo_singolo}, \ref{fig:curva_diodo_singolo2} rappresentano il grafico della tensione d'ingresso ($V_in$) confrontato
 con i due grafici della tensione a capi della resistenza (circuito raddrizzato) e della tensione con l'aggiunta del condensatore condensatore
