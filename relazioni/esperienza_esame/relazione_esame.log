@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  22 DEC 2025 10:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.29)  22 DEC 2025 11:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,26 +939,29 @@ Package pdftex.def Info: codici/ponte/ponte_confronto.pdf  used on input line 15
 <codici/ponte/ponte_2.pdf, id=183, 569.12625pt x 273.02pt>
 File: codici/ponte/ponte_2.pdf Graphic file (type pdf)
 <use codici/ponte/ponte_2.pdf>
-Package pdftex.def Info: codici/ponte/ponte_2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 204.85672pt x 98.27463pt.
-<codici/ponte/ponte_3.pdf, id=184, 569.12625pt x 273.02pt>
-File: codici/ponte/ponte_3.pdf Graphic file (type pdf)
-<use codici/ponte/ponte_3.pdf>
-Package pdftex.def Info: codici/ponte/ponte_3.pdf  used on input line 174.
+Package pdftex.def Info: codici/ponte/ponte_2.pdf  used on input line 171.
 (pdftex.def)             Requested size: 204.85672pt x 98.27463pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-<codici/ponte/ponte_invertito.pdf, id=185, 569.12625pt x 273.02pt>
+<codici/ponte/ponte_invertito.pdf, id=184, 569.12625pt x 273.02pt>
 File: codici/ponte/ponte_invertito.pdf Graphic file (type pdf)
 <use codici/ponte/ponte_invertito.pdf>
-Package pdftex.def Info: codici/ponte/ponte_invertito.pdf  used on input line 180.
+Package pdftex.def Info: codici/ponte/ponte_invertito.pdf  used on input line 185.
+(pdftex.def)             Requested size: 204.85672pt x 98.27463pt.
+<codici/ponte/ponte_3.pdf, id=187, 569.12625pt x 273.02pt>
+File: codici/ponte/ponte_3.pdf Graphic file (type pdf)
+<use codici/ponte/ponte_3.pdf>
+Package pdftex.def Info: codici/ponte/ponte_3.pdf  used on input line 195.
 (pdftex.def)             Requested size: 204.85672pt x 98.27463pt.
 
 
-[4 <./codici/1 diodo/Grafici e parametri da mettere nella relazione/diodo_singolo_confronto_820.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_confronto.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_2.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_3.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_invertito.pdf, page is rotated 90 degrees>] (./relazione_esame.aux)
+[4 <./codici/1 diodo/Grafici e parametri da mettere nella relazione/diodo_singolo_confronto_820.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_confronto.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_2.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_invertito.pdf, page is rotated 90 degrees> <./codici/ponte/ponte_3.pdf, page is rotated 90 degrees>]
+
+
+
+[5
+
+] (./relazione_esame.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
@@ -967,18 +970,18 @@ Package rerunfilecheck Info: File `relazione_esame.out' has not changed.
 (rerunfilecheck)             Checksum: 07259EFF80F0C397907B95910B83F9DD;765.
  ) 
 Here is how much of TeX's memory you used:
- 53911 strings out of 467748
- 1299358 string characters out of 5431138
+ 53912 strings out of 467748
+ 1299364 string characters out of 5431138
  1965164 words of memory out of 5000000
  82015 multiletter control sequences out of 15000+600000
  640288 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,9n,106p,573b,1042s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on relazione_esame.pdf (4 pages, 493883 bytes).
+Output written on relazione_esame.pdf (5 pages, 495509 bytes).
 PDF statistics:
- 464 PDF objects out of 1000 (max. 8388607)
- 229 compressed objects within 3 object streams
- 19 named destinations out of 1000 (max. 500000)
+ 470 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 20 named destinations out of 1000 (max. 500000)
  237 words of extra memory for PDF output out of 10000 (max. 10000000)
 
