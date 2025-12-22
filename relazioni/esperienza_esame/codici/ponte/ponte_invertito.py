@@ -8,7 +8,7 @@ import math
 df = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5912.csv", sep=",", comment='#')
 df1 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5913.csv", sep=",", comment='#')
 df2 = pd.read_csv("/Users/alessiobrusini/Desktop/LABORATORIO-DI-ELETTROMAGNETISMO/relazioni/esperienza_esame/codici/file_csv/WaveData5914.csv", sep=",", comment='#')
-n_soglia_inf = 0
+n_soglia_inf = 4
 n_soglia_sup = 2500
 R_in= 693
 C_in = 0.00047
@@ -110,5 +110,8 @@ leg.AddEntry(g2, "C = 470 #muF", "lp")
 leg.Draw()
     # Manteniamo la finestra aperta (necessario se esegui da script)
 c.Update()
-
+print("V_medio_maggiore =", np.mean(V_np1))
+print("V_ripple_maggiore =", (np.max(V_np1)-np.min(V_np1)))
+print("fattore di Ripple =", (np.max(V_np1)-np.min(V_np1))/np.mean(V_np1))
+print("Abbassamento tensione =", max(V_np)-max(V_np1))
 c.SaveAs("ponte_invertito.pdf")

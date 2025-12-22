@@ -104,10 +104,14 @@ mg.Draw("A")
 # 6. Aggiungiamo la legenda (fondamentale per capire chi è chi)
 leg = ROOT.TLegend(0.75, 0.75, 0.9, 0.9) # Coordinate x1, y1, x2, y2
 leg.AddEntry(g, "R= 693 #Omega", "lp")
-leg.AddEntry(g2, "C = 470 #muF", "lp")
 leg.AddEntry(g3, "C = 22 #muF", "lp")
+leg.AddEntry(g2, "C = 470 #muF", "lp")
+
 leg.Draw()
     # Manteniamo la finestra aperta (necessario se esegui da script)
 c.Update()
-
+print("V_medio_maggiore =", np.mean(V_np1))
+print("V_ripple_maggiore =", (np.max(V_np1)-np.min(V_np1)))
+print("fattore di Ripple =", (np.max(V_np1)-np.min(V_np1))/np.mean(V_np1))
+print("Abbassamento tensione =", max(V_np)-max(V_np1))
 c.SaveAs("ponte_2.pdf")
