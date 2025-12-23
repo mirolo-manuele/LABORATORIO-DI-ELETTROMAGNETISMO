@@ -48,8 +48,8 @@
 		\centering
 		\large
     L'esperimento consiste nella caratterizzazione di un circuito 
-    rettificatore/raddrizzatore e nell'individuazione del valore del suo 
-    coefficiente di ripple
+    rettificatore/raddrizzatore e nell'individuazione del caratteristico 
+    coefficiente di ripple.
        
 	\end{abstract}
 
@@ -57,7 +57,7 @@
 \restoregeometry
 \twocolumn
 
-\section{Apparato di misura}
+\section{Strumentazione utilizzata}
  \begin{itemize}
     \item Trasformatore di tensione
     \item Generatore di tensione 
@@ -68,16 +68,17 @@
     \item Diodi 
  \end{itemize}
 
+\vspace{-1cm}
 \section{Procedimento di misura}
-In prima battuta si è proceduto con il costruire le curve 
-volt-amperometriche dei quattro diodi che sono stati poi inseriti nel 
+In prima battuta si è proceduto costruendo le curve 
+volt-amperometriche dei quattro diodi, i quali sono stati successivamente inseriti nel 
 ponte di Graetz del circuito di cui si vogliono studiare le proprietà, 
 questo per verificare che effettivamente avessero caratteristiche simili,
-come da dichiarazione nominale. Successivamente sono stati analizzati
-due diversi prototipi di circuiti raddrizzatori e rettificatori.
-Per entrambi i circuiti sono state visualizzate sia la fase di raddrizzamento
-che la fase di raddrizzamento e rettificazione, sono riportati di seguito 
-i circuiti utilizzati:
+come da dichiarazione nominale. Conseguentemente sono stati analizzati
+due diversi prototipi di circuito raddrizzatore-rettificatore.
+Per entrambi  sono state visualizzate sia la fase di raddrizzamento
+che la fase di raddrizzamento e rettificazione, riportiamo di seguito una schematizzazione dei
+ circuiti utilizzati:
 
 
 \begin{figure}[H]
@@ -117,18 +118,17 @@ i circuiti utilizzati:
 \end{figure}
 
 \section{Grafici}
-
+Ivi riportaimo il grafico che illustra le curve volt-amperometriche dei diodi ricavate sperimentalmente:
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/curva_diodi.pdf}
     \caption{Curve volt-amperometriche dei diodi utilizzati.}
     \label{fig:curva_diodi}
 \end{figure}
-
-La prima operazione che abbiamo eseguita è stata quella di costruire le curve volt-amperometriche dei 
-quattro diodi, riportate tutte nello stesso grafico per rendere più semplice il confronto. Si osserva in modo 
-evidente che il primo diodo ha una curva volt-amperometrica traslata verso destra rispetto agli altri tre diodi che possiedono curve sostanzialemente
-equivalenti, questo mette in risalto una differenza dei parametri fisici che caratterizzano le giunzioni p-n che costituiscono i diodi,
+ Si osserva in modo evidente che il primo diodo presenta una traslazione
+ verso destra rispetto agli altri tre, che possiedono curve sostanzialemente
+equivalenti. Ciò indica una probabile differenza dei parametri fisici che caratterizzano le giunzioni p-n costituenti i diodi,
  quali la propria resistenza interna o la tensione di soglia della giunzione.
+ Si è tenuto in considerazione di quanto detto durante l'analisi dati.
 
  \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/1 diodo/Grafici e parametri da mettere nella relazione/diodo_singolo_confronto_693.pdf}
@@ -136,12 +136,12 @@ equivalenti, questo mette in risalto una differenza dei parametri fisici che car
     \label{fig:curva_diodo_singolo}
 \end{figure}
 
-Nel grafico riportato sopra si può notare la differenza tra due diversi rapporti di RC.
-Un $\tau$ non sufficientemente grande %quantificare!!
+Il grafico evidenzia la differenza tra due diversi rapporti di RC.
+Un $\tau$ non sufficientemente grande, \footnote[1]{si scelgono valori di R e C tali che $\tau >> \frac{T}{2}$, dove T è il periodo dell'onda analizzata}
 infatti non permette di approssimare la curva di scarica del condensatore
-con una costante. Si può inoltre notare il confronto tra il segnale alternato
-in ingresso e il segnale raddrizzato e rettificato. Come ci si aspetta, il voltaggio
-del segnale rettificato è minore del massimo del segnale in corrente alternata.
+con una costante. Il grafico sovrappone le curve del segnale alternato
+in ingresso e il segnale raddrizzato e rettificato. E' importante evidenziare che il massimo voltaggio
+del segnale rettificato è minore del massimo del segnale in ingresso. Spiegheremo il motivo di questo fenomeno in seguito.
 
 
 
@@ -153,15 +153,18 @@ del segnale rettificato è minore del massimo del segnale in corrente alternata.
 In questo grafico si osserva il cosiddetto "segnale a orecchie di gatto", ovvero il
 segnale raddrizzato dal circuito a singolo diodo, caratterizzato da dei semiperiodi
 di segnale armonico (quando il diodo risulta polarizzato direttamente rispetto alla corrente) e 
-da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto alla polarizzazione).
+da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto alla polarizzazione).\\
+
+Riportiamo ora i grafici relativi al circuito con i diodi in configurazione a ponte di Graetz:
+
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_confronto.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
     \label{fig:curva_ponte_confronto}
 \end{figure}
-In questo grafico si vede il confronto tra segnale in ingresso, segnale raddrizzato 
-e segnale rettificato. Si nota che l'aggiunta di ogni elemento circuitale diminuisce
+In questo primo grafico vediamo il confronto tra segnale in ingresso, segnale raddrizzato 
+e segnale rettificato. Notiamo nuovamente che con l'aggiunta di altri elementi circuitali diminuisce
 il massimo raggiunto dalla tensione. Ciò è dato dalla resistenza propria del circuito, che
 fa in modo che la differenza di potenziale ai capi della resistenza sia minore
 di quella fornita dal generatore e dal processo di carica del condensatore, che non arriva
@@ -174,19 +177,13 @@ mai a completamento.
 \end{figure}
 
 
-
-\begin{figure}[H]
-    \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_3.pdf}
-    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratezcon  $R=693 \unit{\Omega} e C=470 \unit{\micro\farad}$.}
-    \label{fig:curva_ponte_3}
-\end{figure}
-In questo grafico si vede l'andamento della corrente raddrizzata dalla
-configurazione a ponte di Graetz, per due diversi valori di R e C (con R fissato e C variabile).
-L'andamento della tensione riportato in rosa dimostra come con un RC sufficientemente
+Il grafico sopra riportato sovrappone due curve ottenute dal segnale raddrizzato tramite la
+configurazione a ponte di Graetz, con due diversi valori di R e C (con R fissato e C variabile).
+L'andamento della tensione in rosa dimostra come con un RC sufficientemente
 piccolo si possa ottenere un voltaggio massimo pressoché uguale a quello del segnale originario, infatti $\tau$ 
 è direttamente proporzionale al tempo di carica, ovvero ci vuole meno tempo per ottenere
-una differenza di potenziale maggiore tra le due armature. Ciò, però, implica anche
-un processo di scarica più rapido (rispetto a una scelta di RC maggiore), ovvero
+una differenza di potenziale maggiore tra le due armature. D'altra parte questo implica anche
+un processo di scarica più rapido (rispetto a una scelta di RC maggiore), e, consequenzialmente,
 una peggior rettificazione del segnale.
 
 \begin{figure}[H]
@@ -205,17 +202,6 @@ il circuito mostra pressoché lo stesso identico comportamento.
     \label{fig:curva_ponte_3}
 \end{figure}
 
-
-Le figure \ref{fig:curva_diodo_singolo}, \ref{fig:curva_diodo_singolo2} rappresentano il grafico della tensione d'ingresso ($V_in$) confrontato
-con i due grafici della tensione a capi della resistenza (circuito raddrizzato) e della tensione con l'aggiunta del condensatore condensatore
-una data capacità( circuito raddrizzato e rettificato). Le figure \ref{fig:curva_ponte_confronto}, \ref{fig:curva_ponte_2}, \ref{fig:curva_ponte_3} invece mettono a confronto 
-gli stessi tipi di grafici ma con il circuito con i diodi in configurazione a ponte di Gratez, infine in figura \ref{fig:curva_ponte_invertito}
- è rappresentato il caso in cui si sono scambiate (...manca come sono stai scambiati i diodi) le posizioni dei diodi per verificare se
- ci potessero essere differenze col caso precedente. Una caratteristica comune a tutti  grafici è che la tensione raddrizzata e rettificata risulta
- avere dei massimi con valore minore rispetto a quelli del grafico della tensione in entrata senza la resistenza e la capacità. questo 
- è dovuto dal fatto che una volta superata la tensione di soglia all'interno dei diodi è presente una differenza di potenziale tale 
- da permettere il passaggio di cariche nelle proprie giunzioni p-n, questa andrà ad influire sulla tensone ai capi della resistenza 
- diminuendone i massimi. 
 
 \section{Coefficiente di ripple del circuito}
 
