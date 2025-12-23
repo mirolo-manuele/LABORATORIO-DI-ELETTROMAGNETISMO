@@ -66,7 +66,7 @@ g.SetMarkerSize(0.5)
 
 # 4. Usiamo TMultiGraph per sovrapporli
 mg = ROOT.TMultiGraph()
-mg.SetTitle("Confronto tra due CSV;Asse X;Asse Y") # Titolo globale;X;Y
+mg.SetTitle("Confronto tra due CSV;t [s]; Voltaggio [V]") # Titolo globale;X;Y
 
     # Aggiungiamo i grafici al contenitore
     # "LP" significa disegna Linea e Punti per quel grafico
