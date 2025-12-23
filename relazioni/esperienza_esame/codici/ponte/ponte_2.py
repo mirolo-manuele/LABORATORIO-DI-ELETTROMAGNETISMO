@@ -90,7 +90,7 @@ g3.SetLineColor(ROOT.kMagenta)
 g3.SetMarkerSize(0.5)
 # 4. Usiamo TMultiGraph per sovrapporli
 mg = ROOT.TMultiGraph()
-mg.SetTitle("Confronto tra due CSV;t [s]; Voltaggio [V]") # Titolo globale;X;Y
+mg.SetTitle("1#circ configurazione ponte;t[s]; V[V]") # Titolo globale;X;Y
 
     # Aggiungiamo i grafici al contenitore
     # "LP" significa disegna Linea e Punti per quel grafico
