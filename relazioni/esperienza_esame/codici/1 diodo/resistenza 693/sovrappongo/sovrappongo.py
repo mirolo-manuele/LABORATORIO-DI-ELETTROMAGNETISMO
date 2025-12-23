@@ -8,8 +8,11 @@ import math
 df = pd.read_csv("WaveData592.csv")
 df1 = pd.read_csv("WaveData593.csv")
 df2 = pd.read_csv("WaveData595.csv")
-n_soglia_inf = 1750
-n_soglia_sup = 2750
+df2 = df2.dropna(subset=["t", "V"])
+df1 = df1.dropna(subset=["t", "V"])
+df = df.dropna(subset=["t", "V"])
+n_soglia_inf = 1000
+n_soglia_sup = 5000
 R_in= 693
 C_in = 0.00047
 
@@ -90,7 +93,7 @@ g3.SetLineColor(ROOT.kMagenta)
 g3.SetMarkerSize(0.5)
 # 4. Usiamo TMultiGraph per sovrapporli
 mg = ROOT.TMultiGraph()
-mg.SetTitle("Confronto fra tre CSV; t [s]; Voltaggio [V]") # Titolo globale;X;Y
+mg.SetTitle("1#circ configurazione a diodo singolo; t [s]; Voltaggio [V]") # Titolo globale;X;Y
 
     # Aggiungiamo i grafici al contenitore
     # "LP" significa disegna Linea e Punti per quel grafico
