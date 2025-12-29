@@ -103,7 +103,6 @@ che la fase di raddrizzamento e rettificazione, riportiamo di seguito una schema
     \draw (4,1) to (3,1);
     \draw (2,1) to (3,1);
     \draw (3,0) to (0,0);
-    %compila comunque, non so perché mi dia errore, se riuscite a risolvere meglio
 
 \end{circuitikz}
 \caption{Circuito utilizzato col diodo singolo.}
@@ -112,15 +111,18 @@ che la fase di raddrizzamento e rettificazione, riportiamo di seguito una schema
 
 \vspace{0.2 cm}
 \begin{figure}[H]
-    \centering    \includegraphics[width=0.52\textwidth]{Foto.pdf}
+    \centering    
+    \includegraphics[width=0.52\textwidth]{Foto.pdf}
     \caption{Circuito con configurazione dei diodi a ponte di Gratez.}
     \label{fig:ponte_di_Graetz}
 \end{figure}
 
 \section{Grafici}
-Ivi riportaimo il grafico che illustra le curve volt-amperometriche dei diodi ricavate sperimentalmente:
+\subsection{Curve caratteristiche dei diodi}
+Di seguito è riportato il grafico che illustra le curve volt-amperometriche dei diodi ricavate sperimentalmente:
 \begin{figure}[H]
-    \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/curva_diodi.pdf}
+    \centering    
+    \includegraphics[width=0.52\textwidth]{codici/ponte/curva_diodi.pdf}
     \caption{Curve volt-amperometriche dei diodi utilizzati.}
     \label{fig:curva_diodi}
 \end{figure}
@@ -130,8 +132,10 @@ equivalenti. Ciò indica una probabile differenza dei parametri fisici che carat
  quali la propria resistenza interna o la tensione di soglia della giunzione.
  Si è tenuto in considerazione di quanto detto durante l'analisi dati.
 
+ \subsection{Configurazione a singolo diodo}
  \begin{figure}[H]
-    \centering    \includegraphics[width=0.52\textwidth]{codici/1 diodo/Grafici e parametri da mettere nella relazione/diodo_singolo_confronto_693.pdf}
+    \centering    
+    \includegraphics[width=0.52\textwidth]{codici/1 diodo/Grafici e parametri da mettere nella relazione/diodo_singolo_confronto_693.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito a diodo singolo con $R=693 \unit{\Omega}$.}
     \label{fig:curva_diodo_singolo}
 \end{figure}
@@ -155,20 +159,26 @@ segnale raddrizzato dal circuito a singolo diodo, caratterizzato da dei semiperi
 di segnale armonico (quando il diodo risulta polarizzato direttamente rispetto alla corrente) e 
 da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto alla polarizzazione).\\
 
-Riportiamo ora i grafici relativi al circuito con i diodi in configurazione a ponte di Graetz:
-
-
+\subsection{Configurazione a ponte di Graetz}
 \begin{figure}[H]
-    \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_confronto.pdf}
+    \centering    
+    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_confronto.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
     \label{fig:curva_ponte_confronto}
 \end{figure}
-In questo primo grafico vediamo il confronto tra segnale in ingresso, segnale raddrizzato 
-e segnale rettificato. Notiamo nuovamente che con l'aggiunta di altri elementi circuitali diminuisce
+In questo primo grafico si vede il confronto tra segnale in ingresso, segnale raddrizzato 
+e segnale rettificato. Si nota nuovamente che con l'aggiunta di altri elementi circuitali diminuisce
 il massimo raggiunto dalla tensione. Ciò è dato dalla resistenza propria del circuito, che
 fa in modo che la differenza di potenziale ai capi della resistenza sia minore
 di quella fornita dal generatore e dal processo di carica del condensatore, che non arriva
-mai a completamento.
+mai a completamento.\\
+$V_{medio}=10,47V$ %come lo calcoliamo l'errore??
+$V_{rip}=1,0V$
+
+%V_medio_maggiore = 10.47104
+%V_ripple_maggiore = 1.0
+%fattore di Ripple = 0.09550149746348023
+%Abbassamento tensione = 1.8000000000000007
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_2.pdf}
@@ -186,6 +196,11 @@ una differenza di potenziale maggiore tra le due armature. D'altra parte questo 
 un processo di scarica più rapido (rispetto a una scelta di RC maggiore), e, consequenzialmente,
 una peggior rettificazione del segnale.
 
+%V_medio_maggiore = 10.47104
+%V_ripple_maggiore = 1.0
+%fattore di Ripple = 0.09550149746348023
+%Abbassamento tensione = 0.5999999999999996
+
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_invertito.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez invertita }
@@ -196,12 +211,22 @@ una peggior rettificazione del segnale.
 la medesima situazione con lo scambio di due diodi, al fine di verificare che
 il circuito mostra pressoché lo stesso identico comportamento.
 
+%V_medio_maggiore = 10.72451923076923
+%V_ripple_maggiore = 0.7999999999999989
+%fattore di Ripple = 0.07459541847850441
+%Abbassamento tensione = 0.6000000000000014
+
 \begin{figure}[H]
     \centering    \includegraphics[width=0.4\textwidth]{codici/ponte/ponte_3.pdf}
     \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratezcon  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
     \label{fig:curva_ponte_3}
 \end{figure}
+In questo grafico si osserva un rettificamento che pare completo, tenendo conto 
+dell'incertezza data dal rumore. 
 
+%V_medio_maggiore = 11.678141935483872
+%V_ripple_maggiore = 0.5999999999999996
+%fattore di Ripple = 0.05137803627620829
 
 \section{Coefficiente di ripple del circuito}
 
