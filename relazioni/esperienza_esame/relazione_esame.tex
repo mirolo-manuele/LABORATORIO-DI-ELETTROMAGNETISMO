@@ -247,19 +247,33 @@ Per indicare la bontà delle osservazioni si è tenuto conto di due fattori:
     \item il coefficiente di ripple: $r$
 \end{itemize}
 È preferibile l'utilizzo del fattore di ripple in quanto riesce a pesare l'incertezza del rettificatore rispetto alle tensioni considerate. 
-Nel caso considerato si può osservare che:
+\subsection{Diodo singolo}
+In questa configurazione risulta: 
+\begin{itemize}
+    \item nel grafico \ref{fig:curva_diodo_singolo} si ha :
+    \begin{itemize}
+        \item $r=0.142$ nel caso di $C= 470 \: \mu F$;
+        \item $r=0.904$ nel caso di $C= 22 \: \mu F$.
+    \end{itemize}
+    il che dimostra come un valore di RC più grande porti ad un inferiore coefficiente di ripple, ovverosia ad una migliore rettificazione del segnale.
+    \item nel grafico \ref{fig:curva_diodo_singolo2} si ha $r=0.109$.
+\end{itemize}
+\subsection{Ponte di Graetz}
+Ivi osserviamo:
 \begin{itemize}
     \item nel grafico \ref{fig:curva_ponte_2} si ha $r=0.095$ nel caso di $C= 470 \: \mu F$;
     \item nella configuazione con diodi invertiti (grafico \ref{fig:curva_ponte_invertito}) si ha $r=0.076$ nel caso di $C= 470 \: \mu F$;
     \item nel grafico \ref{fig:curva_ponte_3} si ha $r=0.051$ avendo una resistenza maggiore;
 \end{itemize}
 Nel confronto tra il \ref{fig:curva_ponte_2} e l' \ref{fig:curva_ponte_invertito} si può osservare una differenza del coefficiente di ripple.
-Questo è dovuto alla differenza di tensione media che si può osservare nei grafici. La differenza di tensione media può essere attribuita ad un diverso comportamento del condensatore o ad un'errata presa dati.
+Questo è dovuto alla differenza di tensione media che si può osservare nei grafici. Essa può essere attribuita ad un diverso comportamento del condensatore o ad un'errata presa dati.
 Si esclude l'influsso del cambiamento del diodo, in quanto nella figura \ref{fig:curva_diodi} si osserva che la differenza a parità di corrente è dell'ordine di $ 20 mV$, troppo piccola per spiegare la differenza di tensioni medie osservata, che si attesta su:
 \[V_{medio,1}- V_{medio,2}= 10.725-10.471 = 250 mV\]
 \section{Conclusione e commenti}
+E' facile osservare come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
+ottenendo un coefficiente di ripple minore rispetto alla configurazione a singolo diodo.
+Ciò è dovuto al fatto che nel circuito a ponte di Graetz si sfruttano entrambi i semiperiodi del segnale in ingresso,
 
-Confrontare efficienza ottenuta con i due diversi circuiti (dovrebbe venire circa doppia con ponte di Graetz)
-Fare osservazioni su quale siano i valori migliori per raddrizzare e rettificatore
+VIVA LA FIGA E CHI LA CASTIGA DICEVA UN GRAN UOMO.
 
 \end{document}
