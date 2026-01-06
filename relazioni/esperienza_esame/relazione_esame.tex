@@ -43,7 +43,8 @@
 	\maketitle
 	\newgeometry{left=3cm, right=3cm, top=4cm, bottom=4cm}
 	\onecolumn
-\vspace{3cm}
+    \tableofcontents
+\vspace{11cm}
 	\begin{abstract}
 		\centering
 		\large
@@ -180,13 +181,19 @@ da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi pe
 \end{figure}
 In questo primo grafico si vede il confronto tra segnale in ingresso, segnale raddrizzato 
 e segnale rettificato. Si nota nuovamente che con l'aggiunta di altri elementi circuitali diminuisce
-il massimo raggiunto dalla tensione. Ciò è dato dalla resistenza propria del circuito, che
-fa in modo che la differenza di potenziale ai capi della resistenza sia minore
-di quella fornita dal generatore e dal processo di carica del condensatore, che non arriva
-mai a completamento.\\
-$V_{medio}=10,47V$ %come lo calcoliamo l'errore??
-$V_{rip}=1,0V$
-
+il massimo raggiunto dalla tensione. Ciò è dovuto a vari fattori:
+\begin{itemize}
+    \item alla caduta di potenziale sui diodi (\ref{fig:curva_diodi});
+    \item dal processo di carica del condensatore, che per valori di $C$ abbastanza 
+elevati non arriva a completamento;
+    \item da resistenze parassite dovute all'utilizzo della bread-board e ai fili di collegamento.
+\end{itemize}
+Nel nostro caso:
+\[ \Delta V_{\max}= 1.80 V\]
+durante il picco si ha $I \simeq 18 mA$, dunque per \ref{fig:curva_diodi} su ogni diodo abbiamo una caduta di potenziale di circa $0.7 V$, 
+il che ci porta a pensare che nel resto del circuito si va a perdere $0.4 V$.
+Questo comportamento è anche osservabile dal confronto della curva rossa e blu in \ref{fig:curva_ponte_confronto}, infatti la differenza tra le due curve va diminuendo al diminuire della $V_{in}$.
+Ricordando che per parti parassite resistive vale $V=RI$, è normale supporre la loro presenza da quanto osservato.  
 %V_medio_maggiore = 10.47104
 %V_ripple_maggiore = 1.0
 %fattore di Ripple = 0.09550149746348023
@@ -270,10 +277,12 @@ Questo è dovuto alla differenza di tensione media che si può osservare nei gra
 Si esclude l'influsso del cambiamento del diodo, in quanto nella figura \ref{fig:curva_diodi} si osserva che la differenza a parità di corrente è dell'ordine di $ 20 mV$, troppo piccola per spiegare la differenza di tensioni medie osservata, che si attesta su:
 \[V_{medio,1}- V_{medio,2}= 10.725-10.471 = 250 mV\]
 \section{Conclusione e commenti}
-E' facile osservare come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
+SI deduce come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
 ottenendo un coefficiente di ripple minore rispetto alla configurazione a singolo diodo.
-Ciò è dovuto al fatto che nel circuito a ponte di Graetz si sfruttano entrambi i semiperiodi del segnale in ingresso,
-
-VIVA LA FIGA E CHI LA CASTIGA DICEVA UN GRAN UOMO.
+Ciò è dovuto al fatto che nel circuito a ponte di Graetz si sfruttano entrambi i semiperiodi del segnale in ingresso.
+Per non perdere voltaggio si preferisce utilizzare una resistenza maggiore rispetto ad un condensatore maggiore per evitare perdite di tensione dovute alla altre resistenze presenti 
+nel circuito.\\
+È infine da valutare il migliore valore di $RC$ per fare in modo di avere la minor $\Delta V_{rip}$ rispetto a $V_{media}$; per fare questo è necessario minorare
+il coefficiente di ripple $r$.
 
 \end{document}
