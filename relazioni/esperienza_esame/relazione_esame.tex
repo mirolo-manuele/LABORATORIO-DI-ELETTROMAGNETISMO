@@ -78,7 +78,7 @@ questo per verificare che effettivamente avessero caratteristiche simili,
 come da dichiarazione nominale. Conseguentemente sono stati analizzati
 due diversi prototipi di circuito raddrizzatore-rettificatore.
 Per entrambi  sono state visualizzate sia la fase di raddrizzamento
-che la fase di raddrizzamento e rettificazione, riportiamo di seguito una schematizzazione dei
+che la fase di raddrizzamento e rettificazione, è riportata di seguito una schematizzazione dei
  circuiti utilizzati:
 
 
@@ -114,7 +114,7 @@ che la fase di raddrizzamento e rettificazione, riportiamo di seguito una schema
 \begin{figure}[H]
     \centering    
     \includegraphics[width=0.52\textwidth]{Foto.pdf}
-    \caption{Circuito con configurazione dei diodi a ponte di Gratez.}
+    \caption{Circuito con configurazione dei diodi a ponte di Graetz.}
     \label{fig:ponte_di_Graetz}
 \end{figure}
 
@@ -146,7 +146,7 @@ Un $\tau$ non sufficientemente grande, \footnote[1]{si scelgono valori di R e C 
 infatti non permette di approssimare la curva di scarica del condensatore
 con una costante. Il grafico sovrappone le curve del segnale alternato
 in ingresso e il segnale raddrizzato e rettificato. E' importante evidenziare che il massimo voltaggio
-del segnale rettificato è minore del massimo del segnale in ingresso. Spiegheremo il motivo di questo fenomeno in seguito.
+del segnale rettificato è minore del massimo del segnale in ingresso. Verrà spiegato il motivo di questo fenomeno in seguito.
  %V_max=12
  %V_ripple=1,6
  %V_medio=11,2
@@ -164,7 +164,7 @@ del segnale rettificato è minore del massimo del segnale in ingresso. Spieghere
 In questo grafico si osserva il cosiddetto "segnale a orecchie di gatto", ovvero il
 segnale raddrizzato dal circuito a singolo diodo, caratterizzato da dei semiperiodi
 di segnale armonico (quando il diodo risulta polarizzato direttamente rispetto alla corrente) e 
-da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi perché di verso opposto alla polarizzazione).\\
+da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodo perché di verso opposto alla polarizzazione).\\
 %V_max=11,6
 %V_ripple=1,2
 %V_medio=11
@@ -176,7 +176,7 @@ da dei semiperiodi di segnale nullo (quando la corrente non fluisce nel diodi pe
 \begin{figure}[H]
     \centering    
     \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_confronto.pdf}
-    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
+    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Graetz con  $R=693 \unit{\Omega}\;e\;C=470 \unit{\micro\farad}$.}
     \label{fig:curva_ponte_confronto}
 \end{figure}
 In questo primo grafico si vede il confronto tra segnale in ingresso, segnale raddrizzato 
@@ -188,10 +188,10 @@ il massimo raggiunto dalla tensione. Ciò è dovuto a vari fattori:
 elevati non arriva a completamento;
     \item da resistenze parassite dovute all'utilizzo della bread-board e ai fili di collegamento.
 \end{itemize}
-Nel nostro caso:
+Nel caso considerato:
 \[ \Delta V_{\max}= 1.80 V\]
-durante il picco si ha $I \simeq 18 mA$, dunque per \ref{fig:curva_diodi} su ogni diodo abbiamo una caduta di potenziale di circa $0.7 V$, 
-il che ci porta a pensare che nel resto del circuito si va a perdere $0.4 V$.
+durante il picco si ha $I \simeq 18 mA$, dunque per quanto visto nel grafico \ref{fig:curva_diodi} su ogni diodo si ha una caduta di potenziale di circa $0.7 V$, 
+quindi nel resto del circuito si va a perdere $0.4 V$.
 Questo comportamento è anche osservabile dal confronto della curva rossa e blu in \ref{fig:curva_ponte_confronto}, infatti la differenza tra le due curve va diminuendo al diminuire della $V_{in}$.
 Ricordando che per parti parassite resistive vale $V=RI$, è normale supporre la loro presenza da quanto osservato.  
 %V_medio_maggiore = 10.47104
@@ -201,7 +201,7 @@ Ricordando che per parti parassite resistive vale $V=RI$, è normale supporre la
 
 \begin{figure}[H]
     \centering    \includegraphics[width=0.52\textwidth]{codici/ponte/ponte_2.pdf}
-    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Gratez con lo stesso valore di resistenza e due diversi valori di capacità}
+    \caption{Grafico della tensione raddrizzata e rettificata nel circuito con configurazione dei diodi a ponte di Graetz con lo stesso valore di resistenza e due diversi valori di capacità}
     \label{fig:curva_ponte_2}
 \end{figure}
 
@@ -226,7 +226,7 @@ una peggior rettificazione del segnale.
     \label{fig:curva_ponte_invertito}
 \end{figure}
 
-È utile fare un confronto tra \ref{fig:curva_ponte_2} e \ref{fig:curva_ponte_invertito}, in quanto rappresentano
+È utile fare un confronto tra i grafici \ref{fig:curva_ponte_2} e \ref{fig:curva_ponte_invertito}, in quanto rappresentano
 la medesima situazione con lo scambio di due diodi, al fine di verificare che
 il circuito mostra pressoché lo stesso identico comportamento.
 
@@ -266,7 +266,7 @@ In questa configurazione risulta:
     \item nel grafico \ref{fig:curva_diodo_singolo2} si ha $r=0.109$.
 \end{itemize}
 \subsection{Ponte di Graetz}
-Ivi osserviamo:
+In questa configurazione si osserva:
 \begin{itemize}
     \item nel grafico \ref{fig:curva_ponte_2} si ha $r=0.095$ nel caso di $C= 470 \: \mu F$;
     \item nella configuazione con diodi invertiti (grafico \ref{fig:curva_ponte_invertito}) si ha $r=0.076$ nel caso di $C= 470 \: \mu F$;
@@ -277,7 +277,7 @@ Questo è dovuto alla differenza di tensione media che si può osservare nei gra
 Si esclude l'influsso del cambiamento del diodo, in quanto nella figura \ref{fig:curva_diodi} si osserva che la differenza a parità di corrente è dell'ordine di $ 20 mV$, troppo piccola per spiegare la differenza di tensioni medie osservata, che si attesta su:
 \[V_{medio,1}- V_{medio,2}= 10.725-10.471 = 250 mV\]
 \section{Conclusione e commenti}
-SI deduce come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
+Si deduce come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
 ottenendo un coefficiente di ripple minore rispetto alla configurazione a singolo diodo.
 Ciò è dovuto al fatto che nel circuito a ponte di Graetz si sfruttano entrambi i semiperiodi del segnale in ingresso.
 Per non perdere voltaggio si preferisce utilizzare una resistenza maggiore rispetto ad un condensatore maggiore per evitare perdite di tensione dovute alla altre resistenze presenti 
