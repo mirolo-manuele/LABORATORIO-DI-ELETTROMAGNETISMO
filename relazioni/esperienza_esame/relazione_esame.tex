@@ -142,7 +142,7 @@ equivalenti. Ciò può essere causato da differenza dei parametri fisici che car
 \end{figure}
 
 Il grafico evidenzia la differenza tra due diversi rapporti di RC.
-Un $\tau$ non sufficientemente grande, \footnote[1]{si scelgono valori di R e C tali che $\tau >> \frac{T}{2}$, dove T è il periodo dell'onda analizzata}
+Un $\tau$ non sufficientemente grande \footnote[1]{si scelgono valori di R e C tali che $\tau >> \frac{T}{2}$, dove T è il periodo dell'onda analizzata},
 infatti non permette di approssimare la curva di scarica del condensatore
 con una costante. Il grafico sovrappone le curve del segnale alternato
 in ingresso e il segnale raddrizzato e rettificato. E' importante evidenziare che il massimo voltaggio
@@ -191,9 +191,9 @@ elevati non arriva a completamento;
 Nel caso considerato:
 \[ \Delta V_{\max}= 1.80 V\]
 durante il picco si ha $I \simeq 18 mA$, dunque per quanto visto nel grafico \ref{fig:curva_diodi} su ogni diodo si ha una caduta di potenziale di circa $0.7 V$, 
-quindi nel resto del circuito si va a perdere $0.4 V$.
+quindi nel resto del circuito si perdono $0.4 V$.
 Questo comportamento è anche osservabile dal confronto della curva rossa e blu in \ref{fig:curva_ponte_confronto}, infatti la differenza tra le due curve va diminuendo al diminuire della $V_{in}$.
-Ricordando che per parti parassite resistive vale $V=RI$, è normale supporre la loro presenza da quanto osservato.  
+Ricordando che per elementi parassiti resistivi vale $V=RI$, è corretto supporre la loro presenza da quanto osservato.  
 %V_medio_maggiore = 10.47104
 %V_ripple_maggiore = 1.0
 %fattore di Ripple = 0.09550149746348023
@@ -266,23 +266,24 @@ In questa configurazione risulta:
     \item nel grafico \ref{fig:curva_diodo_singolo2} si ha $r=0.109$.
 \end{itemize}
 \subsection{Ponte di Graetz}
-In questa configurazione si osserva:
+In questa configurazione si osserva che:
 \begin{itemize}
     \item nel grafico \ref{fig:curva_ponte_2} si ha $r=0.095$ nel caso di $C= 470 \: \mu F$;
     \item nella configuazione con diodi invertiti (grafico \ref{fig:curva_ponte_invertito}) si ha $r=0.076$ nel caso di $C= 470 \: \mu F$;
     \item nel grafico \ref{fig:curva_ponte_3} si ha $r=0.051$ avendo una resistenza maggiore;
 \end{itemize}
-Nel confronto tra il \ref{fig:curva_ponte_2} e l' \ref{fig:curva_ponte_invertito} si può osservare una differenza del coefficiente di ripple.
-Questo è dovuto alla differenza di tensione media che si può osservare nei grafici. Essa può essere attribuita ad un diverso comportamento del condensatore o ad un'errata presa dati.
-Si esclude l'influsso del cambiamento del diodo, in quanto nella figura \ref{fig:curva_diodi} si osserva che la differenza a parità di corrente è dell'ordine di $ 20 mV$, troppo piccola per spiegare la differenza di tensioni medie osservata, che si attesta su:
+Nel confronto tra il \ref{fig:curva_ponte_2} e l' \ref{fig:curva_ponte_invertito} si nota una differenza del coefficiente di ripple.
+Questo è dovuto alla differenza di tensione media, osservabile daigrafici. Essa può essere attribuita ad un diverso comportamento del condensatore o ad un'errata presa dati.
+Si esclude che ciò sia dovuto all'inversione dei diodo, in quanto nella figura \ref{fig:curva_diodi} si osserva che la differenza di tensione a parità di corrente è dell'ordine di $ 20 mV$, troppo piccola per spiegare la differenza di tensioni medie osservata, che si attesta su:
 \[V_{medio,1}- V_{medio,2}= 10.725-10.471 = 250 mV\]
 \section{Conclusione e commenti}
 Si deduce come il circuito con ponte di Graetz permetta una migliore rettificazione del segnale,
 ottenendo un coefficiente di ripple minore rispetto alla configurazione a singolo diodo.
 Ciò è dovuto al fatto che nel circuito a ponte di Graetz si sfruttano entrambi i semiperiodi del segnale in ingresso.
-Per non perdere voltaggio si preferisce utilizzare una resistenza maggiore rispetto ad un condensatore maggiore per evitare perdite di tensione dovute alla altre resistenze presenti 
-nel circuito.\\
+L'uso di una resistenza maggiore è preferibie rispetto ad una capacità maggiore, in quanto ciò evita perdite di tensione 
+dovute alla altre resistenze presenti nel circuito.\\
 È infine da valutare il migliore valore di $RC$ per fare in modo di avere la minor $\Delta V_{rip}$ rispetto a $V_{media}$; per fare questo è necessario minorare
 il coefficiente di ripple $r$.
 
 \end{document}
+
